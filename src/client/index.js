@@ -1,33 +1,3 @@
-/*!
- * OS.js - JavaScript Cloud/Web Desktop Platform
- *
- * Copyright (c) 2011-2020, Anders Evenrud <andersevenrud@gmail.com>
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- * 1. Redistributions of source code must retain the above copyright notice, this
- *    list of conditions and the following disclaimer
- * 2. Redistributions in binary form must reproduce the above copyright notice,
- *    this list of conditions and the following disclaimer in the documentation
- *    and/or other materials provided with the distribution
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
- * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * @author  Anders Evenrud <andersevenrud@gmail.com>
- * @licence Simplified BSD License
- */
-
 //
 // This is the client bootstrapping script.
 // This is where you can register service providers or set up
@@ -45,7 +15,7 @@ import {
   VFSServiceProvider,
   NotificationServiceProvider,
   SettingsServiceProvider,
-  AuthServiceProvider
+  AuthServiceProvider,
 } from '@osjs/client';
 
 import {PanelServiceProvider} from '@osjs/panels';
@@ -67,6 +37,56 @@ const init = () => {
   osjs.register(PanelServiceProvider);
   osjs.register(DialogServiceProvider);
   osjs.register(GUIServiceProvider);
+
+  osjs.on('osjs/core:started', ()=>{
+    osjs.make('osjs/tray', {
+      title: 'Full Screen',
+      icon: osjs.make('osjs/theme').icon('view-fullscreen'),
+      onclick: ev => (!document.fullscreenElement) ? openFullscreen() : closeFullscreen()
+    });
+  });
+
+  let elem = document.documentElement;
+  function openFullscreen() {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+      elem.msRequestFullscreen();
+    }
+  }
+  /* Close fullscreen */
+  function closeFullscreen() {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) { /* Firefox */
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE/Edge */
+      document.msExitFullscreen();
+    }
+  }
+  //toggle language between english and persian
+  osjs.on('osjs/core:started', () =>
+    osjs.make('osjs/tray', {
+      title: 'Language',
+      icon: osjs.make('osjs/theme').icon('preferences-desktop-locale'),
+      onclick: async (ev) => {
+        const lang = await osjs.make('osjs/locale').getLocale();
+        if (lang === 'fa_FA') {
+          await osjs.make('osjs/locale').setLocale('en_EN');
+          document.location.reload();
+        } else if (lang.match(/^en/)) {
+          await osjs.make('osjs/locale').setLocale('fa_FA');
+          document.location.reload();
+        }
+      },
+    })
+  );
 
   osjs.boot();
 };
