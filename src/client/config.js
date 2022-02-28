@@ -37,10 +37,10 @@
 import wallpaper from './wallpaper.jpg';
 
 export default {
-  auth: {
-    login: {
-      username: 'demo',
-      password: 'demo'
+  auth:{
+    ui: {
+      title: 'Welcome to Hafez',
+      stamp: 'Customized Version'
     }
   },
   desktop: {
