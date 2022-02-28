@@ -34,11 +34,22 @@
 // Complete config tree: https://github.com/os-js/osjs-client/blob/master/src/config.js
 //
 
+import wallpaper from './wallpaper.jpg';
+
 export default {
   auth: {
     login: {
       username: 'demo',
       password: 'demo'
+    }
+  },
+  desktop: {
+    settings: {
+      background: {
+        src: wallpaper,
+        color: '#000',
+        style: 'cover'
+      }
     }
   }
 };
