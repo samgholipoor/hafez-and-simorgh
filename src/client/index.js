@@ -80,7 +80,7 @@ const init = () => {
         if (lang === 'fa_FA') {
           await osjs.make('osjs/locale').setLocale('en_EN');
           document.location.reload();
-        } else if (lang.match(/^en/)) {
+        } else if (lang.match(/^en/) || lang.match(/^es/)) {
           await osjs.make('osjs/locale').setLocale('fa_FA');
           document.location.reload();
         }
