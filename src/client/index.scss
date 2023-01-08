@@ -32,7 +32,13 @@
 }
 
 .osjs-root[data-locale='fa_FA'] {
-  font-family: 'Vazir'!important;;
+  font-family: 'Vazir'!important;
+  .osjs-search{
+    direction: ltr;
+  }
+  .osjs-search *{
+    direction: rtl;
+  }
  }
 
 body,
