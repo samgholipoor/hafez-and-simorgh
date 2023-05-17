@@ -49,32 +49,12 @@ const {
 
 const config = require('./config.js');
 const osjs = new Core(config, {});
-const monsterAdapter = require('./adapters/monster-adapter')
-const openstackAuth = require('./adapters/swift_auth');
-const KeystoneServiceProvider = require('./providers/keystone-service-provider');
-const CybernoServiceProvider = require ('./providers/scanner-cyberno-service-provider');
-const MountingServiceProvider = require('./providers/server-mounting-service-provider');
 
 osjs.register(CoreServiceProvider, {before: true});
 osjs.register(PackageServiceProvider);
-osjs.register(AuthServiceProvider, {
-  args: {
-    adapter: openstackAuth
-  }
-});
+osjs.register(VFSServiceProvider);
+osjs.register(AuthServiceProvider);
 osjs.register(SettingsServiceProvider);
-
-osjs.register(VFSServiceProvider, {
-  args: {
-    adapters: {
-      monster: monsterAdapter
-    }
-  }
-});
-
-osjs.register(CybernoServiceProvider);
-osjs.register(MountingServiceProvider);
-osjs.register(KeystoneServiceProvider);
 
 const shutdown = signal => (error) => {
   if (error instanceof Error) {
@@ -89,4 +69,3 @@ process.on('SIGINT', shutdown(0));
 process.on('exit', shutdown(0));
 
 osjs.boot().catch(shutdown(1));
-
