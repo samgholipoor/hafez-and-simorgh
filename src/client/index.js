@@ -21,6 +21,7 @@ import {
 import {PanelServiceProvider} from '@osjs/panels';
 import {GUIServiceProvider} from '@osjs/gui';
 import {DialogServiceProvider} from '@osjs/dialogs';
+import MountingServiceProvider from './providers/client-mounting-service-provider';
 import config from './config.js';
 import './index.scss';
 
@@ -37,6 +38,8 @@ const init = () => {
   osjs.register(PanelServiceProvider);
   osjs.register(DialogServiceProvider);
   osjs.register(GUIServiceProvider);
+
+  osjs.register(MountingServiceProvider);
 
   osjs.on('osjs/core:started', ()=>{
     osjs.make('osjs/tray', {
