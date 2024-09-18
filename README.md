@@ -67,7 +67,7 @@ The easiest way to install is to use Docker Compose. This allows you to run a si
 to set everything up:
 
 ```bash
-docker-compose up
+docker compose up
 ```
 
 #### Local installation
