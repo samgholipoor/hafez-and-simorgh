@@ -5,7 +5,7 @@ WORKDIR /app/osjs
 
 COPY src ./src
 COPY package.json .
-COPY yarn.lock .
+COPY package-lock.json .
 COPY webpack.config.js .
 COPY entrypoint.sh .
 
@@ -14,10 +14,11 @@ RUN apt-get update \
 util-linux apt-utils net-tools iputils-ping tcpdump telnet git \
 nano vim \
 && pipx install ansible-core==2.12.3 \
-&& rm -rf /var/lib/apt/lists/* \
-&& yarn global add nodemon \
-&& yarn install \
-&& yarn build \
-&& yarn package:discover
+&& rm -rf /var/lib/apt/lists/*
+
+RUN npm i -g nodemon && \
+npm i && \
+npm run build && \
+npm run package:discover
 
 CMD ./entrypoint.sh

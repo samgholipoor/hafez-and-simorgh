@@ -3,8 +3,5 @@ services:
     container_name: hafez-dev
     build:
       context: .
-    volumes:
-      - ./src:/app/osjs/src
-      - ./webpack.config.js:/app/osjs/webpack.config.js
     ports:
       - "8000:8000"
