@@ -27,6 +27,7 @@
   "license": "BSD-2-Clause",
   "devDependencies": {
     "@osjs/dev-meta": "^2.1.0",
+    "eslint-config-prettier": "^9.1.0",
     "html-webpack-plugin": "^3.2.0",
     "source-map-loader": "^0.2.4"
   },
@@ -71,7 +72,19 @@
       "sourceType": "module",
       "ecmaVersion": 8
     },
-    "extends": "@osjs/eslint-config"
+    "extends": [
+      "@osjs/eslint-config",
+      "prettier"
+    ],
+    "indent": [
+      "error",
+      2,
+      {
+        "ignoredNodes": [
+          "ConditionalExpression"
+        ]
+      }
+    ]
   },
   "stylelint": {
     "extends": "@osjs/stylelint-config"
