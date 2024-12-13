@@ -56,7 +56,7 @@ osjs.register(VFSServiceProvider);
 osjs.register(AuthServiceProvider);
 osjs.register(SettingsServiceProvider);
 
-const shutdown = signal => (error) => {
+const shutdown = (signal) => (error) => {
   if (error instanceof Error) {
     console.error(error);
   }
