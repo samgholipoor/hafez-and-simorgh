@@ -6,10 +6,10 @@
   "printWidth": 80,
   "bracketSpacing": false,
   "arrowParens": "always",
-  "trailingComma": "none",
+  "trailingComma": "all",
   "endOfLine": "lf",
   "htmlWhitespaceSensitivity": "css",
   "proseWrap": "preserve",
-  "quoteProps": "consistent",
-  "jsxSingleQuote": true
+  "quoteProps": "as-needed",
+  "jsxSingleQuote": false
 }

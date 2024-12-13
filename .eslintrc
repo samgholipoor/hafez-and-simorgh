@@ -2,14 +2,21 @@
   "env": {
     "browser": true,
     "node": true,
-    "jest": true
+    "jest": true,
+    "es6": true
   },
   "parserOptions": {
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaVersion": "latest"
   },
-  "extends": "@osjs/eslint-config",
+  "extends": ["@osjs/eslint-config", "eslint:recommended"],
   "rules": {
     "no-undef": "error",
-    "indent": ["error", 2, {"ignoredNodes": ["ConditionalExpression"]}]
+    "indent": ["error", 2, {"ignoredNodes": ["ConditionalExpression"]}],
+    "no-unused-vars": "warn",
+    "no-console": "warn",
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "comma-dangle": ["error", "always-multiline"]
   }
 }
