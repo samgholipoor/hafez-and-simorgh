@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Vazirmatn:wght@300;400&display=swap');
+
+html,
+body {
+  font-family: 'Lato', sans-serif;
+}
+html[dir='rtl'],
+html[dir='rtl'] body {
+  font-family: 'Vazirmatn', sans-serif;
+}
+
+*,
+*:focus {
+  outline: none;
+  text-align: inherit;
+}
+
+html[data-theme='dark'] input[type='time']::-webkit-calendar-picker-indicator {
+  filter: invert(70%) saturate(3207%) hue-rotate(130deg) brightness(95%)
+    contrast(80%);
+}
+
+@layer components {
+  .border-b-200 {
+    @apply border-base-200 dark:border-base-300;
+  }
+  .divide-b-200 {
+    @apply divide-base-200 dark:divide-base-300;
+  }
+  .bg-opacity-x1 {
+    @apply bg-opacity-10  dark:bg-opacity-40;
+  }
+  .bg-opacity-x2 {
+    @apply bg-opacity-20  dark:bg-opacity-50;
+  }
+  .bg-opacity-x3 {
+    @apply bg-opacity-30  dark:bg-opacity-60;
+  }
+}

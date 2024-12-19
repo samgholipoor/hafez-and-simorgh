@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .border-b-200 {
+    @apply border-base-200 dark:border-base-300;
+  }
+  .divide-b-200 {
+    @apply divide-base-200 dark:divide-base-300;
+  }
+  .bg-opacity-x1 {
+    @apply bg-opacity-10  dark:bg-opacity-40;
+  }
+  .bg-opacity-x2 {
+    @apply bg-opacity-20  dark:bg-opacity-50;
+  }
+  .bg-opacity-x3 {
+    @apply bg-opacity-30  dark:bg-opacity-60;
+  }
+}
