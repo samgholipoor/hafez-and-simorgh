@@ -99,5 +99,9 @@
     "plugins": [
       "@babel/plugin-transform-runtime"
     ]
+  },
+  "volta": {
+    "node": "20.18.1",
+    "npm": "8.19.4"
   }
 }
