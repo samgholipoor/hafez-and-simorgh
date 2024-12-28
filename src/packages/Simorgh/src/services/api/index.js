@@ -1,4 +1,4 @@
-import { transformDataToHierarchyModel } from '@/views/Clusters/utils/transformDataToHierarchyModel.js';
+import {transformDataToHierarchyModel} from '@/views/Home/utils/transformDataToHierarchyModel.js';
 import axiosInstance from './service.js';
 
 export const getProducts = async () => {
@@ -11,7 +11,7 @@ export const getDevices = async () => {
   return [transformDataToHierarchyModel(response.data?.devices || [])];
 };
 
-export const getCluster = async ({ queryKey }) => {
+export const getCluster = async ({queryKey}) => {
   const [, id] = queryKey;
   const response = await axiosInstance.get(`/cluster/${id}/services/`);
   return response.data;

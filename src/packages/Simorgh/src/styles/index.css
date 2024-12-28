@@ -4,24 +4,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Vazirmatn:wght@300;400&display=swap');
 
-html,
-body {
+#simorgh-root,
+#simorgh-root * {
   font-family: 'Lato', sans-serif;
 }
-html[dir='rtl'],
-html[dir='rtl'] body {
-  font-family: 'Vazirmatn', sans-serif;
-}
 
-*,
-*:focus {
+#simorgh-root *,
+#simorgh-root *:focus {
   outline: none;
-  text-align: inherit;
-}
-
-html[data-theme='dark'] input[type='time']::-webkit-calendar-picker-indicator {
-  filter: invert(70%) saturate(3207%) hue-rotate(130deg) brightness(95%)
-    contrast(80%);
 }
 
 @layer components {

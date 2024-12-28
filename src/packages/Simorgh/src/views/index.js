@@ -1,4 +1,3 @@
-import Home from './Home/index.jsx';
-import Clusters from './Clusters/index.jsx';
+import Home from './Home';
 
-export default [Home, Clusters];
+export default Home;

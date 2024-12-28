@@ -1,4 +1,4 @@
-import { REGION, ZONE, NAME, IP, CLUSTER_LEVEL_NAME } from '../constant/index.js';
+import { REGION, ZONE, NAME, IP, CLUSTER_LEVEL_NAME } from '../constant';
 
 const generateLabel = (level, device) => {
   switch (level) {

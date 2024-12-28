@@ -1,10 +1,11 @@
 import axios from 'axios';
+import {API_BASE_URL} from '@/constants';
 
 const axiosInstance = axios.create({
-	baseURL: 'http://91.217.177.179:8112/api/',
-	headers: {
-		'Content-Type': 'application/json',
-	},
+  baseURL: API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 export default axiosInstance;

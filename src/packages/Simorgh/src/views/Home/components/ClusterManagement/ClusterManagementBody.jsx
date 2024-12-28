@@ -8,7 +8,7 @@ import Tab from '@/components/Tabs';
 import EditableField from '@/components/form/EditableField';
 import EmptyFallback from '@/components/EmptyFallback.jsx';
 import SuspenseFallback from '@/components/SuspenseFallback.jsx';
-import ClusterUpdateNotification from './ClusterUpdateNotification.jsx';
+import ClusterUpdateNotification from './ClusterUpdateNotification';
 import DevicesManagement from '../DevicesManagement/DevicesManagement.jsx';
 
 const ClusterManagementBody = ({}) => {

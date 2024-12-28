@@ -1,7 +1,7 @@
 import { Icon } from '@burna/monster-design-system';
 import { mergeClassNames } from '@/utils/classname';
 import { useMemo, useState } from 'react';
-import ClusterNameEdit from './ClusterNameEdit.jsx';
+import ClusterNameEdit from './ClusterNameEdit';
 
 const ClusterManagementHeader = ({ onClose, onToggle, isOpen }) => {
   const [isEdit, setIsEdit] = useState(false);

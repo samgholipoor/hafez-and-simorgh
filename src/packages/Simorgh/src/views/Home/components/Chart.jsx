@@ -1,24 +1,24 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable camelcase */
-import {useEffect, useLayoutEffect, useRef} from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import * as am5 from '@amcharts/amcharts5';
 import * as am5hierarchy from '@amcharts/amcharts5/hierarchy';
 import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
-import {useProductSelection} from '@/services/productSelectionProvider';
+import { useProductSelection } from '@/services/productSelectionProvider';
 import {
   CLUSTER_LEVEL_RADIUS,
   CLUSTER_LEVEL_DISTANCE,
   CLUSTER_LEVEL_LABEL_DISTANCE,
   CLUSTER_LEVEL_ICON_SIZE,
   CLUSTER_LEVEL_FONT_SIZE,
-} from '../constant/index.js';
+} from '../constant';
 
 const BG_COLOR = '#fff';
 const STROKE_COLOR = '#6b7280';
 const LIGHT_GRAY = '#d1d5db';
 
-function Chart({data, handleSelectHost}) {
-  const {selectedProducts} = useProductSelection();
+function Chart({ data, handleSelectHost }) {
+  const { selectedProducts } = useProductSelection();
   const currentRoot = useRef(null);
   const currentSeries = useRef(null);
 
@@ -41,9 +41,7 @@ function Chart({data, handleSelectHost}) {
       return;
     }
 
-    const isSelectedProduct = selectedProducts.some((sp) =>
-      products.includes(sp),
-    );
+    const isSelectedProduct = selectedProducts.some((sp) => products.includes(sp));
     circle.set('stroke', isSelectedProduct ? STROKE_COLOR : LIGHT_GRAY);
   };
 
@@ -59,9 +57,7 @@ function Chart({data, handleSelectHost}) {
       return;
     }
 
-    const isSelectedProduct = selectedProducts.some((sp) =>
-      products.includes(sp),
-    );
+    const isSelectedProduct = selectedProducts.some((sp) => products.includes(sp));
     picture.set('opacity', isSelectedProduct ? 1 : 0.2);
   };
 
@@ -76,9 +72,7 @@ function Chart({data, handleSelectHost}) {
       return;
     }
 
-    const isSelectedProduct = selectedProducts.some((sp) =>
-      products.includes(sp),
-    );
+    const isSelectedProduct = selectedProducts.some((sp) => products.includes(sp));
     link.set('opacity', isSelectedProduct ? 1 : 0.2);
   };
 
@@ -161,16 +155,14 @@ function Chart({data, handleSelectHost}) {
         const level = target._dataItem?.dataContext?.level;
         return CLUSTER_LEVEL_RADIUS[level] || 30;
       });
-      series.links.template.adapters.add('stroke', () =>
-        am5.color(STROKE_COLOR),
-      );
+      series.links.template.adapters.add('stroke', () => am5.color(STROKE_COLOR));
       series.links.template.adapters.add('distance', (_, target) => {
         const level = target._dataItem?.dataContext?.level;
         return CLUSTER_LEVEL_DISTANCE[level];
       });
 
       series.nodes.template.adapters.add('cursorOverStyle', (_, target) => {
-        const {level} = target?._dataItem?.dataContext;
+        const { level } = target?._dataItem?.dataContext;
         if (level === 'server') {
           return 'pointer';
         }
@@ -179,7 +171,7 @@ function Chart({data, handleSelectHost}) {
 
       series.nodes.template.setup = (target) => {
         target.events.on('dataitemchanged', () => {
-          const {level} = target._dataItem.dataContext;
+          const { level } = target._dataItem.dataContext;
           target.children.push(
             am5.Picture.new(root, {
               width: CLUSTER_LEVEL_ICON_SIZE[level],
@@ -198,7 +190,7 @@ function Chart({data, handleSelectHost}) {
 
       series.labels.template.setup = (target) => {
         target.events.on('dataitemchanged', () => {
-          const {level} = target._dataItem.dataContext;
+          const { level } = target._dataItem.dataContext;
           target.children.push(
             am5.Label.new(root, {
               fontSize: CLUSTER_LEVEL_FONT_SIZE[level],
@@ -211,9 +203,20 @@ function Chart({data, handleSelectHost}) {
       };
 
       series.nodes.template.events.on('click', (e) => {
-        const {level, host} = e.target?._dataItem?.dataContext;
+        const { level, host } = e.target?._dataItem?.dataContext;
         if (level === 'server') {
           handleSelectHost(host);
+        }
+      });
+
+      root.dom.addEventListener('contextmenu', (event) => {
+        event.preventDefault(); // Prevent the default browser context menu
+      });
+
+      series.nodes.template.events.on('pointerdown', (e) => {
+        if (e.originalEvent && e.originalEvent.button === 2) {
+          e.originalEvent.preventDefault(); // Prevent default browser context menu
+          console.log('Right-clicked node:', e.target.dataItem.dataContext);
         }
       });
 
@@ -229,6 +232,6 @@ function Chart({data, handleSelectHost}) {
     };
   }, [data, handleSelectHost]);
 
-  return <div id="chartdiv" style={{width: '100%', height: '100%'}} />;
+  return <div id="chartdiv" style={{ width: '100%', height: '100%' }} />;
 }
 export default Chart;

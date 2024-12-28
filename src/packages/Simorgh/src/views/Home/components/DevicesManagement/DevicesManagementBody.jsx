@@ -39,6 +39,8 @@ const DevicesManagementBody = ({}) => {
               <div className="flex flex-col gap-6">
                 <DevicesArrayField values={values} />
               </div>
+
+              <button type="submit"> click me </button>
             </Form>
           )}
         </Formik>

@@ -1,5 +1,5 @@
 import { mergeClassNames } from '@/utils/classname';
-import Spinner from './Spinner.jsx';
+import Spinner from './Spinner';
 
 const SuspenseFallback = ({ message = 'Loading', className }) => (
   <div

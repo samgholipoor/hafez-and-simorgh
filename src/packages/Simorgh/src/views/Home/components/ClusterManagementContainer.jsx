@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useProductSelection } from '@/services/productSelectionProvider';
-import ClusterManagement from './ClusterManagement/ClusterManagement.jsx';
+import ClusterManagement from './ClusterManagement/ClusterManagement';
 
 const ClusterManagementContainer = () => {
   const { selectedProductOption, handleSelectProductOption } = useProductSelection();

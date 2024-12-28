@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import ClusterManagementHeader from './ClusterManagementHeader.jsx';
-import ClusterManagementBody from './ClusterManagementBody.jsx';
+import ClusterManagementHeader from './ClusterManagementHeader';
+import ClusterManagementBody from './ClusterManagementBody';
 
 const ClusterManagement = ({ onClose }) => {
   const [isOpen, setIsOpen] = useState(true);

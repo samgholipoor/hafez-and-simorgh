@@ -1,24 +1,23 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import {useQuery, useQueryClient, useIsFetching} from 'react-query';
-import {Icon} from '@burna/monster-design-system';
+import { useQuery, useQueryClient, useIsFetching } from 'react-query';
+import { Icon } from '@burna/monster-design-system';
 import Box from '@/components/Box';
 import CheckboxDropdown from '@/components/form/CheckboxDropdown';
-import {getProducts} from '@/services/api';
-import {useProductSelection} from '@/services/productSelectionProvider';
-import {useCallback} from 'react';
+import { getProducts } from '@/services/api';
+import { useProductSelection } from '@/services/productSelectionProvider';
+import { useCallback } from 'react';
 import SuspenseFallback from '@/components/SuspenseFallback';
 import EmptyFallback from '@/components/EmptyFallback';
-import {mergeClassNames} from '@/utils/classname';
+import { mergeClassNames } from '@/utils/classname';
 
 export default function Navbar() {
   const queryClient = useQueryClient();
   const isFetching = useIsFetching(['devices']);
 
-  const {handleSelectProducts, handleSelectProductOption} =
-    useProductSelection();
+  const { handleSelectProducts, handleSelectProductOption } = useProductSelection();
 
-  const {data: products, isLoading} = useQuery('products', getProducts, {
+  const { data: products, isLoading } = useQuery('products', getProducts, {
     cacheTime: Infinity,
     staleTime: Infinity,
   });
@@ -52,10 +51,7 @@ export default function Navbar() {
               onOptionSelect={handleSelectProductOption}
             />
           ))}
-          <CheckboxDropdown
-            label="Empty"
-            onCheck={() => handleSelectProducts('Empty')}
-          />
+          <CheckboxDropdown label="Empty" onCheck={() => handleSelectProducts('Empty')} />
         </div>
       );
     }
@@ -68,7 +64,7 @@ export default function Navbar() {
       <div className="bg-base-100 bg-opacity-50 shadow-inner w-full px-4">
         <section
           className="flex items-center justify-between gap-4 px-8"
-          style={{height: '72px'}}
+          style={{ height: '72px' }}
         >
           <div className="w-32">
             <img src="/apps/Simorgh/assets/images/logo.png" />
