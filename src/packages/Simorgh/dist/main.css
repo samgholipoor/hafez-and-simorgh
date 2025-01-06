@@ -1,7 +1,5 @@
-@import url(https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Vazirmatn:wght@300;400&display=swap);
-#simorgh-root *,
-#simorgh-root::before,
-#simorgh-root::after {
+@import url(https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap);
+*, ::before, ::after{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -27,10 +25,10 @@
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgba(59, 130, 246, 0.5);
-  --tw-ring-offset-shadow: 0 0 rgba(0, 0, 0, 0);
-  --tw-ring-shadow: 0 0 rgba(0, 0, 0, 0);
-  --tw-shadow: 0 0 rgba(0, 0, 0, 0);
-  --tw-shadow-colored: 0 0 rgba(0, 0, 0, 0);
+  --tw-ring-offset-shadow: 0 0 rgba(0,0,0,0);
+  --tw-ring-shadow: 0 0 rgba(0,0,0,0);
+  --tw-shadow: 0 0 rgba(0,0,0,0);
+  --tw-shadow-colored: 0 0 rgba(0,0,0,0);
   --tw-blur:  ;
   --tw-brightness:  ;
   --tw-contrast:  ;
@@ -55,7 +53,7 @@
   --tw-contain-style:  ;
 }
 
-#simorgh-root::backdrop {
+::backdrop{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -81,10 +79,10 @@
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgba(59, 130, 246, 0.5);
-  --tw-ring-offset-shadow: 0 0 rgba(0, 0, 0, 0);
-  --tw-ring-shadow: 0 0 rgba(0, 0, 0, 0);
-  --tw-shadow: 0 0 rgba(0, 0, 0, 0);
-  --tw-shadow-colored: 0 0 rgba(0, 0, 0, 0);
+  --tw-ring-offset-shadow: 0 0 rgba(0,0,0,0);
+  --tw-ring-shadow: 0 0 rgba(0,0,0,0);
+  --tw-shadow: 0 0 rgba(0,0,0,0);
+  --tw-shadow-colored: 0 0 rgba(0,0,0,0);
   --tw-blur:  ;
   --tw-brightness:  ;
   --tw-contrast:  ;
@@ -107,24 +105,28 @@
   --tw-contain-layout:  ;
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
-} /*
+}
+
+/*
 ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com
-*/ /*
+*/
+
+/*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 
-#simorgh-root *,
-#simorgh-root::before,
-#simorgh-root::after {
+*,
+::before,
+::after {
   box-sizing: border-box; /* 1 */
   border-width: 0; /* 2 */
   border-style: solid; /* 2 */
   border-color: #e5e7eb; /* 2 */
 }
 
-#simorgh-root ::before,
-#simorgh-root ::after {
+::before,
+::after {
   --tw-content: '';
 }
 
@@ -138,27 +140,14 @@
 7. Disable tap highlights on iOS
 */
 
-#simorgh-root html,
-#simorgh-root:host {
+#simorgh-root *,
+#simorgh-root :host {
   line-height: 1.5; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   -moz-tab-size: 4; /* 3 */
   -o-tab-size: 4;
-  tab-size: 4; /* 3 */
-  font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    Segoe UI,
-    Roboto,
-    Ubuntu,
-    Cantarell,
-    Noto Sans,
-    sans-serif,
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol',
-    'Noto Color Emoji'; /* 4 */
+     tab-size: 4; /* 3 */
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
   font-feature-settings: normal; /* 5 */
   font-variation-settings: normal; /* 6 */
   -webkit-tap-highlight-color: transparent; /* 7 */
@@ -169,7 +158,7 @@
 2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
 */
 
-#simorgh-root body {
+body {
   margin: 0; /* 1 */
   line-height: inherit; /* 2 */
 }
@@ -193,7 +182,7 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 #simorgh-root abbr:where([title]) {
   text-decoration: underline;
   -webkit-text-decoration: underline dotted;
-  text-decoration: underline dotted;
+          text-decoration: underline dotted;
 }
 
 /*
@@ -239,8 +228,7 @@ Add the correct font weight in Edge and Safari.
 #simorgh-root kbd,
 #simorgh-root samp,
 #simorgh-root pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace; /* 1 */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
   font-feature-settings: normal; /* 2 */
   font-variation-settings: normal; /* 3 */
   font-size: 1em; /* 4 */
@@ -441,6 +429,7 @@ Removes the default spacing and border for appropriate elements.
 /*
 Reset default styling for dialogs.
 */
+
 #simorgh-root dialog {
   padding: 0;
 }
@@ -458,8 +447,7 @@ Prevent resizing textareas horizontally by default.
 2. Set the default placeholder color to the user's configured gray 400 color.
 */
 
-#simorgh-root input::-moz-placeholder,
-#simorgh-root textarea::-moz-placeholder {
+#simorgh-root input::-moz-placeholder, #simorgh-root textarea::-moz-placeholder {
   opacity: 1; /* 1 */
   color: #9ca3af; /* 2 */
 }
@@ -475,13 +463,14 @@ Set the default cursor for buttons.
 */
 
 #simorgh-root button,
-#simorgh-root [role='button'] {
+#simorgh-root [role="button"] {
   cursor: pointer;
 }
 
 /*
 Make sure disabled buttons don't get the pointer cursor.
 */
+
 #simorgh-root :disabled {
   cursor: default;
 }
@@ -515,48 +504,42 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 }
 
 /* Make elements with the HTML hidden attribute stay hidden by default */
-#simorgh-root [hidden]:where(:not([hidden='until-found'])) {
+
+#simorgh-root [hidden]:where(:not([hidden="until-found"])) {
   display: none;
 }
 
-:root {
+:root,
+#simorgh-root [data-theme]{
   background-color: hsla(var(--b1) / 1);
   background-color: hsla(var(--b1) / var(--tw-bg-opacity, 1));
   color: hsla(var(--bc) / 1);
   color: hsla(var(--bc) / var(--tw-text-opacity, 1));
 }
 
-#simorgh-root [data-theme] {
-  background-color: hsla(var(--b1) / 1);
-  background-color: hsla(var(--b1) / var(--tw-bg-opacity, 1));
-  color: hsla(var(--bc) / 1);
-  color: hsla(var(--bc) / var(--tw-text-opacity, 1));
-}
-
-#simorgh-root html {
+#simorgh-root html{
   -webkit-tap-highlight-color: transparent;
 }
 
-:root {
+:root{
   --csstools-color-scheme--light: initial;
   color-scheme: light;
   --pf: 224.55 87.611% 44.549%;
-  --sf: 314 100% 37.647%;
+  --sf: 0 0% 48%;
   --af: 174 60% 40.784%;
   --nf: 219 14.085% 22.275%;
   --in: 198 93% 60%;
-  --su: 158 64% 52%;
   --wa: 43 96% 56%;
   --er: 0 91% 71%;
   --inc: 198 100% 12%;
-  --suc: 158 100% 10%;
+  --suc: 142.13 100% 87.255%;
   --wac: 43 100% 11%;
   --erc: 0 100% 14%;
   --rounded-box: 1rem;
   --rounded-btn: 0.5rem;
   --rounded-badge: 1.9rem;
   --animation-btn: 0.25s;
-  --animation-input: 0.2s;
+  --animation-input: .2s;
   --btn-text-case: uppercase;
   --btn-focus-scale: 0.95;
   --border-btn: 1px;
@@ -564,7 +547,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   --tab-radius: 0.5rem;
   --p: 224.55 87.611% 55.686%;
   --pc: 0 0% 100%;
-  --s: 314 100% 47.059%;
+  --s: 0 0% 60%;
   --sc: 0 0% 100%;
   --a: 174 60% 50.98%;
   --ac: 174.71 43.59% 15.294%;
@@ -574,155 +557,42 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   --b2: 0 0% 94.902%;
   --b3: 180 1.9608% 90%;
   --bc: 215 27.907% 16.863%;
+  --su: 142.13 76.216% 36.275%;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --csstools-color-scheme--light:  ;
-    color-scheme: dark;
-    --pf: 270.74 91.011% 52.078%;
-    --sf: 315.75 70.196% 40%;
-    --af: 174.69 70.335% 32.784%;
-    --in: 198 93% 60%;
-    --su: 158 64% 52%;
-    --wa: 43 96% 56%;
-    --er: 0 91% 71%;
-    --inc: 198 100% 12%;
-    --suc: 158 100% 10%;
-    --wac: 43 100% 11%;
-    --erc: 0 100% 14%;
-    --rounded-box: 1rem;
-    --rounded-btn: 0.5rem;
-    --rounded-badge: 1.9rem;
-    --animation-btn: 0.25s;
-    --animation-input: 0.2s;
-    --btn-text-case: uppercase;
-    --btn-focus-scale: 0.95;
-    --border-btn: 1px;
-    --tab-border: 1px;
-    --tab-radius: 0.5rem;
-    --p: 270.74 91.011% 65.098%;
-    --pc: 0 0% 100%;
-    --s: 315.75 70.196% 50%;
-    --sc: 0 0% 100%;
-    --a: 174.69 70.335% 40.98%;
-    --ac: 0 0% 100%;
-    --n: 218.18 18.033% 11.961%;
-    --nf: 222.86 17.073% 8.0392%;
-    --nc: 220 13.376% 69.216%;
-    --b1: 218.57 18.421% 14.902%;
-    --b2: 220 17.241% 17.059%;
-    --b3: 220 17.647% 20%;
-    --bc: 220 13.376% 69.216%;
-  }
-}
-
-#simorgh-root [data-theme='light'] {
-  --csstools-color-scheme--light: initial;
-  color-scheme: light;
-  --pf: 224.55 87.611% 44.549%;
-  --sf: 314 100% 37.647%;
-  --af: 174 60% 40.784%;
-  --nf: 219 14.085% 22.275%;
-  --in: 198 93% 60%;
-  --su: 158 64% 52%;
-  --wa: 43 96% 56%;
-  --er: 0 91% 71%;
-  --inc: 198 100% 12%;
-  --suc: 158 100% 10%;
-  --wac: 43 100% 11%;
-  --erc: 0 100% 14%;
-  --rounded-box: 1rem;
-  --rounded-btn: 0.5rem;
-  --rounded-badge: 1.9rem;
-  --animation-btn: 0.25s;
-  --animation-input: 0.2s;
-  --btn-text-case: uppercase;
-  --btn-focus-scale: 0.95;
-  --border-btn: 1px;
-  --tab-border: 1px;
-  --tab-radius: 0.5rem;
-  --p: 224.55 87.611% 55.686%;
-  --pc: 0 0% 100%;
-  --s: 314 100% 47.059%;
-  --sc: 0 0% 100%;
-  --a: 174 60% 50.98%;
-  --ac: 174.71 43.59% 15.294%;
-  --n: 219 14.085% 27.843%;
-  --nc: 0 0% 100%;
-  --b1: 0 0% 100%;
-  --b2: 0 0% 94.902%;
-  --b3: 180 1.9608% 90%;
-  --bc: 215 27.907% 16.863%;
-}
-
-#simorgh-root [data-theme='dark'] {
-  --csstools-color-scheme--light:  ;
-  color-scheme: dark;
-  --pf: 270.74 91.011% 52.078%;
-  --sf: 315.75 70.196% 40%;
-  --af: 174.69 70.335% 32.784%;
-  --in: 198 93% 60%;
-  --su: 158 64% 52%;
-  --wa: 43 96% 56%;
-  --er: 0 91% 71%;
-  --inc: 198 100% 12%;
-  --suc: 158 100% 10%;
-  --wac: 43 100% 11%;
-  --erc: 0 100% 14%;
-  --rounded-box: 1rem;
-  --rounded-btn: 0.5rem;
-  --rounded-badge: 1.9rem;
-  --animation-btn: 0.25s;
-  --animation-input: 0.2s;
-  --btn-text-case: uppercase;
-  --btn-focus-scale: 0.95;
-  --border-btn: 1px;
-  --tab-border: 1px;
-  --tab-radius: 0.5rem;
-  --p: 270.74 91.011% 65.098%;
-  --pc: 0 0% 100%;
-  --s: 315.75 70.196% 50%;
-  --sc: 0 0% 100%;
-  --a: 174.69 70.335% 40.98%;
-  --ac: 0 0% 100%;
-  --n: 218.18 18.033% 11.961%;
-  --nf: 222.86 17.073% 8.0392%;
-  --nc: 220 13.376% 69.216%;
-  --b1: 218.57 18.421% 14.902%;
-  --b2: 220 17.241% 17.059%;
-  --b3: 220 17.647% 20%;
-  --bc: 220 13.376% 69.216%;
-}
-#simorgh-root .container {
+#simorgh-root .container{
   width: 100%;
 }
-@media (min-width: 640px) {
-  #simorgh-root .container {
+@media (min-width: 640px){
+
+  #simorgh-root .container{
     max-width: 640px;
   }
 }
-@media (min-width: 768px) {
-  #simorgh-root .container {
+@media (min-width: 768px){
+
+  #simorgh-root .container{
     max-width: 768px;
   }
 }
-@media (min-width: 1024px) {
-  #simorgh-root .container {
+@media (min-width: 1024px){
+
+  #simorgh-root .container{
     max-width: 1024px;
   }
 }
-@media (min-width: 1280px) {
-  #simorgh-root .container {
+@media (min-width: 1280px){
+
+  #simorgh-root .container{
     max-width: 1280px;
   }
 }
-@media (min-width: 1536px) {
-  #simorgh-root .container {
+@media (min-width: 1536px){
+
+  #simorgh-root .container{
     max-width: 1536px;
   }
 }
-#simorgh-root .alert {
+#simorgh-root .alert{
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -736,12 +606,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-radius: 1rem;
   border-radius: var(--rounded-box, 1rem);
 }
-#simorgh-root
-  #simorgh-root
-  #simorgh-root
-  .alert
-  > :not([hidden])
-  ~ :not([hidden]) {
+#simorgh-root .alert > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
   margin-top: calc(0.5rem * (1 - 0));
   margin-top: calc(0.5rem * (1 - var(--tw-space-y-reverse)));
@@ -750,17 +615,13 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   margin-bottom: calc(0.5rem * 0);
   margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
-@media (min-width: 768px) {
-  #simorgh-root .alert {
+@media (min-width: 768px){
+
+  #simorgh-root .alert{
     flex-direction: row;
   }
 
-  #simorgh-root
-    #simorgh-root
-    #simorgh-root
-    .alert
-    > :not([hidden])
-    ~ :not([hidden]) {
+  #simorgh-root .alert > :not([hidden]) ~ :not([hidden]){
     --tw-space-y-reverse: 0;
     margin-top: calc(0px * (1 - 0));
     margin-top: calc(0px * (1 - var(--tw-space-y-reverse)));
@@ -770,18 +631,47 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
     margin-bottom: calc(0px * var(--tw-space-y-reverse));
   }
 }
-#simorgh-root .alert > :where(*) {
+#simorgh-root .alert > :where(*){
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
-#simorgh-root .btn {
+#simorgh-root .badge{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  height: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-left: 0.563rem;
+  padding-right: 0.563rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--n) / 1);
+  border-color: hsl(var(--n) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--n) / 1);
+  background-color: hsl(var(--n) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--nc) / 1);
+  color: hsl(var(--nc) / var(--tw-text-opacity));
+  border-radius: 1.9rem;
+  border-radius: var(--rounded-badge, 1.9rem);
+}
+#simorgh-root .btn{
   display: inline-flex;
   flex-shrink: 0;
   cursor: pointer;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
@@ -789,34 +679,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-color: hsl(var(--n) / 1);
   border-color: hsl(var(--n) / var(--tw-border-opacity));
   text-align: center;
-  transition-property:
-    color,
-    background-color,
-    border-color,
-    text-decoration-color,
-    fill,
-    stroke,
-    opacity,
-    box-shadow,
-    transform,
-    filter,
-    -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-    backdrop-filter;
-  transition-property:
-    color,
-    background-color,
-    border-color,
-    text-decoration-color,
-    fill,
-    stroke,
-    opacity,
-    box-shadow,
-    transform,
-    filter,
-    backdrop-filter,
-    -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 0.5rem;
@@ -845,49 +710,51 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   color: hsl(var(--nc) / var(--tw-text-opacity));
 }
 #simorgh-root .btn-disabled,
-#simorgh-root .btn[disabled] {
+  #simorgh-root .btn[disabled]{
   pointer-events: none;
 }
 #simorgh-root .btn.loading,
-#simorgh-root .btn.loading:hover {
+    #simorgh-root .btn.loading:hover{
   pointer-events: none;
 }
-#simorgh-root .btn.loading:before {
+#simorgh-root .btn.loading:before{
   margin-right: 0.5rem;
   height: 1rem;
   width: 1rem;
   border-radius: 9999px;
   border-width: 2px;
   animation: spin 2s linear infinite;
-  content: '';
+  content: "";
   border-top-color: transparent;
   border-left-color: transparent;
   border-bottom-color: currentColor;
   border-right-color: currentColor;
 }
-@media (prefers-reduced-motion: reduce) {
-  #simorgh-root .btn.loading:before {
+@media (prefers-reduced-motion: reduce){
+
+  #simorgh-root .btn.loading:before{
     animation: spin 10s linear infinite;
   }
 }
-@keyframes spin {
-  from {
+@keyframes spin{
+
+  from{
     transform: rotate(0deg);
   }
 
-  to {
+  to{
     transform: rotate(360deg);
   }
 }
-#simorgh-root .btn-group > input[type='radio'].btn {
+#simorgh-root .btn-group > input[type="radio"].btn{
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
-#simorgh-root .btn-group > input[type='radio'].btn:before {
+#simorgh-root .btn-group > input[type="radio"].btn:before{
   content: attr(data-title);
 }
-#simorgh-root .checkbox {
+#simorgh-root .checkbox{
   flex-shrink: 0;
   --chkbg: var(--bc);
   --chkfg: var(--b1);
@@ -895,8 +762,8 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   width: 1.5rem;
   cursor: pointer;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border-width: 1px;
   border-color: hsl(var(--bc) / 0.2);
   border-color: hsl(var(--bc) / var(--tw-border-opacity));
@@ -904,7 +771,71 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-radius: 0.5rem;
   border-radius: var(--rounded-btn, 0.5rem);
 }
-#simorgh-root .footer {
+#simorgh-root .dropdown{
+  position: relative;
+  display: inline-block;
+}
+#simorgh-root .dropdown > *:focus{
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+#simorgh-root .dropdown .dropdown-content{
+  visibility: hidden;
+  position: absolute;
+  z-index: 50;
+  opacity: 0;
+  transform-origin: top;
+  --tw-scale-x: .95;
+  --tw-scale-y: .95;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(.95) scaleY(.95);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+#simorgh-root .dropdown-end .dropdown-content{
+  right: 0px;
+}
+#simorgh-root .dropdown-left .dropdown-content{
+  top: 0px;
+  right: 100%;
+  bottom: auto;
+  transform-origin: right;
+}
+#simorgh-root .dropdown-right .dropdown-content{
+  left: 100%;
+  top: 0px;
+  bottom: auto;
+  transform-origin: left;
+}
+#simorgh-root .dropdown-bottom .dropdown-content{
+  bottom: auto;
+  top: 100%;
+  transform-origin: top;
+}
+#simorgh-root .dropdown-top .dropdown-content{
+  bottom: 100%;
+  top: auto;
+  transform-origin: bottom;
+}
+#simorgh-root .dropdown-end.dropdown-right .dropdown-content{
+  bottom: 0px;
+  top: auto;
+}
+#simorgh-root .dropdown-end.dropdown-left .dropdown-content{
+  bottom: 0px;
+  top: auto;
+}
+#simorgh-root .dropdown.dropdown-open .dropdown-content,
+#simorgh-root .dropdown.dropdown-hover:hover .dropdown-content,
+#simorgh-root .dropdown:not(.dropdown-hover):focus .dropdown-content,
+#simorgh-root .dropdown:not(.dropdown-hover):focus-within .dropdown-content{
+  visibility: visible;
+  opacity: 1;
+}
+#simorgh-root .footer{
   display: grid;
   width: 100%;
   grid-auto-flow: row;
@@ -915,11 +846,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   row-gap: 2.5rem;
   grid-column-gap: 1rem;
   -moz-column-gap: 1rem;
-  column-gap: 1rem;
+       column-gap: 1rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
-#simorgh-root .footer > * {
+#simorgh-root .footer > *{
   display: grid;
   align-items: start;
   justify-items: start;
@@ -927,20 +858,21 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   grid-gap: 0.5rem;
   gap: 0.5rem;
 }
-@media (min-width: 48rem) {
-  #simorgh-root .footer {
+@media (min-width: 48rem){
+
+  #simorgh-root .footer{
     grid-auto-flow: column;
   }
 
-  #simorgh-root .footer-center {
+  #simorgh-root .footer-center{
     grid-auto-flow: row dense;
   }
 }
-#simorgh-root .label {
+#simorgh-root .label{
   display: flex;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   align-items: center;
   justify-content: space-between;
   padding-left: 0.25rem;
@@ -948,23 +880,29 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-#simorgh-root .link {
+#simorgh-root .input-group > *,
+  #simorgh-root .input-group > .input,
+  #simorgh-root .input-group > .textarea,
+  #simorgh-root .input-group > .select{
+  border-radius: 0px;
+}
+#simorgh-root .link{
   cursor: pointer;
   text-decoration-line: underline;
 }
-#simorgh-root .menu {
+#simorgh-root .menu{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
-#simorgh-root .menu.horizontal {
+#simorgh-root .menu.horizontal{
   display: inline-flex;
   flex-direction: row;
 }
-#simorgh-root .menu.horizontal :where(li) {
+#simorgh-root .menu.horizontal :where(li){
   flex-direction: row;
 }
-#simorgh-root :where(.menu li) {
+#simorgh-root :where(.menu li){
   position: relative;
   display: flex;
   flex-shrink: 0;
@@ -972,34 +910,31 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   flex-wrap: wrap;
   align-items: stretch;
 }
-#simorgh-root .menu :where(li:not(.menu-title)) > :where(*:not(ul)) {
+#simorgh-root .menu :where(li:not(.menu-title)) > :where(*:not(ul)){
   display: flex;
 }
-#simorgh-root
-  .menu
-  :where(li:not(.disabled):not(.menu-title))
-  > :where(*:not(ul)) {
+#simorgh-root .menu :where(li:not(.disabled):not(.menu-title)) > :where(*:not(ul)){
   cursor: pointer;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   align-items: center;
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
-#simorgh-root .menu > :where(li > *:not(ul):focus) {
+#simorgh-root .menu > :where(li > *:not(ul):focus){
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
-#simorgh-root .menu > :where(li.disabled > *:not(ul):focus) {
+#simorgh-root .menu > :where(li.disabled > *:not(ul):focus){
   cursor: auto;
 }
-#simorgh-root .menu > :where(li) :where(ul) {
+#simorgh-root .menu > :where(li) :where(ul){
   display: flex;
   flex-direction: column;
   align-items: stretch;
 }
-#simorgh-root .menu > :where(li) > :where(ul) {
+#simorgh-root .menu > :where(li) > :where(ul){
   position: absolute;
   display: none;
   top: auto;
@@ -1010,13 +945,68 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 }
-#simorgh-root .menu > :where(li:hover) > :where(ul) {
+#simorgh-root .menu > :where(li:hover) > :where(ul){
   display: flex;
 }
-#simorgh-root .menu > :where(li:focus) > :where(ul) {
+#simorgh-root .menu > :where(li:focus) > :where(ul){
   display: flex;
 }
-#simorgh-root .btn-outline.btn-primary .badge {
+#simorgh-root .progress{
+  position: relative;
+  width: 100%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  overflow: hidden;
+  height: 0.5rem;
+  border-radius: 1rem;
+  border-radius: var(--rounded-box, 1rem);
+}
+#simorgh-root .select{
+  display: inline-flex;
+  flex-shrink: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  height: 3rem;
+  padding-left: 1rem;
+  padding-right: 2.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  line-height: 2;
+  min-height: 3rem;
+  border-width: 1px;
+  border-color: hsl(var(--bc) / 0);
+  border-color: hsl(var(--bc) / var(--tw-border-opacity));
+  --tw-border-opacity: 0;
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b1) / 1);
+  background-color: hsl(var(--b1) / var(--tw-bg-opacity));
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border-radius: var(--rounded-btn, 0.5rem);
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(1px + 50%), calc(100% - 16px) calc(1px + 50%);
+  background-size: 4px 4px, 4px 4px;
+  background-repeat: no-repeat;
+}
+#simorgh-root .select[multiple]{
+  height: auto;
+}
+#simorgh-root .toast{
+  position: fixed;
+  display: flex;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+#simorgh-root .badge-primary{
   --tw-border-opacity: 1;
   border-color: hsl(var(--p) / 1);
   border-color: hsl(var(--p) / var(--tw-border-opacity));
@@ -1027,7 +1017,101 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   color: hsl(var(--pc) / 1);
   color: hsl(var(--pc) / var(--tw-text-opacity));
 }
-#simorgh-root .btn-outline.btn-primary .badge-outline {
+#simorgh-root .badge-success{
+  border-color: transparent;
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--su) / 1);
+  background-color: hsl(var(--su) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--suc, var(--nc)) / 1);
+  color: hsl(var(--suc, var(--nc)) / var(--tw-text-opacity));
+}
+#simorgh-root .badge-warning{
+  border-color: transparent;
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--wa) / 1);
+  background-color: hsl(var(--wa) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--wac, var(--nc)) / 1);
+  color: hsl(var(--wac, var(--nc)) / var(--tw-text-opacity));
+}
+#simorgh-root .badge-error{
+  border-color: transparent;
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--er) / 1);
+  background-color: hsl(var(--er) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--erc, var(--nc)) / 1);
+  color: hsl(var(--erc, var(--nc)) / var(--tw-text-opacity));
+}
+#simorgh-root .badge-outline.badge-primary{
+  --tw-text-opacity: 1;
+  color: hsl(var(--p) / 1);
+  color: hsl(var(--p) / var(--tw-text-opacity));
+}
+#simorgh-root .badge-outline.badge-success{
+  --tw-text-opacity: 1;
+  color: hsl(var(--su) / 1);
+  color: hsl(var(--su) / var(--tw-text-opacity));
+}
+#simorgh-root .badge-outline.badge-warning{
+  --tw-text-opacity: 1;
+  color: hsl(var(--wa) / 1);
+  color: hsl(var(--wa) / var(--tw-text-opacity));
+}
+#simorgh-root .badge-outline.badge-error{
+  --tw-text-opacity: 1;
+  color: hsl(var(--er) / 1);
+  color: hsl(var(--er) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline .badge{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--nf, var(--n)) / 1);
+  border-color: hsl(var(--nf, var(--n)) / var(--tw-border-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--nc) / 1);
+  color: hsl(var(--nc) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-primary .badge{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--p) / 1);
+  border-color: hsl(var(--p) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--p) / 1);
+  background-color: hsl(var(--p) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--pc) / 1);
+  color: hsl(var(--pc) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-secondary .badge{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--s) / 1);
+  border-color: hsl(var(--s) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--s) / 1);
+  background-color: hsl(var(--s) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--sc) / 1);
+  color: hsl(var(--sc) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-accent .badge{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--a) / 1);
+  border-color: hsl(var(--a) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--a) / 1);
+  background-color: hsl(var(--a) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--ac) / 1);
+  color: hsl(var(--ac) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline .badge.outline{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--nf, var(--n)) / 1);
+  border-color: hsl(var(--nf, var(--n)) / var(--tw-border-opacity));
+  background-color: transparent;
+}
+#simorgh-root .btn-outline.btn-primary .badge-outline{
   --tw-border-opacity: 1;
   border-color: hsl(var(--p) / 1);
   border-color: hsl(var(--p) / var(--tw-border-opacity));
@@ -1036,7 +1120,80 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   color: hsl(var(--p) / 1);
   color: hsl(var(--p) / var(--tw-text-opacity));
 }
-#simorgh-root .btn-outline.btn-primary:hover .badge {
+#simorgh-root .btn-outline.btn-secondary .badge-outline{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--s) / 1);
+  border-color: hsl(var(--s) / var(--tw-border-opacity));
+  background-color: transparent;
+  --tw-text-opacity: 1;
+  color: hsl(var(--s) / 1);
+  color: hsl(var(--s) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-accent .badge-outline{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--a) / 1);
+  border-color: hsl(var(--a) / var(--tw-border-opacity));
+  background-color: transparent;
+  --tw-text-opacity: 1;
+  color: hsl(var(--a) / 1);
+  color: hsl(var(--a) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-info .badge-outline{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--in) / 1);
+  border-color: hsl(var(--in) / var(--tw-border-opacity));
+  background-color: transparent;
+  --tw-text-opacity: 1;
+  color: hsl(var(--in) / 1);
+  color: hsl(var(--in) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-success .badge-outline{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--su) / 1);
+  border-color: hsl(var(--su) / var(--tw-border-opacity));
+  background-color: transparent;
+  --tw-text-opacity: 1;
+  color: hsl(var(--su) / 1);
+  color: hsl(var(--su) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-warning .badge-outline{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--wa) / 1);
+  border-color: hsl(var(--wa) / var(--tw-border-opacity));
+  background-color: transparent;
+  --tw-text-opacity: 1;
+  color: hsl(var(--wa) / 1);
+  color: hsl(var(--wa) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-error .badge-outline{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--er) / 1);
+  border-color: hsl(var(--er) / var(--tw-border-opacity));
+  background-color: transparent;
+  --tw-text-opacity: 1;
+  color: hsl(var(--er) / 1);
+  color: hsl(var(--er) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline:hover .badge{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--b2, var(--b1)) / 1);
+  border-color: hsl(var(--b2, var(--b1)) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b2, var(--b1)) / 1);
+  background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--bc) / 1);
+  color: hsl(var(--bc) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline:hover .badge.outline{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--b2, var(--b1)) / 1);
+  border-color: hsl(var(--b2, var(--b1)) / var(--tw-border-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--nc) / 1);
+  color: hsl(var(--nc) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-primary:hover .badge{
   --tw-border-opacity: 1;
   border-color: hsl(var(--pc) / 1);
   border-color: hsl(var(--pc) / var(--tw-border-opacity));
@@ -1047,7 +1204,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   color: hsl(var(--p) / 1);
   color: hsl(var(--p) / var(--tw-text-opacity));
 }
-#simorgh-root .btn-outline.btn-primary:hover .badge.outline {
+#simorgh-root .btn-outline.btn-primary:hover .badge.outline{
   --tw-border-opacity: 1;
   border-color: hsl(var(--pc) / 1);
   border-color: hsl(var(--pc) / var(--tw-border-opacity));
@@ -1058,10 +1215,54 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   color: hsl(var(--pc) / 1);
   color: hsl(var(--pc) / var(--tw-text-opacity));
 }
-#simorgh-root .btm-nav > *.disabled,
-#simorgh-root .btm-nav > *.disabled:hover,
-#simorgh-root .btm-nav > *[disabled],
-#simorgh-root .btm-nav > *[disabled]:hover {
+#simorgh-root .btn-outline.btn-secondary:hover .badge{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--sc) / 1);
+  border-color: hsl(var(--sc) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--sc) / 1);
+  background-color: hsl(var(--sc) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--s) / 1);
+  color: hsl(var(--s) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-secondary:hover .badge.outline{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--sc) / 1);
+  border-color: hsl(var(--sc) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--sf, var(--s)) / 1);
+  background-color: hsl(var(--sf, var(--s)) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--sc) / 1);
+  color: hsl(var(--sc) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-accent:hover .badge{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--ac) / 1);
+  border-color: hsl(var(--ac) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--ac) / 1);
+  background-color: hsl(var(--ac) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--a) / 1);
+  color: hsl(var(--a) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-accent:hover .badge.outline{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--ac) / 1);
+  border-color: hsl(var(--ac) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--af, var(--a)) / 1);
+  background-color: hsl(var(--af, var(--a)) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--ac) / 1);
+  color: hsl(var(--ac) / var(--tw-text-opacity));
+}
+#simorgh-root .btm-nav>*.disabled,
+    #simorgh-root .btm-nav>*.disabled:hover,
+    #simorgh-root .btm-nav>*[disabled],
+    #simorgh-root .btm-nav>*[disabled]:hover{
   pointer-events: none;
   --tw-border-opacity: 0;
   background-color: hsl(var(--n) / 0.1);
@@ -1071,21 +1272,21 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   color: hsl(var(--bc) / var(--tw-text-opacity));
   --tw-text-opacity: 0.2;
 }
-#simorgh-root .btm-nav > * .label {
+#simorgh-root .btm-nav>* .label{
   font-size: 1rem;
   line-height: 1.5rem;
 }
 #simorgh-root .btn:active:hover,
-#simorgh-root .btn:active:focus {
+  #simorgh-root .btn:active:focus{
   animation: none;
 }
 #simorgh-root .btn:not(.no-animation):active:hover,
-#simorgh-root .btn:not(.no-animation):active:focus {
+  #simorgh-root .btn:not(.no-animation):active:focus{
   transform: scale(0.95);
   transform: scale(var(--btn-focus-scale, 0.95));
 }
 #simorgh-root .btn:hover,
-#simorgh-root .btn-active {
+    #simorgh-root .btn-active{
   --tw-border-opacity: 1;
   border-color: hsl(var(--nf, var(--n)) / 1);
   border-color: hsl(var(--nf, var(--n)) / var(--tw-border-opacity));
@@ -1093,11 +1294,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   background-color: hsl(var(--nf, var(--n)) / 1);
   background-color: hsl(var(--nf, var(--n)) / var(--tw-bg-opacity));
 }
-#simorgh-root .btn:focus-visible {
+#simorgh-root .btn:focus-visible{
   outline: 2px solid hsl(var(--nf));
   outline-offset: 2px;
 }
-#simorgh-root .btn-primary {
+#simorgh-root .btn-primary{
   --tw-border-opacity: 1;
   border-color: hsl(var(--p) / 1);
   border-color: hsl(var(--p) / var(--tw-border-opacity));
@@ -1109,7 +1310,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   color: hsl(var(--pc) / var(--tw-text-opacity));
 }
 #simorgh-root .btn-primary:hover,
-#simorgh-root .btn-primary.btn-active {
+    #simorgh-root .btn-primary.btn-active{
   --tw-border-opacity: 1;
   border-color: hsl(var(--pf, var(--p)) / 1);
   border-color: hsl(var(--pf, var(--p)) / var(--tw-border-opacity));
@@ -1117,24 +1318,105 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   background-color: hsl(var(--pf, var(--p)) / 1);
   background-color: hsl(var(--pf, var(--p)) / var(--tw-bg-opacity));
 }
-#simorgh-root .btn-primary:focus-visible {
+#simorgh-root .btn-primary:focus-visible{
   outline: 2px solid hsl(var(--p));
 }
+#simorgh-root .btn-success{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--su) / 1);
+  border-color: hsl(var(--su) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--su) / 1);
+  background-color: hsl(var(--su) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--suc, var(--nc)) / 1);
+  color: hsl(var(--suc, var(--nc)) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-success:hover,
+    #simorgh-root .btn-success.btn-active{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--su) / 1);
+  border-color: hsl(var(--su) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--su) / 1);
+  background-color: hsl(var(--su) / var(--tw-bg-opacity));
+}
+#simorgh-root .btn-success:focus-visible{
+  outline: 2px solid hsl(var(--su));
+}
+#simorgh-root .btn-error{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--er) / 1);
+  border-color: hsl(var(--er) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--er) / 1);
+  background-color: hsl(var(--er) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--erc, var(--nc)) / 1);
+  color: hsl(var(--erc, var(--nc)) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-error:hover,
+    #simorgh-root .btn-error.btn-active{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--er) / 1);
+  border-color: hsl(var(--er) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--er) / 1);
+  background-color: hsl(var(--er) / var(--tw-bg-opacity));
+}
+#simorgh-root .btn-error:focus-visible{
+  outline: 2px solid hsl(var(--er));
+}
 #simorgh-root .btn.glass:hover,
-#simorgh-root .btn.glass.btn-active {
+    #simorgh-root .btn.glass.btn-active{
   --glass-opacity: 25%;
   --glass-border-opacity: 15%;
 }
-#simorgh-root .btn.glass:focus-visible {
+#simorgh-root .btn.glass:focus-visible{
   outline: 2px solid currentColor;
 }
-#simorgh-root .btn-outline.btn-primary {
+#simorgh-root .btn-ghost{
+  border-width: 1px;
+  border-color: transparent;
+  background-color: transparent;
+  color: currentColor;
+}
+#simorgh-root .btn-ghost:hover,
+    #simorgh-root .btn-ghost.btn-active{
+  --tw-border-opacity: 0;
+  background-color: hsl(var(--bc) / 0.2);
+  background-color: hsl(var(--bc) / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.2;
+}
+#simorgh-root .btn-ghost:focus-visible{
+  outline: 2px solid currentColor;
+}
+#simorgh-root .btn-outline{
+  border-color: currentColor;
+  background-color: transparent;
+  --tw-text-opacity: 1;
+  color: hsl(var(--bc) / 1);
+  color: hsl(var(--bc) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline:hover,
+    #simorgh-root .btn-outline.btn-active{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--bc) / 1);
+  border-color: hsl(var(--bc) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--bc) / 1);
+  background-color: hsl(var(--bc) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--b1) / 1);
+  color: hsl(var(--b1) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-primary{
   --tw-text-opacity: 1;
   color: hsl(var(--p) / 1);
   color: hsl(var(--p) / var(--tw-text-opacity));
 }
 #simorgh-root .btn-outline.btn-primary:hover,
-#simorgh-root .btn-outline.btn-primary.btn-active {
+      #simorgh-root .btn-outline.btn-primary.btn-active{
   --tw-border-opacity: 1;
   border-color: hsl(var(--pf, var(--p)) / 1);
   border-color: hsl(var(--pf, var(--p)) / var(--tw-border-opacity));
@@ -1145,10 +1427,112 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   color: hsl(var(--pc) / 1);
   color: hsl(var(--pc) / var(--tw-text-opacity));
 }
+#simorgh-root .btn-outline.btn-secondary{
+  --tw-text-opacity: 1;
+  color: hsl(var(--s) / 1);
+  color: hsl(var(--s) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-secondary:hover,
+      #simorgh-root .btn-outline.btn-secondary.btn-active{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--sf, var(--s)) / 1);
+  border-color: hsl(var(--sf, var(--s)) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--sf, var(--s)) / 1);
+  background-color: hsl(var(--sf, var(--s)) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--sc) / 1);
+  color: hsl(var(--sc) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-accent{
+  --tw-text-opacity: 1;
+  color: hsl(var(--a) / 1);
+  color: hsl(var(--a) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-accent:hover,
+      #simorgh-root .btn-outline.btn-accent.btn-active{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--af, var(--a)) / 1);
+  border-color: hsl(var(--af, var(--a)) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--af, var(--a)) / 1);
+  background-color: hsl(var(--af, var(--a)) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--ac) / 1);
+  color: hsl(var(--ac) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-success{
+  --tw-text-opacity: 1;
+  color: hsl(var(--su) / 1);
+  color: hsl(var(--su) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-success:hover,
+      #simorgh-root .btn-outline.btn-success.btn-active{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--su) / 1);
+  border-color: hsl(var(--su) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--su) / 1);
+  background-color: hsl(var(--su) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--suc, var(--nc)) / 1);
+  color: hsl(var(--suc, var(--nc)) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-info{
+  --tw-text-opacity: 1;
+  color: hsl(var(--in) / 1);
+  color: hsl(var(--in) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-info:hover,
+      #simorgh-root .btn-outline.btn-info.btn-active{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--in) / 1);
+  border-color: hsl(var(--in) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--in) / 1);
+  background-color: hsl(var(--in) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--inc, var(--nc)) / 1);
+  color: hsl(var(--inc, var(--nc)) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-warning{
+  --tw-text-opacity: 1;
+  color: hsl(var(--wa) / 1);
+  color: hsl(var(--wa) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-warning:hover,
+      #simorgh-root .btn-outline.btn-warning.btn-active{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--wa) / 1);
+  border-color: hsl(var(--wa) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--wa) / 1);
+  background-color: hsl(var(--wa) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--wac, var(--nc)) / 1);
+  color: hsl(var(--wac, var(--nc)) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-error{
+  --tw-text-opacity: 1;
+  color: hsl(var(--er) / 1);
+  color: hsl(var(--er) / var(--tw-text-opacity));
+}
+#simorgh-root .btn-outline.btn-error:hover,
+      #simorgh-root .btn-outline.btn-error.btn-active{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--er) / 1);
+  border-color: hsl(var(--er) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--er) / 1);
+  background-color: hsl(var(--er) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--erc, var(--nc)) / 1);
+  color: hsl(var(--erc, var(--nc)) / var(--tw-text-opacity));
+}
 #simorgh-root .btn-disabled,
-#simorgh-root .btn-disabled:hover,
-#simorgh-root .btn[disabled],
-#simorgh-root .btn[disabled]:hover {
+  #simorgh-root .btn-disabled:hover,
+  #simorgh-root .btn[disabled],
+  #simorgh-root .btn[disabled]:hover{
   --tw-border-opacity: 0;
   background-color: hsl(var(--n) / 0.2);
   background-color: hsl(var(--n) / var(--tw-bg-opacity));
@@ -1158,21 +1542,21 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   --tw-text-opacity: 0.2;
 }
 #simorgh-root .btn.loading.btn-square:before,
-#simorgh-root .btn.loading.btn-circle:before {
+    #simorgh-root .btn.loading.btn-circle:before{
   margin-right: 0px;
 }
 #simorgh-root .btn.loading.btn-xl:before,
-#simorgh-root .btn.loading.btn-lg:before {
+    #simorgh-root .btn.loading.btn-lg:before{
   height: 1.25rem;
   width: 1.25rem;
 }
 #simorgh-root .btn.loading.btn-sm:before,
-#simorgh-root .btn.loading.btn-xs:before {
+    #simorgh-root .btn.loading.btn-xs:before{
   height: 0.75rem;
   width: 0.75rem;
 }
-#simorgh-root .btn-group > input[type='radio']:checked.btn,
-#simorgh-root .btn-group > .btn-active {
+#simorgh-root .btn-group > input[type="radio"]:checked.btn,
+  #simorgh-root .btn-group > .btn-active{
   --tw-border-opacity: 1;
   border-color: hsl(var(--p) / 1);
   border-color: hsl(var(--p) / var(--tw-border-opacity));
@@ -1183,75 +1567,77 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   color: hsl(var(--pc) / 1);
   color: hsl(var(--pc) / var(--tw-text-opacity));
 }
-#simorgh-root .btn-group > input[type='radio']:checked.btn:focus-visible,
-#simorgh-root .btn-group > .btn-active:focus-visible {
+#simorgh-root .btn-group > input[type="radio"]:checked.btn:focus-visible, #simorgh-root .btn-group > .btn-active:focus-visible{
   outline: 2px solid hsl(var(--p));
 }
-@keyframes button-pop {
-  0% {
+@keyframes button-pop{
+
+  0%{
     transform: scale(0.95);
     transform: scale(var(--btn-focus-scale, 0.95));
   }
 
-  40% {
+  40%{
     transform: scale(1.02);
   }
 
-  100% {
+  100%{
     transform: scale(1);
   }
 }
-#simorgh-root .checkbox:focus-visible {
+#simorgh-root .checkbox:focus-visible{
   outline: 2px solid hsl(var(--bc));
   outline-offset: 2px;
 }
 #simorgh-root .checkbox:checked,
-#simorgh-root .checkbox[checked='true'],
-#simorgh-root .checkbox[aria-checked='true'] {
+  #simorgh-root .checkbox[checked="true"],
+  #simorgh-root .checkbox[aria-checked="true"]{
   --tw-bg-opacity: 1;
   background-color: hsl(var(--bc) / 1);
   background-color: hsl(var(--bc) / var(--tw-bg-opacity));
   background-repeat: no-repeat;
   animation: checkmark 0.2s ease-in-out;
   animation: checkmark var(--animation-input, 0.2s) ease-in-out;
-  background-image: linear-gradient(
-      -45deg,
-      transparent 65%,
-      hsl(var(--chkbg)) 65.99%
-    ),
-    linear-gradient(45deg, transparent 75%, hsl(var(--chkbg)) 75.99%),
-    linear-gradient(-45deg, hsl(var(--chkbg)) 40%, transparent 40.99%),
-    linear-gradient(
-      45deg,
-      hsl(var(--chkbg)) 30%,
-      hsl(var(--chkfg)) 30.99%,
-      hsl(var(--chkfg)) 40%,
-      transparent 40.99%
-    ),
-    linear-gradient(-45deg, hsl(var(--chkfg)) 50%, hsl(var(--chkbg)) 50.99%);
+  background-image: linear-gradient(-45deg, transparent 65%, hsl(var(--chkbg)) 65.99%), linear-gradient(45deg, transparent 75%, hsl(var(--chkbg)) 75.99%), linear-gradient(-45deg, hsl(var(--chkbg)) 40%, transparent 40.99%), linear-gradient(45deg, hsl(var(--chkbg)) 30%, hsl(var(--chkfg)) 30.99%, hsl(var(--chkfg)) 40%, transparent 40.99%), linear-gradient(-45deg, hsl(var(--chkfg)) 50%, hsl(var(--chkbg)) 50.99%);
 }
-#simorgh-root .checkbox:indeterminate {
+#simorgh-root .checkbox:indeterminate{
   --tw-bg-opacity: 1;
   background-color: hsl(var(--bc) / 1);
   background-color: hsl(var(--bc) / var(--tw-bg-opacity));
   background-repeat: no-repeat;
   animation: checkmark 0.2s ease-in-out;
   animation: checkmark var(--animation-input, 0.2s) ease-in-out;
-  background-image: linear-gradient(
-      90deg,
-      transparent 80%,
-      hsl(var(--chkbg)) 80%
-    ),
-    linear-gradient(-90deg, transparent 80%, hsl(var(--chkbg)) 80%),
-    linear-gradient(
-      0deg,
-      hsl(var(--chkbg)) 43%,
-      hsl(var(--chkfg)) 43%,
-      hsl(var(--chkfg)) 57%,
-      hsl(var(--chkbg)) 57%
-    );
+  background-image: linear-gradient(90deg, transparent 80%, hsl(var(--chkbg)) 80%), linear-gradient(-90deg, transparent 80%, hsl(var(--chkbg)) 80%), linear-gradient(0deg, hsl(var(--chkbg)) 43%, hsl(var(--chkfg)) 43%, hsl(var(--chkfg)) 57%, hsl(var(--chkbg)) 57%);
 }
-#simorgh-root .checkbox:disabled {
+#simorgh-root .checkbox-secondary{
+  --chkbg: var(--s);
+  --chkfg: var(--sc);
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--s) / 1);
+  border-color: hsl(var(--s) / var(--tw-border-opacity));
+}
+#simorgh-root .checkbox-secondary:hover{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--s) / 1);
+  border-color: hsl(var(--s) / var(--tw-border-opacity));
+}
+#simorgh-root .checkbox-secondary:focus-visible{
+  outline: 2px solid hsl(var(--s));
+}
+#simorgh-root .checkbox-secondary:checked,
+    #simorgh-root .checkbox-secondary[checked="true"],
+    #simorgh-root .checkbox-secondary[aria-checked="true"]{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--s) / 1);
+  border-color: hsl(var(--s) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--s) / 1);
+  background-color: hsl(var(--s) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--sc) / 1);
+  color: hsl(var(--sc) / var(--tw-text-opacity));
+}
+#simorgh-root .checkbox:disabled{
   cursor: not-allowed;
   border-color: transparent;
   --tw-bg-opacity: 1;
@@ -1259,92 +1645,82 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   background-color: hsl(var(--bc) / var(--tw-bg-opacity));
   opacity: 0.2;
 }
-@keyframes checkmark {
-  0% {
+@keyframes checkmark{
+
+  0%{
     background-position-y: 5px;
   }
 
-  50% {
+  50%{
     background-position-y: -2px;
   }
 
-  100% {
+  100%{
     background-position-y: 0;
   }
 }
-#simorgh-root [dir='rtl'] .checkbox:checked,
-#simorgh-root [dir='rtl'] .checkbox[checked='true'],
-#simorgh-root [dir='rtl'] .checkbox[aria-checked='true'] {
-  background-image: linear-gradient(
-      45deg,
-      transparent 65%,
-      hsl(var(--chkbg)) 65.99%
-    ),
-    linear-gradient(-45deg, transparent 75%, hsl(var(--chkbg)) 75.99%),
-    linear-gradient(45deg, hsl(var(--chkbg)) 40%, transparent 40.99%),
-    linear-gradient(
-      -45deg,
-      hsl(var(--chkbg)) 30%,
-      hsl(var(--chkfg)) 30.99%,
-      hsl(var(--chkfg)) 40%,
-      transparent 40.99%
-    ),
-    linear-gradient(45deg, hsl(var(--chkfg)) 50%, hsl(var(--chkbg)) 50.99%);
+#simorgh-root [dir="rtl"] .checkbox:checked,
+    #simorgh-root [dir="rtl"] .checkbox[checked="true"],
+    #simorgh-root [dir="rtl"] .checkbox[aria-checked="true"]{
+  background-image: linear-gradient(45deg, transparent 65%, hsl(var(--chkbg)) 65.99%), linear-gradient(-45deg, transparent 75%, hsl(var(--chkbg)) 75.99%), linear-gradient(45deg, hsl(var(--chkbg)) 40%, transparent 40.99%), linear-gradient(-45deg, hsl(var(--chkbg)) 30%, hsl(var(--chkfg)) 30.99%, hsl(var(--chkfg)) 40%, transparent 40.99%), linear-gradient(45deg, hsl(var(--chkfg)) 50%, hsl(var(--chkbg)) 50.99%);
 }
-#simorgh-root
-  .drawer-toggle:focus-visible
-  ~ .drawer-content
-  .drawer-button.btn-primary {
+#simorgh-root .drawer-toggle:focus-visible ~ .drawer-content .drawer-button.btn-primary{
   outline: 2px solid hsl(var(--p));
 }
-#simorgh-root .label a:hover {
+#simorgh-root .drawer-toggle:focus-visible ~ .drawer-content .drawer-button.btn-success{
+  outline: 2px solid hsl(var(--su));
+}
+#simorgh-root .drawer-toggle:focus-visible ~ .drawer-content .drawer-button.btn-error{
+  outline: 2px solid hsl(var(--er));
+}
+#simorgh-root .drawer-toggle:focus-visible ~ .drawer-content .drawer-button.btn-ghost{
+  outline: 2px solid currentColor;
+}
+#simorgh-root .dropdown.dropdown-open .dropdown-content,
+#simorgh-root .dropdown.dropdown-hover:hover .dropdown-content,
+#simorgh-root .dropdown:focus .dropdown-content,
+#simorgh-root .dropdown:focus-within .dropdown-content{
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(1) scaleY(1);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+#simorgh-root .label a:hover{
   --tw-text-opacity: 1;
   color: hsl(var(--bc) / 1);
   color: hsl(var(--bc) / var(--tw-text-opacity));
 }
-#simorgh-root .link:focus {
+#simorgh-root .link:focus{
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
-#simorgh-root .link:focus-visible {
+#simorgh-root .link:focus-visible{
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
 #simorgh-root .menu.horizontal > li.bordered > a,
-#simorgh-root .menu.horizontal > li.bordered > button,
-#simorgh-root .menu.horizontal > li.bordered > span {
+        #simorgh-root .menu.horizontal > li.bordered > button,
+        #simorgh-root .menu.horizontal > li.bordered > span{
   border-left-width: 0px;
   border-bottom-width: 4px;
   --tw-border-opacity: 1;
   border-color: hsl(var(--p) / 1);
   border-color: hsl(var(--p) / var(--tw-border-opacity));
 }
-#simorgh-root
-  #simorgh-root
-  .menu[class*=' px-']:not(.menu[class*=' px-0'])
-  li
-  > *,
-#simorgh-root
-  #simorgh-root
-  .menu[class^='px-']:not(.menu[class^='px-0'])
-  li
-  > *,
-#simorgh-root
-  #simorgh-root
-  .menu[class*=' p-']:not(.menu[class*=' p-0'])
-  li
-  > *,
-#simorgh-root .menu[class^='p-']:not(.menu[class^='p-0']) li > * {
+#simorgh-root .menu[class*=" px-"]:not(.menu[class*=" px-0"]) li > *,
+  #simorgh-root .menu[class^="px-"]:not(.menu[class^="px-0"]) li > *,
+  #simorgh-root .menu[class*=" p-"]:not(.menu[class*=" p-0"]) li > *,
+  #simorgh-root .menu[class^="p-"]:not(.menu[class^="p-0"]) li > *{
   border-radius: 0.5rem;
   border-radius: var(--rounded-btn, 0.5rem);
 }
-#simorgh-root .menu :where(li.bordered > *) {
+#simorgh-root .menu :where(li.bordered > *){
   border-left-width: 4px;
   --tw-border-opacity: 1;
   border-color: hsl(var(--p) / 1);
   border-color: hsl(var(--p) / var(--tw-border-opacity));
 }
-#simorgh-root .menu :where(li) > :where(*:not(ul)) {
+#simorgh-root .menu :where(li) > :where(*:not(ul)){
   gap: 0.75rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -1352,30 +1728,14 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   padding-bottom: 0.75rem;
   color: currentColor;
 }
-#simorgh-root
-  #simorgh-root
-  .menu
-  :where(li:not(.menu-title):not(:empty))
-  > :where(*:not(ul):focus),
-#simorgh-root
-  #simorgh-root
-  .menu
-  :where(li:not(.menu-title):not(:empty))
-  > :where(*:not(ul):hover) {
+#simorgh-root .menu :where(li:not(.menu-title):not(:empty)) > :where(*:not(ul):focus),
+  #simorgh-root .menu :where(li:not(.menu-title):not(:empty)) > :where(*:not(ul):hover){
   background-color: hsl(var(--bc) / 0.1);
   background-color: hsl(var(--bc) / var(--tw-bg-opacity));
   --tw-bg-opacity: 0.1;
 }
-#simorgh-root
-  #simorgh-root
-  .menu
-  :where(li:not(.menu-title):not(:empty))
-  > :where(:not(ul).active),
-#simorgh-root
-  #simorgh-root
-  .menu
-  :where(li:not(.menu-title):not(:empty))
-  > :where(*:not(ul):active) {
+#simorgh-root .menu :where(li:not(.menu-title):not(:empty)) > :where(:not(ul).active),
+  #simorgh-root .menu :where(li:not(.menu-title):not(:empty)) > :where(*:not(ul):active){
   --tw-bg-opacity: 1;
   background-color: hsl(var(--p) / 1);
   background-color: hsl(var(--p) / var(--tw-bg-opacity));
@@ -1383,7 +1743,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   color: hsl(var(--pc) / 1);
   color: hsl(var(--pc) / var(--tw-text-opacity));
 }
-#simorgh-root .menu :where(li:empty) {
+#simorgh-root .menu :where(li:empty){
   margin-left: 1rem;
   margin-right: 1rem;
   margin-top: 0.5rem;
@@ -1393,78 +1753,53 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   background-color: hsl(var(--bc) / var(--tw-bg-opacity));
   --tw-bg-opacity: 0.1;
 }
-#simorgh-root .menu li.disabled > * {
+#simorgh-root .menu li.disabled > *{
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   color: hsl(var(--bc) / 0.2);
   color: hsl(var(--bc) / var(--tw-text-opacity));
   --tw-text-opacity: 0.2;
 }
-#simorgh-root .menu li.disabled > *:hover {
+#simorgh-root .menu li.disabled > *:hover{
   background-color: transparent;
 }
-#simorgh-root .menu li.hover-bordered a {
+#simorgh-root .menu li.hover-bordered a{
   border-left-width: 4px;
   border-color: transparent;
 }
-#simorgh-root .menu li.hover-bordered a:hover {
+#simorgh-root .menu li.hover-bordered a:hover{
   --tw-border-opacity: 1;
   border-color: hsl(var(--p) / 1);
   border-color: hsl(var(--p) / var(--tw-border-opacity));
 }
 #simorgh-root .menu.compact li > a,
-#simorgh-root .menu.compact li > span {
+      #simorgh-root .menu.compact li > span{
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
-#simorgh-root .menu .menu-title {
+#simorgh-root .menu .menu-title{
   font-size: 0.75rem;
   line-height: 1rem;
   font-weight: 700;
   opacity: 0.4;
 }
-#simorgh-root .menu .menu-title > * {
+#simorgh-root .menu .menu-title > *{
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
-#simorgh-root .menu :where(li:not(.disabled)) > :where(*:not(ul)) {
+#simorgh-root .menu :where(li:not(.disabled)) > :where(*:not(ul)){
   outline: 2px solid transparent;
   outline-offset: 2px;
-  transition-property:
-    color,
-    background-color,
-    border-color,
-    text-decoration-color,
-    fill,
-    stroke,
-    opacity,
-    box-shadow,
-    transform,
-    filter,
-    -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-    backdrop-filter;
-  transition-property:
-    color,
-    background-color,
-    border-color,
-    text-decoration-color,
-    fill,
-    stroke,
-    opacity,
-    box-shadow,
-    transform,
-    filter,
-    backdrop-filter,
-    -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-#simorgh-root .menu > :where(li:first-child) {
+#simorgh-root .menu > :where(li:first-child){
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   border-bottom-right-radius: 0;
@@ -1472,12 +1807,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-bottom-left-radius: 0;
   border-bottom-left-radius: initial;
 }
-#simorgh-root
-  #simorgh-root
-  #simorgh-root
-  .menu
-  > :where(li:first-child)
-  > :where(:not(ul)) {
+#simorgh-root .menu > :where(li:first-child) > :where(:not(ul)){
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   border-bottom-right-radius: 0;
@@ -1485,7 +1815,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-bottom-left-radius: 0;
   border-bottom-left-radius: initial;
 }
-#simorgh-root .menu > :where(li:last-child) {
+#simorgh-root .menu > :where(li:last-child){
   border-top-left-radius: 0;
   border-top-left-radius: initial;
   border-top-right-radius: 0;
@@ -1493,12 +1823,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 }
-#simorgh-root
-  #simorgh-root
-  #simorgh-root
-  .menu
-  > :where(li:last-child)
-  > :where(:not(ul)) {
+#simorgh-root .menu > :where(li:last-child) > :where(:not(ul)){
   border-top-left-radius: 0;
   border-top-left-radius: initial;
   border-top-right-radius: 0;
@@ -1506,36 +1831,30 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 }
-#simorgh-root .menu > :where(li:first-child:last-child) {
+#simorgh-root .menu > :where(li:first-child:last-child){
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 }
-#simorgh-root .menu > :where(li:first-child:last-child) > :where(:not(ul)) {
+#simorgh-root .menu > :where(li:first-child:last-child) > :where(:not(ul)){
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 }
-#simorgh-root .menu > :where(li) > :where(ul) :where(li) {
+#simorgh-root .menu > :where(li) > :where(ul) :where(li){
   width: 100%;
   white-space: nowrap;
 }
-#simorgh-root .menu > :where(li) > :where(ul) :where(li) :where(ul) {
+#simorgh-root .menu > :where(li) > :where(ul) :where(li) :where(ul){
   padding-left: 1rem;
 }
-#simorgh-root .menu > :where(li) > :where(ul) :where(li) > :where(:not(ul)) {
+#simorgh-root .menu > :where(li) > :where(ul) :where(li) > :where(:not(ul)){
   width: 100%;
   white-space: nowrap;
 }
-#simorgh-root
-  #simorgh-root
-  #simorgh-root
-  .menu
-  > :where(li)
-  > :where(ul)
-  > :where(li:first-child) {
+#simorgh-root .menu > :where(li) > :where(ul) > :where(li:first-child){
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   border-bottom-right-radius: 0;
@@ -1543,14 +1862,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-bottom-left-radius: 0;
   border-bottom-left-radius: initial;
 }
-#simorgh-root
-  #simorgh-root
-  #simorgh-root
-  .menu
-  > :where(li)
-  > :where(ul)
-  > :where(li:first-child)
-  > :where(:not(ul)) {
+#simorgh-root .menu > :where(li) > :where(ul) > :where(li:first-child) > :where(:not(ul)){
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   border-bottom-right-radius: 0;
@@ -1558,13 +1870,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-bottom-left-radius: 0;
   border-bottom-left-radius: initial;
 }
-#simorgh-root
-  #simorgh-root
-  #simorgh-root
-  .menu
-  > :where(li)
-  > :where(ul)
-  > :where(li:last-child) {
+#simorgh-root .menu > :where(li) > :where(ul) > :where(li:last-child){
   border-top-left-radius: 0;
   border-top-left-radius: initial;
   border-top-right-radius: 0;
@@ -1572,14 +1878,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 }
-#simorgh-root
-  #simorgh-root
-  #simorgh-root
-  .menu
-  > :where(li)
-  > :where(ul)
-  > :where(li:last-child)
-  > :where(:not(ul)) {
+#simorgh-root .menu > :where(li) > :where(ul) > :where(li:last-child) > :where(:not(ul)){
   border-top-left-radius: 0;
   border-top-left-radius: initial;
   border-top-right-radius: 0;
@@ -1587,104 +1886,227 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 }
-#simorgh-root
-  .menu
-  > :where(li)
-  > :where(ul)
-  > :where(li:first-child:last-child) {
+#simorgh-root .menu > :where(li) > :where(ul) > :where(li:first-child:last-child){
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 }
-#simorgh-root
-  .menu
-  > :where(li)
-  > :where(ul)
-  > :where(li:first-child:last-child)
-  > :where(:not(ul)) {
+#simorgh-root .menu > :where(li) > :where(ul) > :where(li:first-child:last-child) > :where(:not(ul)){
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 }
-@keyframes progress-loading {
-  50% {
+#simorgh-root .progress::-moz-progress-bar{
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--n) / 1);
+  background-color: hsl(var(--n) / var(--tw-bg-opacity));
+}
+#simorgh-root .progress:indeterminate::after{
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--n) / 1);
+  background-color: hsl(var(--n) / var(--tw-bg-opacity));
+  content: "";
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: -40%;
+  width: 33.333333%;
+  border-radius: 1rem;
+  border-radius: var(--rounded-box, 1rem);
+  animation: progress-loading 5s infinite ease-in-out;
+}
+#simorgh-root .progress::-webkit-progress-bar{
+  background-color: hsl(var(--n) / 0.2);
+  background-color: hsl(var(--n) / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.2;
+  border-radius: 1rem;
+  border-radius: var(--rounded-box, 1rem);
+}
+#simorgh-root .progress::-webkit-progress-value{
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--nf, var(--n)) / 1);
+  background-color: hsl(var(--nf, var(--n)) / var(--tw-bg-opacity));
+  border-radius: 1rem;
+  border-radius: var(--rounded-box, 1rem);
+}
+@keyframes progress-loading{
+
+  50%{
     left: 107%;
   }
 }
-@keyframes radiomark {
-  0% {
-    box-shadow:
-      0 0 0 12px hsl(var(--b1)) inset,
-      0 0 0 12px hsl(var(--b1)) inset;
+@keyframes radiomark{
+
+  0%{
+    box-shadow: 0 0 0 12px hsl(var(--b1)) inset, 0 0 0 12px hsl(var(--b1)) inset;
   }
 
-  50% {
-    box-shadow:
-      0 0 0 3px hsl(var(--b1)) inset,
-      0 0 0 3px hsl(var(--b1)) inset;
+  50%{
+    box-shadow: 0 0 0 3px hsl(var(--b1)) inset, 0 0 0 3px hsl(var(--b1)) inset;
   }
 
-  100% {
-    box-shadow:
-      0 0 0 4px hsl(var(--b1)) inset,
-      0 0 0 4px hsl(var(--b1)) inset;
+  100%{
+    box-shadow: 0 0 0 4px hsl(var(--b1)) inset, 0 0 0 4px hsl(var(--b1)) inset;
   }
 }
-@keyframes rating-pop {
-  0% {
+@keyframes rating-pop{
+
+  0%{
     transform: translateY(-0.125em);
   }
 
-  40% {
+  40%{
     transform: translateY(-0.125em);
   }
 
-  100% {
+  100%{
     transform: translateY(0);
   }
 }
-@keyframes toast-pop {
-  0% {
+#simorgh-root .select:focus{
+  outline: 2px solid hsla(var(--bc) / 0.2);
+  outline-offset: 2px;
+}
+#simorgh-root .select-disabled,
+  #simorgh-root .select[disabled]{
+  cursor: not-allowed;
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--b2, var(--b1)) / 1);
+  border-color: hsl(var(--b2, var(--b1)) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b2, var(--b1)) / 1);
+  background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity));
+  --tw-text-opacity: 0.2;
+}
+#simorgh-root .select-disabled::-moz-placeholder, #simorgh-root .select[disabled]::-moz-placeholder{
+  color: hsl(var(--bc) / 0.2);
+  color: hsl(var(--bc) / var(--tw-placeholder-opacity));
+  --tw-placeholder-opacity: 0.2;
+}
+#simorgh-root .select-disabled::placeholder,
+  #simorgh-root .select[disabled]::placeholder{
+  color: hsl(var(--bc) / 0.2);
+  color: hsl(var(--bc) / var(--tw-placeholder-opacity));
+  --tw-placeholder-opacity: 0.2;
+}
+#simorgh-root .select-multiple,
+  #simorgh-root .select[multiple],
+  #simorgh-root .select[size].select:not([size="1"]){
+  background-image: none;
+  padding-right: 1rem;
+}
+#simorgh-root [dir="rtl"] .select{
+  background-position: calc(0% + 12px) calc(1px + 50%), calc(0% + 16px) calc(1px + 50%);
+}
+#simorgh-root .toast>*{
+  animation: toast-pop 0.25s ease-out;
+}
+@keyframes toast-pop{
+
+  0%{
     transform: scale(0.9);
     opacity: 0;
   }
 
-  100% {
+  100%{
     transform: scale(1);
     opacity: 1;
   }
 }
-#simorgh-root .btn-sm {
+#simorgh-root .rounded-box{
+  border-radius: 1rem;
+  border-radius: var(--rounded-box, 1rem);
+}
+#simorgh-root .badge-xs{
+  height: 0.75rem;
+  font-size: 0.75rem;
+  line-height: .75rem;
+  padding-left: 0.313rem;
+  padding-right: 0.313rem;
+}
+#simorgh-root .btn-sm{
   height: 2rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   min-height: 2rem;
   font-size: 0.875rem;
 }
-#simorgh-root .btn-square:where(.btn-sm) {
+#simorgh-root .btn-square:where(.btn-sm){
   height: 2rem;
   width: 2rem;
   padding: 0px;
 }
-#simorgh-root .btn-circle:where(.btn-sm) {
+#simorgh-root .btn-circle:where(.btn-sm){
   height: 2rem;
   width: 2rem;
   border-radius: 9999px;
   padding: 0px;
 }
-#simorgh-root .btn-group .btn:not(:first-child):not(:last-child) {
+#simorgh-root .checkbox-xs{
+  height: 1rem;
+  width: 1rem;
+}
+#simorgh-root :where(.toast){
+  right: 0px;
+  left: auto;
+  top: auto;
+  bottom: 0px;
+  --tw-translate-x: 0px;
+  --tw-translate-y: 0px;
+  transform: translate(0px, 0px) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+#simorgh-root .toast:where(.toast-start){
+  right: auto;
+  left: 0px;
+  --tw-translate-x: 0px;
+  transform: translate(0px, var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+#simorgh-root .toast:where(.toast-center){
+  right: 50%;
+  left: 50%;
+  --tw-translate-x: -50%;
+  transform: translate(-50%, var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+#simorgh-root .toast:where(.toast-end){
+  right: 0px;
+  left: auto;
+  --tw-translate-x: 0px;
+  transform: translate(0px, var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+#simorgh-root .toast:where(.toast-bottom){
+  top: auto;
+  bottom: 0px;
+  --tw-translate-y: 0px;
+  transform: translate(var(--tw-translate-x), 0px) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+#simorgh-root .toast:where(.toast-middle){
+  top: 50%;
+  bottom: auto;
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), -50%) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+#simorgh-root .toast:where(.toast-top){
+  top: 0px;
+  bottom: auto;
+  --tw-translate-y: 0px;
+  transform: translate(var(--tw-translate-x), 0px) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+#simorgh-root .btn-group .btn:not(:first-child):not(:last-child){
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-#simorgh-root
-  #simorgh-root
-  #simorgh-root
-  .btn-group
-  .btn:first-child:not(:last-child) {
+#simorgh-root .btn-group .btn:first-child:not(:last-child){
   margin-top: -0px;
   margin-left: -1px;
   border-top-left-radius: 0.5rem;
@@ -1694,11 +2116,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-bottom-left-radius: var(--rounded-btn, 0.5rem);
   border-bottom-right-radius: 0;
 }
-#simorgh-root
-  #simorgh-root
-  #simorgh-root
-  .btn-group
-  .btn:last-child:not(:first-child) {
+#simorgh-root .btn-group .btn:last-child:not(:first-child){
   border-top-left-radius: 0;
   border-top-right-radius: 0.5rem;
   border-top-right-radius: var(--rounded-btn, 0.5rem);
@@ -1706,20 +2124,13 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-bottom-right-radius: 0.5rem;
   border-bottom-right-radius: var(--rounded-btn, 0.5rem);
 }
-#simorgh-root
-  #simorgh-root
-  .btn-group-horizontal
-  .btn:not(:first-child):not(:last-child) {
+#simorgh-root .btn-group-horizontal .btn:not(:first-child):not(:last-child){
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-#simorgh-root
-  #simorgh-root
-  #simorgh-root
-  .btn-group-horizontal
-  .btn:first-child:not(:last-child) {
+#simorgh-root .btn-group-horizontal .btn:first-child:not(:last-child){
   margin-top: -0px;
   margin-left: -1px;
   border-top-left-radius: 0.5rem;
@@ -1729,11 +2140,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-bottom-left-radius: var(--rounded-btn, 0.5rem);
   border-bottom-right-radius: 0;
 }
-#simorgh-root
-  #simorgh-root
-  #simorgh-root
-  .btn-group-horizontal
-  .btn:last-child:not(:first-child) {
+#simorgh-root .btn-group-horizontal .btn:last-child:not(:first-child){
   border-top-left-radius: 0;
   border-top-right-radius: 0.5rem;
   border-top-right-radius: var(--rounded-btn, 0.5rem);
@@ -1741,11 +2148,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-bottom-right-radius: 0.5rem;
   border-bottom-right-radius: var(--rounded-btn, 0.5rem);
 }
-#simorgh-root
-  #simorgh-root
-  #simorgh-root
-  .btn-group-vertical
-  .btn:first-child:not(:last-child) {
+#simorgh-root .btn-group-vertical .btn:first-child:not(:last-child){
   margin-top: -1px;
   margin-left: -0px;
   border-top-left-radius: 0.5rem;
@@ -1755,11 +2158,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-#simorgh-root
-  #simorgh-root
-  #simorgh-root
-  .btn-group-vertical
-  .btn:last-child:not(:first-child) {
+#simorgh-root .btn-group-vertical .btn:last-child:not(:first-child){
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-bottom-left-radius: 0.5rem;
@@ -1767,622 +2166,716 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-bottom-right-radius: 0.5rem;
   border-bottom-right-radius: var(--rounded-btn, 0.5rem);
 }
-#simorgh-root .fixed {
+#simorgh-root .fixed{
   position: fixed;
 }
-#simorgh-root .absolute {
+#simorgh-root .absolute{
   position: absolute;
 }
-#simorgh-root .relative {
+#simorgh-root .relative{
   position: relative;
 }
-#simorgh-root .bottom-10 {
+#simorgh-root .sticky{
+  position: sticky;
+}
+#simorgh-root .bottom-0{
+  bottom: 0px;
+}
+#simorgh-root .bottom-10{
   bottom: 2.5rem;
 }
-#simorgh-root .left-0 {
+#simorgh-root .left-0{
   left: 0px;
 }
-#simorgh-root .left-1\/2 {
+#simorgh-root .left-1\/2{
   left: 50%;
 }
-#simorgh-root .right-8 {
-  right: 2rem;
+#simorgh-root .right-1\/2{
+  right: 50%;
 }
-#simorgh-root .top-0 {
+#simorgh-root .right-6{
+  right: 1.5rem;
+}
+#simorgh-root .top-0{
   top: 0px;
 }
-#simorgh-root .top-24 {
-  top: 6rem;
-}
-#simorgh-root .top-9 {
+#simorgh-root .top-9{
   top: 2.25rem;
 }
-#simorgh-root .z-10 {
+#simorgh-root .z-10{
   z-index: 10;
 }
-#simorgh-root .m-auto {
+#simorgh-root .z-\[1\]{
+  z-index: 1;
+}
+#simorgh-root .m-auto{
   margin: auto;
 }
-#simorgh-root .mb-1 {
+#simorgh-root .-mx-6{
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+#simorgh-root .mb-1{
   margin-bottom: 0.25rem;
 }
-#simorgh-root .ml-10 {
+#simorgh-root .ml-10{
   margin-left: 2.5rem;
 }
-#simorgh-root .mt-2 {
+#simorgh-root .mt-2{
   margin-top: 0.5rem;
 }
-#simorgh-root .block {
+#simorgh-root .mt-4{
+  margin-top: 1rem;
+}
+#simorgh-root .block{
   display: block;
 }
-#simorgh-root .inline-block {
+#simorgh-root .inline-block{
   display: inline-block;
 }
-#simorgh-root .flex {
+#simorgh-root .flex{
   display: flex;
 }
-#simorgh-root .grid {
+#simorgh-root .grid{
   display: grid;
 }
-#simorgh-root .contents {
+#simorgh-root .contents{
   display: contents;
 }
-#simorgh-root .hidden {
+#simorgh-root .hidden{
   display: none;
 }
-#simorgh-root .h-0 {
+#simorgh-root .h-0{
   height: 0px;
 }
-#simorgh-root .h-10 {
+#simorgh-root .h-10{
   height: 2.5rem;
 }
-#simorgh-root .h-14 {
+#simorgh-root .h-14{
   height: 3.5rem;
 }
-#simorgh-root .h-16 {
+#simorgh-root .h-16{
   height: 4rem;
 }
-#simorgh-root .h-4 {
+#simorgh-root .h-2{
+  height: 0.5rem;
+}
+#simorgh-root .h-4{
   height: 1rem;
 }
-#simorgh-root .h-5 {
+#simorgh-root .h-5{
   height: 1.25rem;
 }
-#simorgh-root .h-6 {
+#simorgh-root .h-6{
   height: 1.5rem;
 }
-#simorgh-root .h-8 {
+#simorgh-root .h-8{
   height: 2rem;
 }
-#simorgh-root .h-auto {
+#simorgh-root .h-auto{
   height: auto;
 }
-#simorgh-root .h-full {
+#simorgh-root .h-full{
   height: 100%;
 }
-#simorgh-root .h-screen {
+#simorgh-root .h-screen{
   height: 100vh;
 }
-#simorgh-root .w-10 {
+#simorgh-root .max-h-96{
+  max-height: 24rem;
+}
+#simorgh-root .w-10{
   width: 2.5rem;
 }
-#simorgh-root .w-28 {
+#simorgh-root .w-14{
+  width: 3.5rem;
+}
+#simorgh-root .w-2{
+  width: 0.5rem;
+}
+#simorgh-root .w-28{
   width: 7rem;
 }
-#simorgh-root .w-32 {
+#simorgh-root .w-32{
   width: 8rem;
 }
-#simorgh-root .w-4 {
+#simorgh-root .w-4{
   width: 1rem;
 }
-#simorgh-root .w-5 {
+#simorgh-root .w-44{
+  width: 11rem;
+}
+#simorgh-root .w-5{
   width: 1.25rem;
 }
-#simorgh-root .w-6 {
+#simorgh-root .w-6{
   width: 1.5rem;
 }
-#simorgh-root .w-8 {
+#simorgh-root .w-8{
   width: 2rem;
 }
-#simorgh-root .w-96 {
+#simorgh-root .w-96{
   width: 24rem;
 }
-#simorgh-root .w-fit {
+#simorgh-root .w-fit{
   width: -moz-fit-content;
   width: fit-content;
 }
-#simorgh-root .w-full {
+.w-full{
   width: 100%;
 }
-#simorgh-root .w-screen {
+.w-screen{
   width: 100vw;
 }
-#simorgh-root .shrink-0 {
+#simorgh-root .max-w-4xl{
+  max-width: 56rem;
+}
+#simorgh-root .max-w-6xl{
+  max-width: 72rem;
+}
+#simorgh-root .flex-1{
+  flex: 1 1 0%;
+}
+#simorgh-root .shrink-0{
   flex-shrink: 0;
 }
-#simorgh-root .-translate-x-1\/2 {
+#simorgh-root .-translate-x-1\/2{
   --tw-translate-x: -50%;
-  transform: translate(-50%, var(--tw-translate-y)) rotate(var(--tw-rotate))
-    skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
-    scaleY(var(--tw-scale-y));
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(-50%, var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-#simorgh-root .-rotate-180 {
+#simorgh-root .translate-x-1\/2{
+  --tw-translate-x: 50%;
+  transform: translate(50%, var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+#simorgh-root .-rotate-180{
   --tw-rotate: -180deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(-180deg) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(-180deg) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-#simorgh-root .transform {
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+#simorgh-root .transform{
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-@keyframes spin {
-  to {
+@keyframes spin{
+
+  to{
     transform: rotate(360deg);
   }
 }
-#simorgh-root .animate-spin {
+#simorgh-root .animate-spin{
   animation: spin 1s linear infinite;
 }
-#simorgh-root .cursor-pointer {
+#simorgh-root .cursor-pointer{
   cursor: pointer;
 }
-#simorgh-root .cursor-wait {
+#simorgh-root .cursor-wait{
   cursor: wait;
 }
-#simorgh-root .select-none {
+#simorgh-root .select-none{
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
-#simorgh-root .grid-cols-2 {
+#simorgh-root .grid-cols-2{
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-#simorgh-root .grid-cols-5 {
+#simorgh-root .grid-cols-5{
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
-#simorgh-root .flex-row {
+#simorgh-root .flex-row{
   flex-direction: row;
 }
-#simorgh-root .flex-col {
+#simorgh-root .flex-row-reverse{
+  flex-direction: row-reverse;
+}
+#simorgh-root .flex-col{
   flex-direction: column;
 }
-#simorgh-root .flex-wrap {
+#simorgh-root .flex-wrap{
   flex-wrap: wrap;
 }
-#simorgh-root .flex-nowrap {
+#simorgh-root .flex-nowrap{
   flex-wrap: nowrap;
 }
-#simorgh-root .items-start {
+#simorgh-root .items-start{
   align-items: flex-start;
 }
-#simorgh-root .items-center {
+#simorgh-root .items-center{
   align-items: center;
 }
-#simorgh-root .items-stretch {
+#simorgh-root .items-stretch{
   align-items: stretch;
 }
-#simorgh-root .justify-end {
+#simorgh-root .justify-end{
   justify-content: flex-end;
 }
-#simorgh-root .justify-center {
+#simorgh-root .justify-center{
   justify-content: center;
 }
-#simorgh-root .justify-between {
+#simorgh-root .justify-between{
   justify-content: space-between;
 }
-#simorgh-root .gap-1 {
+#simorgh-root .gap-1{
   gap: 0.25rem;
 }
-#simorgh-root .gap-2 {
+#simorgh-root .gap-2{
   gap: 0.5rem;
 }
-#simorgh-root .gap-4 {
+#simorgh-root .gap-3{
+  gap: 0.75rem;
+}
+#simorgh-root .gap-4{
   gap: 1rem;
 }
-#simorgh-root .gap-6 {
+#simorgh-root .gap-6{
   gap: 1.5rem;
 }
-#simorgh-root .gap-8 {
+#simorgh-root .gap-8{
   gap: 2rem;
 }
-#simorgh-root .gap-x-4 {
+#simorgh-root .gap-x-4{
   -moz-column-gap: 1rem;
-  column-gap: 1rem;
+       column-gap: 1rem;
 }
-#simorgh-root .gap-y-2 {
+#simorgh-root .gap-y-2{
   row-gap: 0.5rem;
 }
-#simorgh-root .self-end {
+#simorgh-root .self-end{
   align-self: flex-end;
 }
-#simorgh-root .overflow-auto {
+#simorgh-root .overflow-auto{
   overflow: auto;
 }
-#simorgh-root .overflow-hidden {
+#simorgh-root .overflow-hidden{
   overflow: hidden;
 }
-#simorgh-root .whitespace-nowrap {
+#simorgh-root .whitespace-nowrap{
   white-space: nowrap;
 }
-#simorgh-root .rounded {
+#simorgh-root .rounded{
   border-radius: 0.25rem;
 }
-#simorgh-root .rounded-full {
+#simorgh-root .rounded-full{
   border-radius: 9999px;
 }
-#simorgh-root .rounded-lg {
+#simorgh-root .rounded-lg{
   border-radius: 0.5rem;
 }
-#simorgh-root .rounded-md {
+#simorgh-root .rounded-md{
   border-radius: 0.375rem;
 }
-#simorgh-root .rounded-b-lg {
+#simorgh-root .rounded-b-lg{
   border-bottom-right-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
 }
-#simorgh-root .rounded-t-lg {
+#simorgh-root .rounded-t-lg{
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
 }
-#simorgh-root .border {
+#simorgh-root .border{
   border-width: 1px;
 }
-#simorgh-root .border-4 {
+#simorgh-root .border-2{
+  border-width: 2px;
+}
+#simorgh-root .border-4{
   border-width: 4px;
 }
-#simorgh-root .border-b {
+#simorgh-root .border-b{
   border-bottom-width: 1px;
 }
-#simorgh-root .border-r {
+#simorgh-root .border-r{
   border-right-width: 1px;
 }
-#simorgh-root .border-t {
+#simorgh-root .border-t{
   border-top-width: 1px;
 }
-#simorgh-root .border-none {
-  border-style: none;
-}
-#simorgh-root .border-gray-300 {
+#simorgh-root .border-gray-300{
   --tw-border-opacity: 1;
   border-color: rgba(209, 213, 219, 1);
   border-color: rgba(209, 213, 219, var(--tw-border-opacity, 1));
 }
-#simorgh-root .border-gray-400 {
+#simorgh-root .border-gray-400{
   --tw-border-opacity: 1;
   border-color: rgba(156, 163, 175, 1);
   border-color: rgba(156, 163, 175, var(--tw-border-opacity, 1));
 }
-#simorgh-root .border-gray-600 {
+#simorgh-root .border-warning{
   --tw-border-opacity: 1;
-  border-color: rgba(75, 85, 99, 1);
-  border-color: rgba(75, 85, 99, var(--tw-border-opacity, 1));
+  border-color: hsl(var(--wa) / 1);
+  border-color: hsl(var(--wa) / var(--tw-border-opacity, 1));
 }
-#simorgh-root .border-white {
+#simorgh-root .border-white{
   --tw-border-opacity: 1;
   border-color: rgba(255, 255, 255, 1);
   border-color: rgba(255, 255, 255, var(--tw-border-opacity, 1));
 }
-#simorgh-root .border-b-gray-50 {
+#simorgh-root .border-yellow-500{
+  --tw-border-opacity: 1;
+  border-color: rgba(234, 179, 8, 1);
+  border-color: rgba(234, 179, 8, var(--tw-border-opacity, 1));
+}
+#simorgh-root .border-b-gray-50{
   --tw-border-opacity: 1;
   border-bottom-color: rgba(249, 250, 251, 1);
   border-bottom-color: rgba(249, 250, 251, var(--tw-border-opacity, 1));
 }
-#simorgh-root .border-l-gray-50 {
+#simorgh-root .border-l-gray-50{
   --tw-border-opacity: 1;
   border-left-color: rgba(249, 250, 251, 1);
   border-left-color: rgba(249, 250, 251, var(--tw-border-opacity, 1));
 }
-#simorgh-root .border-r-gray-50 {
+#simorgh-root .border-r-gray-50{
   --tw-border-opacity: 1;
   border-right-color: rgba(249, 250, 251, 1);
   border-right-color: rgba(249, 250, 251, var(--tw-border-opacity, 1));
 }
-#simorgh-root .border-t-primary {
+#simorgh-root .border-t-gray-400{
+  --tw-border-opacity: 1;
+  border-top-color: rgba(156, 163, 175, 1);
+  border-top-color: rgba(156, 163, 175, var(--tw-border-opacity, 1));
+}
+#simorgh-root .border-t-primary{
   --tw-border-opacity: 1;
   border-top-color: hsl(var(--p) / 1);
   border-top-color: hsl(var(--p) / var(--tw-border-opacity, 1));
 }
-#simorgh-root .bg-base-100 {
+#simorgh-root .bg-base-100{
   --tw-bg-opacity: 1;
   background-color: hsl(var(--b1) / 1);
   background-color: hsl(var(--b1) / var(--tw-bg-opacity, 1));
 }
-#simorgh-root .bg-base-200 {
+.bg-base-200{
   --tw-bg-opacity: 1;
   background-color: hsl(var(--b2, var(--b1)) / 1);
   background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity, 1));
 }
-#simorgh-root .bg-base-300 {
+#simorgh-root .bg-base-300{
   --tw-bg-opacity: 1;
   background-color: hsl(var(--b3, var(--b2)) / 1);
   background-color: hsl(var(--b3, var(--b2)) / var(--tw-bg-opacity, 1));
 }
-#simorgh-root .bg-black {
+#simorgh-root .bg-black{
   --tw-bg-opacity: 1;
   background-color: rgba(0, 0, 0, 1);
   background-color: rgba(0, 0, 0, var(--tw-bg-opacity, 1));
 }
-#simorgh-root .bg-gray-100 {
+#simorgh-root .bg-error{
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--er) / 1);
+  background-color: hsl(var(--er) / var(--tw-bg-opacity, 1));
+}
+#simorgh-root .bg-gray-100{
   --tw-bg-opacity: 1;
   background-color: rgba(243, 244, 246, 1);
   background-color: rgba(243, 244, 246, var(--tw-bg-opacity, 1));
 }
-#simorgh-root .bg-gray-50 {
+#simorgh-root .bg-gray-50{
   --tw-bg-opacity: 1;
   background-color: rgba(249, 250, 251, 1);
   background-color: rgba(249, 250, 251, var(--tw-bg-opacity, 1));
 }
-#simorgh-root .bg-gray-600 {
+#simorgh-root .bg-gray-500{
+  --tw-bg-opacity: 1;
+  background-color: rgba(107, 114, 128, 1);
+  background-color: rgba(107, 114, 128, var(--tw-bg-opacity, 1));
+}
+#simorgh-root .bg-gray-600{
   --tw-bg-opacity: 1;
   background-color: rgba(75, 85, 99, 1);
   background-color: rgba(75, 85, 99, var(--tw-bg-opacity, 1));
 }
-#simorgh-root .bg-green-600 {
+#simorgh-root .bg-gray-800{
   --tw-bg-opacity: 1;
-  background-color: rgba(22, 163, 74, 1);
-  background-color: rgba(22, 163, 74, var(--tw-bg-opacity, 1));
+  background-color: rgba(31, 41, 55, 1);
+  background-color: rgba(31, 41, 55, var(--tw-bg-opacity, 1));
 }
-#simorgh-root .bg-indigo-100 {
+#simorgh-root .bg-green-500{
+  --tw-bg-opacity: 1;
+  background-color: rgba(34, 197, 94, 1);
+  background-color: rgba(34, 197, 94, var(--tw-bg-opacity, 1));
+}
+#simorgh-root .bg-indigo-100{
   --tw-bg-opacity: 1;
   background-color: rgba(224, 231, 255, 1);
   background-color: rgba(224, 231, 255, var(--tw-bg-opacity, 1));
 }
-#simorgh-root .bg-primary {
+#simorgh-root .bg-primary{
   --tw-bg-opacity: 1;
   background-color: hsl(var(--p) / 1);
   background-color: hsl(var(--p) / var(--tw-bg-opacity, 1));
 }
-#simorgh-root .bg-purple-900 {
+#simorgh-root .bg-purple-900{
   --tw-bg-opacity: 1;
   background-color: rgba(88, 28, 135, 1);
   background-color: rgba(88, 28, 135, var(--tw-bg-opacity, 1));
 }
-#simorgh-root .bg-transparent {
+#simorgh-root .bg-success{
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--su) / 1);
+  background-color: hsl(var(--su) / var(--tw-bg-opacity, 1));
+}
+#simorgh-root .bg-transparent{
   background-color: transparent;
 }
-#simorgh-root .bg-white {
+#simorgh-root .bg-warning{
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--wa) / 1);
+  background-color: hsl(var(--wa) / var(--tw-bg-opacity, 1));
+}
+#simorgh-root .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgba(255, 255, 255, 1);
   background-color: rgba(255, 255, 255, var(--tw-bg-opacity, 1));
 }
-#simorgh-root .bg-yellow-500 {
+#simorgh-root .bg-yellow-500{
   --tw-bg-opacity: 1;
   background-color: rgba(234, 179, 8, 1);
   background-color: rgba(234, 179, 8, var(--tw-bg-opacity, 1));
 }
-#simorgh-root .bg-yellow-600 {
+#simorgh-root .bg-yellow-600{
   --tw-bg-opacity: 1;
   background-color: rgba(202, 138, 4, 1);
   background-color: rgba(202, 138, 4, var(--tw-bg-opacity, 1));
 }
-#simorgh-root .bg-opacity-30 {
+#simorgh-root .bg-opacity-10{
+  --tw-bg-opacity: 0.1;
+}
+#simorgh-root .bg-opacity-15{
+  --tw-bg-opacity: 0.15;
+}
+#simorgh-root .bg-opacity-30{
   --tw-bg-opacity: 0.3;
 }
-#simorgh-root .bg-opacity-50 {
+#simorgh-root .bg-opacity-40{
+  --tw-bg-opacity: 0.4;
+}
+#simorgh-root .bg-opacity-50{
   --tw-bg-opacity: 0.5;
 }
-#simorgh-root .stroke-info {
+#simorgh-root .stroke-info{
   stroke: hsl(var(--in));
 }
-#simorgh-root .p-1 {
+#simorgh-root .p-1{
   padding: 0.25rem;
 }
-#simorgh-root .p-2 {
+#simorgh-root .p-2{
   padding: 0.5rem;
 }
-#simorgh-root .p-4 {
+#simorgh-root .p-4{
   padding: 1rem;
 }
-#simorgh-root .px-2 {
+#simorgh-root .p-6{
+  padding: 1.5rem;
+}
+#simorgh-root .px-0{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#simorgh-root .px-2{
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
-#simorgh-root .px-4 {
+#simorgh-root .px-4{
   padding-left: 1rem;
   padding-right: 1rem;
 }
-#simorgh-root .px-6 {
+#simorgh-root .px-6{
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
-#simorgh-root .px-8 {
+#simorgh-root .px-8{
   padding-left: 2rem;
   padding-right: 2rem;
 }
-#simorgh-root .py-1 {
+#simorgh-root .py-1{
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
-#simorgh-root .py-2 {
+#simorgh-root .py-2{
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-#simorgh-root .py-3 {
+#simorgh-root .py-3{
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
-#simorgh-root .py-4 {
+#simorgh-root .py-4{
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-#simorgh-root .py-8 {
+#simorgh-root .py-8{
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
-#simorgh-root .pb-6 {
-  padding-bottom: 1.5rem;
+#simorgh-root .pb-24{
+  padding-bottom: 6rem;
 }
-#simorgh-root .text-center {
+#simorgh-root .pb-4{
+  padding-bottom: 1rem;
+}
+#simorgh-root .pb-8{
+  padding-bottom: 2rem;
+}
+#simorgh-root .pt-8{
+  padding-top: 2rem;
+}
+#simorgh-root .text-center{
   text-align: center;
 }
-#simorgh-root .font-sans {
-  font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    Segoe UI,
-    Roboto,
-    Ubuntu,
-    Cantarell,
-    Noto Sans,
-    sans-serif,
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol',
-    'Noto Color Emoji';
-}
-#simorgh-root .text-2xl {
+#simorgh-root .text-2xl{
   font-size: 1.5rem;
   line-height: 2rem;
 }
-#simorgh-root .text-base {
+#simorgh-root .text-base{
   font-size: 1rem;
   line-height: 1.5rem;
 }
-#simorgh-root .text-lg {
+#simorgh-root .text-lg{
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
-#simorgh-root .text-sm {
+#simorgh-root .text-sm{
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
-#simorgh-root .text-xs {
+#simorgh-root .text-xs{
   font-size: 0.75rem;
   line-height: 1rem;
 }
-#simorgh-root .font-semibold {
+#simorgh-root .font-bold{
+  font-weight: 700;
+}
+#simorgh-root .font-light{
+  font-weight: 300;
+}
+#simorgh-root .font-semibold{
   font-weight: 600;
 }
-#simorgh-root .text-base-content {
+.text-base-content{
   --tw-text-opacity: 1;
   color: hsl(var(--bc) / 1);
   color: hsl(var(--bc) / var(--tw-text-opacity, 1));
 }
-#simorgh-root .text-gray-400 {
+#simorgh-root .text-blue-500{
+  --tw-text-opacity: 1;
+  color: rgba(59, 130, 246, 1);
+  color: rgba(59, 130, 246, var(--tw-text-opacity, 1));
+}
+#simorgh-root .text-error{
+  --tw-text-opacity: 1;
+  color: hsl(var(--er) / 1);
+  color: hsl(var(--er) / var(--tw-text-opacity, 1));
+}
+#simorgh-root .text-gray-300{
+  --tw-text-opacity: 1;
+  color: rgba(209, 213, 219, 1);
+  color: rgba(209, 213, 219, var(--tw-text-opacity, 1));
+}
+#simorgh-root .text-gray-400{
   --tw-text-opacity: 1;
   color: rgba(156, 163, 175, 1);
   color: rgba(156, 163, 175, var(--tw-text-opacity, 1));
 }
-#simorgh-root .text-gray-500 {
+#simorgh-root .text-gray-500{
   --tw-text-opacity: 1;
   color: rgba(107, 114, 128, 1);
   color: rgba(107, 114, 128, var(--tw-text-opacity, 1));
 }
-#simorgh-root .text-gray-600 {
+#simorgh-root .text-gray-600{
   --tw-text-opacity: 1;
   color: rgba(75, 85, 99, 1);
   color: rgba(75, 85, 99, var(--tw-text-opacity, 1));
 }
-#simorgh-root .text-green-500 {
+#simorgh-root .text-gray-800{
+  --tw-text-opacity: 1;
+  color: rgba(31, 41, 55, 1);
+  color: rgba(31, 41, 55, var(--tw-text-opacity, 1));
+}
+#simorgh-root .text-green-500{
   --tw-text-opacity: 1;
   color: rgba(34, 197, 94, 1);
   color: rgba(34, 197, 94, var(--tw-text-opacity, 1));
 }
-#simorgh-root .text-info {
+#simorgh-root .text-info{
   --tw-text-opacity: 1;
   color: hsl(var(--in) / 1);
   color: hsl(var(--in) / var(--tw-text-opacity, 1));
 }
-#simorgh-root .text-yellow-500 {
+#simorgh-root .text-primary{
+  --tw-text-opacity: 1;
+  color: hsl(var(--p) / 1);
+  color: hsl(var(--p) / var(--tw-text-opacity, 1));
+}
+#simorgh-root .text-success{
+  --tw-text-opacity: 1;
+  color: hsl(var(--su) / 1);
+  color: hsl(var(--su) / var(--tw-text-opacity, 1));
+}
+#simorgh-root .text-warning{
+  --tw-text-opacity: 1;
+  color: hsl(var(--wa) / 1);
+  color: hsl(var(--wa) / var(--tw-text-opacity, 1));
+}
+#simorgh-root .text-white{
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, var(--tw-text-opacity, 1));
+}
+#simorgh-root .text-yellow-500{
   --tw-text-opacity: 1;
   color: rgba(234, 179, 8, 1);
   color: rgba(234, 179, 8, var(--tw-text-opacity, 1));
 }
-#simorgh-root .text-opacity-90 {
+#simorgh-root .text-opacity-90{
   --tw-text-opacity: 0.9;
 }
-#simorgh-root .opacity-50 {
+#simorgh-root .opacity-50{
   opacity: 0.5;
 }
-#simorgh-root .shadow-inner {
+#simorgh-root .opacity-80{
+  opacity: 0.8;
+}
+#simorgh-root .shadow{
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
+}
+#simorgh-root .shadow-inner{
   --tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
   --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
-  box-shadow:
-    0 0 rgba(0, 0, 0, 0),
-    0 0 rgba(0, 0, 0, 0),
-    inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0, 0, 0, 0)),
-    var(--tw-ring-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-shadow);
+  box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
 }
-#simorgh-root .shadow-lg {
-  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
-    0 4px 6px -4px var(--tw-shadow-color);
-  box-shadow:
-    0 0 rgba(0, 0, 0, 0),
-    0 0 rgba(0, 0, 0, 0),
-    0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0, 0, 0, 0)),
-    var(--tw-ring-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-shadow);
+#simorgh-root .shadow-lg{
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
 }
-#simorgh-root .shadow-md {
-  --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
-    0 2px 4px -2px var(--tw-shadow-color);
-  box-shadow:
-    0 0 rgba(0, 0, 0, 0),
-    0 0 rgba(0, 0, 0, 0),
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0, 0, 0, 0)),
-    var(--tw-ring-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-shadow);
+#simorgh-root .shadow-md{
+  --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
 }
-#simorgh-root .shadow-sm {
+#simorgh-root .shadow-sm{
   --tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
-  box-shadow:
-    0 0 rgba(0, 0, 0, 0),
-    0 0 rgba(0, 0, 0, 0),
-    0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0, 0, 0, 0)),
-    var(--tw-ring-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-shadow);
+  box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
 }
-#simorgh-root .filter {
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
-    var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate)
-    var(--tw-sepia) var(--tw-drop-shadow);
+#simorgh-root .filter{
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
-#simorgh-root .backdrop-blur-sm {
-  --tw-backdrop-blur: blur(4px);
-  -webkit-backdrop-filter: blur(4px) var(--tw-backdrop-brightness)
-    var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale)
-    var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert)
-    var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
-    var(--tw-backdrop-sepia);
-  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
-    var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale)
-    var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert)
-    var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
-    var(--tw-backdrop-sepia);
-  backdrop-filter: blur(4px) var(--tw-backdrop-brightness)
-    var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale)
-    var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert)
-    var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
-    var(--tw-backdrop-sepia);
-  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
-    var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale)
-    var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert)
-    var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
-    var(--tw-backdrop-sepia);
-}
-#simorgh-root .transition-all {
+#simorgh-root .transition-all{
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
-#simorgh-root .duration-300 {
+#simorgh-root .duration-300{
   transition-duration: 300ms;
 }
 
@@ -2391,54 +2884,36 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   font-family: 'Lato', sans-serif;
 }
 
-#simorgh-root *,
-#simorgh-root *:focus {
-  outline: none;
+#simorgh-root .Toastify__toast-container,
+#simorgh-root .Toastify__toast-container .Toastify__toast {
+  width: 400px !important;
 }
 
-#simorgh-root .hover\:\!bg-green-700:hover {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgba(21, 128, 61, 1) !important;
-  background-color: rgba(21, 128, 61, var(--tw-bg-opacity, 1)) !important;
-}
-
-#simorgh-root .hover\:\!bg-white:hover {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgba(255, 255, 255, 1) !important;
-  background-color: rgba(255, 255, 255, var(--tw-bg-opacity, 1)) !important;
-}
-
-#simorgh-root .hover\:bg-base-200:hover {
+#simorgh-root .hover\:bg-base-200:hover{
   --tw-bg-opacity: 1;
   background-color: hsl(var(--b2, var(--b1)) / 1);
   background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity, 1));
 }
 
-#simorgh-root .focus\:\!bg-green-700:focus {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgba(21, 128, 61, 1) !important;
-  background-color: rgba(21, 128, 61, var(--tw-bg-opacity, 1)) !important;
+#simorgh-root .hover\:bg-transparent:hover{
+  background-color: transparent;
 }
 
-#simorgh-root .focus\:\!bg-white:focus {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgba(255, 255, 255, 1) !important;
-  background-color: rgba(255, 255, 255, var(--tw-bg-opacity, 1)) !important;
-}
-
-#simorgh-root .group:hover .group-hover\:block {
+#simorgh-root .group:hover .group-hover\:block{
   display: block;
 }
 
-@media (min-width: 768px) {
-  #simorgh-root .md\:p-6 {
+@media (min-width: 768px){
+
+  #simorgh-root .md\:p-6{
     padding: 1.5rem;
   }
 
-  #simorgh-root .md\:text-lg {
+  #simorgh-root .md\:text-lg{
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
 }
+
 
 /*# sourceMappingURL=main.css.map*/

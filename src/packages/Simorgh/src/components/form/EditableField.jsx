@@ -3,13 +3,15 @@ import { useState } from 'react';
 import { Icon } from '@burna/monster-design-system';
 import { mergeClassNames } from '@/utils/classname';
 
-const EditableField = ({
+function EditableField({
   name,
   label,
+  draftValue,
   value,
   readOnly = false,
+  onChange = () => {},
   onSubmit = () => Promise.resolve(),
-}) => {
+}) {
   const [isEdit, setIsEdit] = useState(false);
 
   const handleSubmit = (formData) => {
@@ -20,9 +22,10 @@ const EditableField = ({
   return (
     <Formik
       initialValues={{
-        [name]: value,
+        [name]: draftValue || value,
       }}
       onSubmit={handleSubmit}
+      enableReinitialize
     >
       <Form>
         <div className="flex flex-col gap-1">
@@ -34,7 +37,7 @@ const EditableField = ({
               {label}
             </label>
             {!readOnly && !isEdit ? (
-              <div
+              <button
                 onClick={() => {
                   setIsEdit(true);
                 }}
@@ -43,7 +46,7 @@ const EditableField = ({
                   type="edit"
                   className="block w-5 h-5 bg-gray-600 transition-all duration-300"
                 />
-              </div>
+              </button>
             ) : null}
           </div>
 
@@ -51,11 +54,15 @@ const EditableField = ({
             <Field
               id={label}
               name={name}
-              className={mergeClassNames('border border-gray-400 p-2 rounded w-full', {
-                'bg-gray-100 text-gray-400': readOnly,
-                'bg-transparent text-gray-600': !readOnly,
+              className={mergeClassNames('border p-2 rounded w-full', {
+                'bg-gray-100 text-gray-400': !isEdit || readOnly,
+                'bg-transparent text-gray-600': isEdit,
+                'border-gray-400': !draftValue,
+                'border-warning': draftValue,
               })}
-              disabled={readOnly}
+              disabled={!isEdit || readOnly}
+              value={draftValue || value}
+              onChange={(e) => onChange({ [name]: e.target.value })}
             />
             {!readOnly && isEdit ? (
               <button type="sumbit" className="border border-gray-400 p-2 rounded">
@@ -66,10 +73,14 @@ const EditableField = ({
               </button>
             ) : null}
           </div>
+
+          {draftValue ? (
+            <span className="text-xs text-warning">prev-val: {value}</span>
+          ) : null}
         </div>
       </Form>
     </Formik>
   );
-};
+}
 
 export default EditableField;

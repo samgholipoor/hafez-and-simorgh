@@ -41,7 +41,10 @@ function nestDevices(devices) {
         currentLevel.push(child);
       } else {
         child.products = [
-          ...new Set([...child.products, ...device.association?.map((a) => a.product)]),
+          ...new Set([
+            ...child.products,
+            ...device.association?.map((a) => a.product?.toLowerCase()),
+          ]),
         ];
       }
 
@@ -54,4 +57,4 @@ function nestDevices(devices) {
 
 const transformDataToHierarchyModel = nestDevices;
 
-export { transformDataToHierarchyModel };
+export default transformDataToHierarchyModel;

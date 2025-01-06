@@ -1,12 +1,17 @@
 {
   "compilerOptions": {
-    "module": "esnext",
+    "module": "NodeNext",
     "target": "esnext",
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "moduleResolution": "NodeNext",
+    "jsx": "react-jsx",
+    "allowJs": true,
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["*"]
     }
+  },
+  "resolve": {
+    "extensions": [".js", ".jsx", ".json", ".ts", ".tsx"]
   },
   "include": ["src/**/*"]
 }

@@ -1,8 +1,8 @@
-import {QueryClient, QueryClientProvider} from 'react-query';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ToastContainer } from 'react-toastify';
 import Views from '@/views';
-import {LoadingProvider} from '@/services/loading';
-import {ThemeProvider} from '@/services/themeMode';
-import {ProductSelectionProvider} from './productSelectionProvider';
+import { ClusterSelectionProvider } from './clusterSelectionProvider.jsx';
+import { AppProvider } from './appProvider.jsx';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -13,16 +13,27 @@ const queryClient = new QueryClient({
   },
 });
 
+export const UserValidationWrapper = ({ children }) => children;
+
 function RouterView() {
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <LoadingProvider>
-          <ProductSelectionProvider>
-            <Views />
-          </ProductSelectionProvider>
-        </LoadingProvider>
-      </ThemeProvider>
+      <AppProvider>
+        <ClusterSelectionProvider>
+          <Views />
+          <ToastContainer
+            position="bottom-right"
+            autoClose={4000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick={false}
+            rtl
+            pauseOnFocusLoss
+            pauseOnHover
+            theme="light"
+          />
+        </ClusterSelectionProvider>
+      </AppProvider>
     </QueryClientProvider>
   );
 }

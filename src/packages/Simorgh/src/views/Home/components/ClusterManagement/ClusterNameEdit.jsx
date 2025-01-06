@@ -1,18 +1,37 @@
 import { Formik, Field, Form } from 'formik';
 import { Icon } from '@burna/monster-design-system';
-import { useProductSelection } from '@/services/productSelectionProvider';
+import { useClusterSelection } from '@/services/clusterSelectionProvider';
+import { useMutation } from 'react-query';
+import { updateCluster } from '@/services/api/index.js';
+import { toast } from 'react-toastify';
+import Spinner from '@/components/Spinner.jsx';
+import { useApp } from '@/services/appProvider.jsx';
 
-const ClusterNameEdit = ({ isEdit, onFinish }) => {
-  const { selectedProductOption } = useProductSelection();
+function ClusterNameEdit({ isEdit, onFinish }) {
+  const { handleHardRefreshProducts } = useApp();
+
+  const { selectedCluster, handleSelectCluster } = useClusterSelection();
+
+  const { mutateAsync, isLoading } = useMutation(updateCluster, {
+    onSuccess() {
+      handleHardRefreshProducts();
+      toast('Cluster name is changed', { type: 'success' });
+      onFinish();
+    },
+    onError(error) {
+      const errorMessage = error?.response?.data?.error;
+      toast(errorMessage || 'Something went wrong', { type: 'error' });
+    },
+  });
 
   const handleSubmit = async (formData) => {
-    await new Promise((r) => setTimeout(r, 0));
-
-    onFinish();
+    return mutateAsync({ id: selectedCluster.value, body: formData }).then(() => {
+      handleSelectCluster({ value: selectedCluster?.value, label: formData.name });
+    });
   };
 
   if (!isEdit) {
-    return <h2 className="text-2xl">{selectedProductOption?.label}</h2>;
+    return <h2 className="text-2xl">{selectedCluster?.label}</h2>;
   }
 
   return (
@@ -23,19 +42,29 @@ const ClusterNameEdit = ({ isEdit, onFinish }) => {
     >
       <Formik
         initialValues={{
-          'cluster-name': selectedProductOption?.label,
+          name: selectedCluster?.label,
         }}
         onSubmit={handleSubmit}
       >
         <Form>
           <div className="flex items-stretch gap-2">
             <Field
-              name="cluster-name"
+              name="name"
               className="bg-transparent border border-gray-400 py-1 px-2 rounded"
             />
             <button type="sumbit" className="border border-gray-400 p-2 rounded">
+              {isLoading ? (
+                <Spinner className="w-5 h-5" />
+              ) : (
+                <Icon
+                  type="check"
+                  className="block w-5 h-5 bg-gray-600 transition-all duration-300"
+                />
+              )}
+            </button>
+            <button onClick={onFinish} className="border border-gray-400 p-2 rounded">
               <Icon
-                type="check"
+                type="x"
                 className="block w-5 h-5 bg-gray-600 transition-all duration-300"
               />
             </button>
@@ -44,6 +73,6 @@ const ClusterNameEdit = ({ isEdit, onFinish }) => {
       </Formik>
     </div>
   );
-};
+}
 
 export default ClusterNameEdit;

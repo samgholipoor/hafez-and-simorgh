@@ -1,10 +1,20 @@
+import { useCallback, useMemo, useState } from 'react';
 import { Icon } from '@burna/monster-design-system';
 import { mergeClassNames } from '@/utils/classname';
-import { useMemo, useState } from 'react';
-import ClusterNameEdit from './ClusterNameEdit';
+import ClusterNameEdit from './ClusterNameEdit.jsx';
 
-const ClusterManagementHeader = ({ onClose, onToggle, isOpen }) => {
+function ClusterManagementHeader({
+  onClose,
+  onToggle,
+  isOpen,
+  isLoading,
+  onForceReload,
+}) {
   const [isEdit, setIsEdit] = useState(false);
+
+  const refetchCluster = useCallback(() => {
+    onForceReload();
+  }, [onForceReload]);
 
   const icons = useMemo(
     () => [
@@ -18,14 +28,14 @@ const ClusterManagementHeader = ({ onClose, onToggle, isOpen }) => {
       },
       {
         type: 'rotate-ccw',
-        onClick: () => {},
+        onClick: isLoading ? () => {} : refetchCluster,
       },
       {
         type: 'x-circle',
         onClick: onClose,
       },
     ],
-    [onClose],
+    [onClose, onForceReload, isLoading],
   );
 
   return (
@@ -56,7 +66,7 @@ const ClusterManagementHeader = ({ onClose, onToggle, isOpen }) => {
       {!isEdit ? (
         <div className="flex gap-4">
           {icons.map(({ type, onClick }) => (
-            <div
+            <button
               key={type}
               onClick={(e) => {
                 e.stopPropagation();
@@ -67,12 +77,12 @@ const ClusterManagementHeader = ({ onClose, onToggle, isOpen }) => {
                 type={type}
                 className="block w-5 h-5 bg-gray-600 transition-all duration-300"
               />
-            </div>
+            </button>
           ))}
         </div>
       ) : null}
     </div>
   );
-};
+}
 
 export default ClusterManagementHeader;
