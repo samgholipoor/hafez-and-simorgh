@@ -63,7 +63,7 @@ function ClusterManagementBody({ onSubmit, onClose, isLoading }) {
   return (
     <div
       className="relative overflow-auto bg-white shadow-lg pt-8 pb-24 px-6 flex flex-col gap-3 rounded-b-lg"
-      style={{ maxHeight: 'calc(100vh - 226px)' }}
+      style={{ height: 'calc(100vh - 226px)' }}
     >
       {devicesModifications?.['object-server'] || clusterMetadata?.['object-server'] ? (
         <ServiceInfo
@@ -90,12 +90,12 @@ function ClusterManagementBody({ onSubmit, onClose, isLoading }) {
         />
       ) : null}
 
-      <div className="fixed bottom-0 left-0 w-full flex gap-4 px-6 py-4 border-t border-t-gray-400 bg-white">
-        <button className="flex-1 btn" onClick={onClose}>
+      <div className="fixed bottom-0 left-0 w-full flex gap-4 px-6 py-2 border-t border-t-gray-400 bg-white">
+        <button className="flex-1 btn btn-sm h-10" onClick={onClose}>
           Cancel
         </button>
         <button
-          className="flex-1 btn btn-primary"
+          className="flex-1 btn btn-sm btn-primary h-10"
           onClick={onSubmit}
           disabled={isLoading}
         >

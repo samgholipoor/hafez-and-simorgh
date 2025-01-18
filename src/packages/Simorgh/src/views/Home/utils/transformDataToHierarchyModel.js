@@ -35,7 +35,9 @@ function nestDevices(devices) {
           name: generateLabel(level, device),
           level: CLUSTER_LEVEL_NAME[level],
           products: device.association?.map((a) => a.product?.toLowerCase()),
+          clustersId: device.association?.map((a) => a.cluster_id),
           host: device.host,
+          ip: device.ip,
           children: [],
         };
         currentLevel.push(child);

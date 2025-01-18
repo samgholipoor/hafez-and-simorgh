@@ -1,10 +1,11 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable camelcase */
-import {useEffect, useLayoutEffect, useRef} from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import * as am5 from '@amcharts/amcharts5';
 import * as am5hierarchy from '@amcharts/amcharts5/hierarchy';
 import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
-import {useClusterSelection} from '@/services/clusterSelectionProvider.jsx';
+import { useProductSelection } from '@/services/productSelectionProvider.jsx';
+import { makeAssetsUrl } from '@/utils/assetsUrl.js';
 import {
   CLUSTER_LEVEL_RADIUS,
   CLUSTER_LEVEL_DISTANCE,
@@ -18,17 +19,18 @@ const BG_COLOR = '#fff';
 const STROKE_COLOR = '#6b7280';
 const LIGHT_GRAY = '#d1d5db';
 
-function Chart({data, handleSelectHost}) {
-  const {selectedProducts} = useClusterSelection();
+function Chart({ data, handleSelectHost, handleSelectDevice }) {
+  const { selectedProducts } = useProductSelection();
+
   const currentRoot = useRef(null);
   const currentSeries = useRef(null);
 
   useChangeToggleState(currentSeries.current);
 
   const icons = {
-    region: '/apps/Simorgh/assets/icons/map-pin.png',
-    zone: '/apps/Simorgh/assets/icons/server.png',
-    server: '/apps/Simorgh/assets/icons/hard-drive.png',
+    region: makeAssetsUrl('/assets/icons/map-pin.png'),
+    zone: makeAssetsUrl('/assets/icons/server.png'),
+    server: makeAssetsUrl('/assets/icons/hard-drive.png'),
     device: '',
   };
 
@@ -44,32 +46,34 @@ function Chart({data, handleSelectHost}) {
       return;
     }
 
-    const isSelectedProduct = selectedProducts.some((sp) =>
-      products.includes(sp),
-    );
+    const isSelectedProduct = selectedProducts.some((sp) => products.includes(sp));
     circle.set('stroke', isSelectedProduct ? STROKE_COLOR : LIGHT_GRAY);
   };
 
   const changeIconOpacity = (circle) => {
-    const picture = circle.children._values[2];
     let products = circle?._dataItem?.dataContext?.products || [];
 
     if (products.length === 0) {
       products = ['empty'];
     }
 
-    if (selectedProducts.length === 0) {
-      picture.set('opacity', 1);
-      return;
-    }
+    circle.children.each((child) => {
+      if (child.isType('Picture')) {
+        const isSelectedProduct =
+          selectedProducts.length === 0
+            ? true
+            : selectedProducts.some((sp) => products.includes(sp));
 
-    const isSelectedProduct = selectedProducts.some((sp) =>
-      products.includes(sp),
-    );
-    picture.set('opacity', isSelectedProduct ? 1 : 0.2);
+        child.set('opacity', isSelectedProduct ? 1 : 0.2);
+
+        child.states.create('hover', {
+          opacity: isSelectedProduct ? 1 : 0.2,
+        });
+      }
+    });
   };
 
-  const changeOpacity = (link) => {
+  const changeLinkColor = (link) => {
     let products = link?._dataItem?.dataContext?.products || [];
     if (products.length === 0) {
       products = ['empty'];
@@ -80,10 +84,29 @@ function Chart({data, handleSelectHost}) {
       return;
     }
 
-    const isSelectedProduct = selectedProducts.some((sp) =>
-      products.includes(sp),
-    );
+    const isSelectedProduct = selectedProducts.some((sp) => products.includes(sp));
     link.set('opacity', isSelectedProduct ? 1 : 0.2);
+  };
+
+  const changeLabelColor = (label) => {
+    if (!label) return;
+
+    let products = label?._dataItem?.dataContext?.products || [];
+    if (products.length === 0) {
+      products = ['empty'];
+    }
+
+    label.children.each((child) => {
+      if (child.isType('Label')) {
+        if (selectedProducts.length === 0) {
+          child.set('fill', STROKE_COLOR);
+          return;
+        }
+
+        const isSelectedProduct = selectedProducts.some((sp) => products.includes(sp));
+        child.set('fill', isSelectedProduct ? STROKE_COLOR : LIGHT_GRAY);
+      }
+    });
   };
 
   useEffect(() => {
@@ -91,8 +114,8 @@ function Chart({data, handleSelectHost}) {
       currentSeries.current.nodes.each(changeIconOpacity);
       currentSeries.current.circles.each(changeStroke);
       currentSeries.current.outerCircles.each(changeStroke);
-      currentSeries.current.links.each(changeOpacity);
-      currentSeries.current.labels.each(changeOpacity);
+      currentSeries.current.links.each(changeLinkColor);
+      currentSeries.current.labels.each(changeLabelColor);
     }
   }, [selectedProducts]);
 
@@ -129,7 +152,7 @@ function Chart({data, handleSelectHost}) {
           linkWithField: 'linkWith',
           maskContents: false,
           centerStrength: 0.5,
-          manyBodyStrength: -15,
+          manyBodyStrength: -22,
           nodePadding: 15,
         }),
       );
@@ -165,17 +188,15 @@ function Chart({data, handleSelectHost}) {
         const level = target._dataItem?.dataContext?.level;
         return CLUSTER_LEVEL_RADIUS[level] || 30;
       });
-      series.links.template.adapters.add('stroke', () =>
-        am5.color(STROKE_COLOR),
-      );
+      series.links.template.adapters.add('stroke', () => am5.color(STROKE_COLOR));
       series.links.template.adapters.add('distance', (_, target) => {
         const level = target._dataItem?.dataContext?.level;
         return CLUSTER_LEVEL_DISTANCE[level];
       });
 
       series.nodes.template.adapters.add('cursorOverStyle', (_, target) => {
-        const {level} = target?._dataItem?.dataContext;
-        if (level === 'server') {
+        const { level } = target?._dataItem?.dataContext;
+        if (['server', 'device'].includes(level)) {
           return 'pointer';
         }
         return 'default';
@@ -183,7 +204,7 @@ function Chart({data, handleSelectHost}) {
 
       series.nodes.template.setup = (target) => {
         target.events.on('dataitemchanged', () => {
-          const {level} = target._dataItem.dataContext;
+          const { level } = target._dataItem.dataContext;
           target.children.push(
             am5.Picture.new(root, {
               width: CLUSTER_LEVEL_ICON_SIZE[level],
@@ -202,7 +223,7 @@ function Chart({data, handleSelectHost}) {
 
       series.labels.template.setup = (target) => {
         target.events.on('dataitemchanged', () => {
-          const {level} = target._dataItem.dataContext;
+          const { level } = target._dataItem.dataContext;
           target.children.push(
             am5.Label.new(root, {
               fontSize: CLUSTER_LEVEL_FONT_SIZE[level],
@@ -215,10 +236,18 @@ function Chart({data, handleSelectHost}) {
       };
 
       series.nodes.template.events.on('click', (e) => {
-        const {level, host} = e.target?._dataItem?.dataContext;
+        const { level, host, name, ip, clustersId } = e.target?._dataItem?.dataContext;
+
         const toggleKeyState = e.target.get('toggleKey');
         if (level === 'server' && toggleKeyState === 'none') {
           handleSelectHost(host);
+        }
+        if (level === 'device') {
+          handleSelectDevice({
+            clusterId: clustersId?.[0],
+            name,
+            ip,
+          });
         }
       });
 
@@ -242,8 +271,9 @@ function Chart({data, handleSelectHost}) {
     return () => {
       root.dispose();
     };
-  }, [data, handleSelectHost]);
+  }, [data, handleSelectHost, handleSelectDevice]);
 
-  return <div id="chartdiv" style={{width: '100%', height: '100%'}} />;
+  return <div id="chartdiv" style={{ width: '100%', height: '100%' }} />;
 }
+
 export default Chart;

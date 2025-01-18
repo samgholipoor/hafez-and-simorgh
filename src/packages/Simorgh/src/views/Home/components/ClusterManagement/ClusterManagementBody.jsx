@@ -37,7 +37,7 @@ function ClusterManagementBody({ cluster, isLoading }) {
       return (
         <div className="flex flex-col gap-4">
           {services.map((service) => (
-            <Accordion title={service.name}>
+            <Accordion key={service.name} title={service.name}>
               <div className="flex flex-col gap-4 p-2">
                 <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                   <EditableField
@@ -115,11 +115,11 @@ function ClusterManagementBody({ cluster, isLoading }) {
 
       {render()}
 
-      {rebalanceCautions.length > 0 ? (
+      {!isLoading && rebalanceCautions.length > 0 ? (
         <RebalanceNotification commands={rebalanceCautions} />
       ) : null}
 
-      {totalCountChanges > 0 ? (
+      {!isLoading && totalCountChanges > 0 ? (
         <ClusterUpdateNotification totalCountChanges={totalCountChanges} />
       ) : null}
     </div>

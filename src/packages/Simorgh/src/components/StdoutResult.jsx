@@ -28,9 +28,9 @@ function StdoutResult({ content, onClose, finished = false }) {
             />
           </button>
         </div>
-        <div ref={consoleRef} className="w-full bg-gray-800 max-h-96 overflow-auto">
+        <div ref={consoleRef} className="w-full bg-gray-800 h-96 overflow-auto">
           <div className="text-white px-6 py-4">
-            {content ? <pre>{content}</pre> : null}
+            {content ? <pre className="whitespace-break-spaces">{content}</pre> : null}
             {finished ? (
               <>
                 <pre>------------------------------------------</pre>

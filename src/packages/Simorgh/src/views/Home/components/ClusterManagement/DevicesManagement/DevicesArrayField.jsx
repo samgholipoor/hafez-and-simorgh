@@ -250,6 +250,7 @@ function DevicesArrayField({
     <>
       {Object.entries(values).map(([groupName, groupDevices], index) => (
         <FieldArray
+          key={groupName}
           name={groupName}
           render={(arrayHelpers) => (
             <RenderArrayField

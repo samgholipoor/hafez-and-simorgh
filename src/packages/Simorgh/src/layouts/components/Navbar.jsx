@@ -1,14 +1,17 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import {Icon} from '@burna/monster-design-system';
+import { useCallback } from 'react';
+import { Icon } from '@burna/monster-design-system';
 import Box from '@/components/Box';
 import CheckboxDropdown from '@/components/form/CheckboxDropdown';
-import {useClusterSelection} from '@/services/clusterSelectionProvider.jsx';
-import {useCallback} from 'react';
+import { useProductSelection } from '@/services/productSelectionProvider.jsx';
+import { useClusterSelection } from '@/services/clusterSelectionProvider.jsx';
 import SuspenseFallback from '@/components/SuspenseFallback';
 import EmptyFallback from '@/components/EmptyFallback';
-import {mergeClassNames} from '@/utils/classname';
-import {useApp} from '@/services/appProvider.jsx';
+import { mergeClassNames } from '@/utils/classname';
+import { useApp } from '@/services/appProvider.jsx';
+import DropDown from '@/components/DropDown.jsx';
+import { makeAssetsUrl } from '@/utils/assetsUrl.js';
 
 export default function Navbar() {
   const {
@@ -19,7 +22,8 @@ export default function Navbar() {
     handleHardRefreshProducts,
   } = useApp();
 
-  const {handleSelectProducts, handleSelectCluster} = useClusterSelection();
+  const { handleSelectProducts } = useProductSelection();
+  const { handleSelectCluster } = useClusterSelection();
 
   const invalidateDevicesAndProducts = () => {
     handleHardRefreshDevices();
@@ -50,10 +54,7 @@ export default function Navbar() {
               onOptionSelect={handleSelectCluster}
             />
           ))}
-          <CheckboxDropdown
-            label="Empty"
-            onCheck={() => handleSelectProducts('Empty')}
-          />
+          <CheckboxDropdown label="Empty" onCheck={() => handleSelectProducts('Empty')} />
         </div>
       );
     }
@@ -66,18 +67,30 @@ export default function Navbar() {
       <div className="bg-base-100 bg-opacity-50 shadow-inner w-full px-4">
         <section
           className="flex items-center justify-between gap-4 px-8"
-          style={{height: '72px'}}
+          style={{ height: '72px' }}
         >
           <div className="w-32">
-            <img
-              src="/apps/Simorgh/assets/images/logo.png"
-              alt="simorgh-logo"
-            />
+            <img src={makeAssetsUrl('/assets/images/logo.png')} alt="simorgh-logo" />
           </div>
 
           {render()}
 
-          <div className="w-32 flex justify-end">
+          <div className=" flex justify-end gap-4 ">
+            <DropDown
+              initialValue={{ label: 'Services', value: 'services', icon: 'grid' }}
+              options={[
+                { label: 'Services', value: 'services', icon: 'grid' },
+                { label: 'Size', value: 'size', icon: 'maximize-2', disabled: true },
+                { label: 'Hostname:IP', value: 'hostname', icon: 'tag', disabled: true },
+                {
+                  label: 'Errors',
+                  value: 'errors',
+                  icon: 'alert-circle',
+                  disabled: true,
+                },
+              ]}
+            />
+
             <button
               className="w-10 h-10 bg-primary p-2 rounded cursor-pointer flex items-center justify-center"
               onClick={invalidateDevicesAndProducts}

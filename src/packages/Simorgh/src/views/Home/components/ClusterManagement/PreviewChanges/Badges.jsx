@@ -19,12 +19,6 @@ function Badges() {
           <span className="text-xs text-primary"> Add </span>
         </div>
       </li>
-      <li>
-        <div className="flex items-center gap-1 bg-opacity-15 bg-success rounded-full px-2">
-          <div className="w-2 h-2 bg-success rounded-full" />
-          <span className="text-xs text-success"> Keep </span>
-        </div>
-      </li>
     </ul>
   );
 }

@@ -4,16 +4,27 @@ import EmptyFallback from '@/components/EmptyFallback';
 import SuspenseFallback from '@/components/SuspenseFallback';
 import ServerInfoBottomSheet from './ServerInfoBottomSheet.jsx';
 import Chart from '../Chart/Chart.jsx';
+import DeviceInfoBottomSheet from './DeviceInfoBottomSheet.jsx';
 
 export default function ClusterGraph() {
   const { devices, isLoadingDevices } = useApp();
 
   const [selectedHost, setSelectedHost] = useState();
-  const [isOpen, setIsOpen] = useState(false);
+  const [selectedDevice, setSelectedDevice] = useState();
+  const [isServerInfoBottomSheetOpen, setIsServerInfoBottomSheetOpenOpen] =
+    useState(false);
+
+  const [isDeviceInfoBottomSheetOpen, setIsDeviceInfoBottomSheetOpenOpen] =
+    useState(false);
 
   const handleSelectHost = useCallback((host) => {
-    setIsOpen(true);
     setSelectedHost(host);
+    setIsServerInfoBottomSheetOpenOpen(true);
+  }, []);
+
+  const handleSelectDevice = useCallback((deviceInfo) => {
+    setSelectedDevice(deviceInfo);
+    setIsDeviceInfoBottomSheetOpenOpen(true);
   }, []);
 
   const render = useCallback(() => {
@@ -26,17 +37,34 @@ export default function ClusterGraph() {
     }
 
     if (devices) {
-      return <Chart data={devices} handleSelectHost={handleSelectHost} />;
+      return (
+        <Chart
+          data={devices}
+          handleSelectHost={handleSelectHost}
+          handleSelectDevice={handleSelectDevice}
+        />
+      );
     }
 
     return <EmptyFallback />;
-  }, [devices, isLoadingDevices, handleSelectHost]);
+  }, [devices, isLoadingDevices, handleSelectHost, handleSelectDevice]);
 
   return (
     <div style={{ height: 'calc(100vh - 133px)' }}>
       {render()}
-      {isOpen ? (
-        <ServerInfoBottomSheet host={selectedHost} onClose={() => setIsOpen(false)} />
+
+      {isServerInfoBottomSheetOpen ? (
+        <ServerInfoBottomSheet
+          host={selectedHost}
+          onClose={() => setIsServerInfoBottomSheetOpenOpen(false)}
+        />
+      ) : null}
+
+      {isDeviceInfoBottomSheetOpen ? (
+        <DeviceInfoBottomSheet
+          device={selectedDevice}
+          onClose={() => setIsDeviceInfoBottomSheetOpenOpen(false)}
+        />
       ) : null}
     </div>
   );

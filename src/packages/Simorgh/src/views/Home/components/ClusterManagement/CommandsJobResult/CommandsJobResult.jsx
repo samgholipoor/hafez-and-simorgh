@@ -3,10 +3,12 @@ import { useQuery } from 'react-query';
 import StdoutResult from '@/components/StdoutResult.jsx';
 import ResultStatus from '@/components/ResultStatus.jsx';
 import { getJob } from '@/services/api/index.js';
+import { useClusterSelection } from '@/services/clusterSelectionProvider.jsx';
 import { useJobID } from '../../../services/jobIDProvider.jsx';
 import { useDeleteClusterDraft } from '../../../hooks/useDeleteClusterDraft.js';
 
 function CommandsJobResult() {
+  const { onForceReload } = useClusterSelection();
   const { closeCommandsJobModal, commandsJobId } = useJobID();
   const { handleDeleteClusterDraft } = useDeleteClusterDraft();
 
@@ -15,13 +17,14 @@ function CommandsJobResult() {
   const [resultDescription, setResultDescription] = useState(false);
 
   const { data: jobDetail, refetch } = useQuery({
-    queryKey: ['jobDetail', commandsJobId, 1],
+    queryKey: ['jobDetail', commandsJobId, 0],
     queryFn: (body) => getJob(body),
     onSuccess: (data) => {
       if (data?.finished !== true) return;
 
       if (data?.failed === false) {
         handleDeleteClusterDraft();
+        onForceReload();
       }
       setResultStatus(data?.failed === true ? 'error' : 'success');
       setResultDescription(data?.description);

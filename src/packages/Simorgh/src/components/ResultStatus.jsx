@@ -1,7 +1,9 @@
-function ResultStatus({status, description, onClose}) {
+import { makeAssetsUrl } from '@/utils/assetsUrl.js';
+
+function ResultStatus({ status, description, onClose }) {
   const imgSrc = {
-    success: '/apps/Simorgh/assets/images/success.png',
-    error: '/apps/Simorgh/assets/images/error.png',
+    success: makeAssetsUrl('/assets/images/success.png'),
+    error: makeAssetsUrl('/assets/images/error.png'),
   };
 
   const text = {

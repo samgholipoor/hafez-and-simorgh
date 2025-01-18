@@ -868,6 +868,18 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
     grid-auto-flow: row dense;
   }
 }
+#simorgh-root .\!label{
+  display: flex !important;
+  -webkit-user-select: none !important;
+     -moz-user-select: none !important;
+          user-select: none !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding-left: 0.25rem !important;
+  padding-right: 0.25rem !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
 #simorgh-root .label{
   display: flex;
   -webkit-user-select: none;
@@ -1259,6 +1271,12 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   color: hsl(var(--ac) / 1);
   color: hsl(var(--ac) / var(--tw-text-opacity));
 }
+#simorgh-root .btm-nav>*:where(.active){
+  border-top-width: 2px;
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b1) / 1);
+  background-color: hsl(var(--b1) / var(--tw-bg-opacity));
+}
 #simorgh-root .btm-nav>*.disabled,
     #simorgh-root .btm-nav>*.disabled:hover,
     #simorgh-root .btm-nav>*[disabled],
@@ -1271,6 +1289,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   color: hsl(var(--bc) / 0.2);
   color: hsl(var(--bc) / var(--tw-text-opacity));
   --tw-text-opacity: 0.2;
+}
+#simorgh-root .btm-nav>* .\!label{
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
 }
 #simorgh-root .btm-nav>* .label{
   font-size: 1rem;
@@ -1685,6 +1707,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(1) scaleY(1);
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+#simorgh-root .\!label a:hover{
+  --tw-text-opacity: 1 !important;
+  color: hsl(var(--bc) / 1) !important;
+  color: hsl(var(--bc) / var(--tw-text-opacity)) !important;
+}
 #simorgh-root .label a:hover{
   --tw-text-opacity: 1;
   color: hsl(var(--bc) / 1);
@@ -2000,6 +2027,22 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 #simorgh-root [dir="rtl"] .select{
   background-position: calc(0% + 12px) calc(1px + 50%), calc(0% + 16px) calc(1px + 50%);
 }
+#simorgh-root .table tr.active th,
+    #simorgh-root .table tr.active td,
+    #simorgh-root .table tr.active:nth-child(even) th,
+    #simorgh-root .table tr.active:nth-child(even) td{
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b3, var(--b2)) / 1);
+  background-color: hsl(var(--b3, var(--b2)) / var(--tw-bg-opacity));
+}
+#simorgh-root .table tr.hover:hover th,
+    #simorgh-root .table tr.hover:hover td,
+    #simorgh-root .table tr.hover:nth-child(even):hover th,
+    #simorgh-root .table tr.hover:nth-child(even):hover td{
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b3, var(--b2)) / 1);
+  background-color: hsl(var(--b3, var(--b2)) / var(--tw-bg-opacity));
+}
 #simorgh-root .toast>*{
   animation: toast-pop 0.25s ease-out;
 }
@@ -2025,6 +2068,18 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   line-height: .75rem;
   padding-left: 0.313rem;
   padding-right: 0.313rem;
+}
+#simorgh-root .btm-nav-xs>*:where(.active){
+  border-top-width: 1px;
+}
+#simorgh-root .btm-nav-sm>*:where(.active){
+  border-top-width: 2px;
+}
+#simorgh-root .btm-nav-md>*:where(.active){
+  border-top-width: 2px;
+}
+#simorgh-root .btm-nav-lg>*:where(.active){
+  border-top-width: 4px;
 }
 #simorgh-root .btn-sm{
   height: 2rem;
@@ -2199,6 +2254,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 #simorgh-root .top-0{
   top: 0px;
 }
+#simorgh-root .top-12{
+  top: 3rem;
+}
 #simorgh-root .top-9{
   top: 2.25rem;
 }
@@ -2272,6 +2330,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 #simorgh-root .h-8{
   height: 2rem;
 }
+#simorgh-root .h-96{
+  height: 24rem;
+}
 #simorgh-root .h-auto{
   height: auto;
 }
@@ -2280,9 +2341,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 }
 #simorgh-root .h-screen{
   height: 100vh;
-}
-#simorgh-root .max-h-96{
-  max-height: 24rem;
 }
 #simorgh-root .w-10{
   width: 2.5rem;
@@ -2307,6 +2365,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 }
 #simorgh-root .w-5{
   width: 1.25rem;
+}
+#simorgh-root .w-52{
+  width: 13rem;
 }
 #simorgh-root .w-6{
   width: 1.5rem;
@@ -2365,6 +2426,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 }
 #simorgh-root .animate-spin{
   animation: spin 1s linear infinite;
+}
+#simorgh-root .cursor-not-allowed{
+  cursor: not-allowed;
 }
 #simorgh-root .cursor-pointer{
   cursor: pointer;
@@ -2452,6 +2516,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 }
 #simorgh-root .whitespace-nowrap{
   white-space: nowrap;
+}
+#simorgh-root .whitespace-break-spaces{
+  white-space: break-spaces;
 }
 #simorgh-root .rounded{
   border-radius: 0.25rem;
@@ -2611,11 +2678,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   background-color: rgba(88, 28, 135, 1);
   background-color: rgba(88, 28, 135, var(--tw-bg-opacity, 1));
 }
-#simorgh-root .bg-success{
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--su) / 1);
-  background-color: hsl(var(--su) / var(--tw-bg-opacity, 1));
-}
 #simorgh-root .bg-transparent{
   background-color: transparent;
 }
@@ -2639,11 +2701,17 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   background-color: rgba(202, 138, 4, 1);
   background-color: rgba(202, 138, 4, var(--tw-bg-opacity, 1));
 }
+#simorgh-root .bg-opacity-0{
+  --tw-bg-opacity: 0;
+}
 #simorgh-root .bg-opacity-10{
   --tw-bg-opacity: 0.1;
 }
 #simorgh-root .bg-opacity-15{
   --tw-bg-opacity: 0.15;
+}
+#simorgh-root .bg-opacity-20{
+  --tw-bg-opacity: 0.2;
 }
 #simorgh-root .bg-opacity-30{
   --tw-bg-opacity: 0.3;
@@ -2831,6 +2899,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 #simorgh-root .text-opacity-90{
   --tw-text-opacity: 0.9;
 }
+#simorgh-root .opacity-40{
+  opacity: 0.4;
+}
 #simorgh-root .opacity-50{
   opacity: 0.5;
 }
@@ -2867,6 +2938,12 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
 }
+#simorgh-root .ring{
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), 0 0 rgba(0,0,0,0);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 rgba(0,0,0,0));
+}
 #simorgh-root .filter{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -2897,6 +2974,18 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
 #simorgh-root .hover\:bg-transparent:hover{
   background-color: transparent;
+}
+
+#simorgh-root .hover\:bg-opacity-0:hover{
+  --tw-bg-opacity: 0;
+}
+
+#simorgh-root .active\:bg-opacity-0:active{
+  --tw-bg-opacity: 0;
+}
+
+#simorgh-root .active\:bg-opacity-30:active{
+  --tw-bg-opacity: 0.3;
 }
 
 #simorgh-root .group:hover .group-hover\:block{

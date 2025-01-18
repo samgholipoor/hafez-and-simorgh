@@ -68,7 +68,7 @@ export function DeviceManagementProvider({ children }) {
       const storedDevices = { ...currentServiceDevices } || {};
       storedDevices['add-device'] = newDevices.map((device) => ({
         ...device,
-        'set-weight': 0,
+        'set-weight': 100,
       }));
       handleUpdateCurrentServiceDevices(storedDevices);
     },
@@ -197,7 +197,6 @@ export function DeviceManagementProvider({ children }) {
       }
 
       serviceDevices['set-weight'] = setWieghtDevices;
-      console.log(serviceDevices);
 
       handleUpdateCurrentServiceDevices(serviceDevices);
     },

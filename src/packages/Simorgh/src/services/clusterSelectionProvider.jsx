@@ -1,47 +1,54 @@
-import { createContext, useCallback, useContext, useMemo, useState } from 'react';
+import { useQuery } from 'react-query';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
+import { getCluster } from './api/index.js';
 
 export const clusterSelectionContext = createContext({
-  selectedProducts: [],
   selectedCluster: {},
-  handleSelectProducts: () => {},
   handleSelectCluster: () => {},
 });
 
 export function ClusterSelectionProvider({ children }) {
-  const [selectedProducts, setSelectedProducts] = useState([]);
   const [selectedCluster, setSelectedCluster] = useState({});
-
-  const handleSelectProducts = useCallback(
-    (selectedProduct) => {
-      const sp = selectedProduct.toLowerCase();
-
-      setSelectedProducts((prevSelectedProducts) => {
-        const index = prevSelectedProducts.indexOf(sp);
-
-        if (index > -1) {
-          return [
-            ...prevSelectedProducts.slice(0, index),
-            ...prevSelectedProducts.slice(index + 1),
-          ];
-        }
-        return [...prevSelectedProducts, sp];
-      });
-    },
-    [selectedProducts],
-  );
+  const [queryParams, setQueryParams] = useState({ refresh: false, count: 1 });
 
   const handleSelectCluster = useCallback((option) => {
     setSelectedCluster(option);
   }, []);
 
+  const {
+    data: cluster,
+    isLoading,
+    refetch,
+  } = useQuery(['cluster', selectedCluster.value, queryParams], getCluster, {
+    enabled: !!selectedCluster.value,
+  });
+
+  useEffect(() => {
+    if (selectedCluster?.value) {
+      refetch();
+    }
+  }, [selectedCluster]);
+
+  const onForceReload = useCallback(() => {
+    setQueryParams((prev) => ({ refresh: true, count: prev.count + 1 }));
+  }, []);
+
   const contextProviderValue = useMemo(
     () => ({
-      selectedProducts,
+      cluster,
+      isLoading,
+      onForceReload,
       selectedCluster,
-      handleSelectProducts,
       handleSelectCluster,
     }),
-    [selectedProducts, selectedCluster, handleSelectProducts, handleSelectCluster],
+    [cluster, isLoading, onForceReload, selectedCluster, handleSelectCluster],
   );
 
   return (

@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -35,6 +36,9 @@ module.exports = {
           context: path.resolve(__dirname, 'src'),
         },
       ],
+    }),
+    new webpack.DefinePlugin({
+      'window.__ASSETS_PREFIX__': JSON.stringify('/apps/Simorgh/'),
     }),
     ...plugins,
   ],

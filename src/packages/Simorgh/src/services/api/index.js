@@ -61,3 +61,10 @@ export const updateCluster = async ({ id, body }) => {
   const response = await axiosInstance.patch(`/cluster/${id}/`, body);
   return response;
 };
+
+export const getDeviceInfo = async ({ clusterId, ip, name }) => {
+  const response = await axiosInstance.get(`/cluster/${clusterId}/device/rings/`, {
+    params: { name, ip },
+  });
+  return response.data;
+};
