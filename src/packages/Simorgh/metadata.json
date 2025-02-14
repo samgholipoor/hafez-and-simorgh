@@ -3,15 +3,12 @@
   "name": "Simorgh",
   "category": "utilities",
   "server": null,
-  "icon": "icon.png",
+  "icon": "assets/icon.png",
   "title": {
     "en_EN": "Simorgh"
   },
   "description": {
     "en_EN": "Simorgh"
   },
-  "files": [
-    "main.js",
-    "main.css"
-  ]
+  "files": ["main.js", "main.css"]
 }
