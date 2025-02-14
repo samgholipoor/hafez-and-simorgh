@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import { Icon } from '@burna/monster-design-system';
 import Box from '@/components/Box';
 import CheckboxDropdown from '@/components/form/CheckboxDropdown';
-import { useProductSelection } from '@/services/productSelectionProvider.jsx';
+import { useProductClustersSelection } from '@/services/productClustersSelectionProvider.jsx';
 import { useClusterSelection } from '@/services/clusterSelectionProvider.jsx';
 import SuspenseFallback from '@/components/SuspenseFallback';
 import EmptyFallback from '@/components/EmptyFallback';
@@ -22,7 +22,8 @@ export default function Navbar() {
     handleHardRefreshProducts,
   } = useApp();
 
-  const { handleSelectProducts } = useProductSelection();
+  const { handleSelectProductsClusters, handleSelectProductsClustersAll } =
+    useProductClustersSelection();
   const { handleSelectCluster } = useClusterSelection();
 
   const invalidateDevicesAndProducts = () => {
@@ -50,11 +51,11 @@ export default function Navbar() {
                 label: cluster.name,
                 value: cluster.id,
               }))}
-              onCheck={() => handleSelectProducts(product.product_name)}
-              onOptionSelect={handleSelectCluster}
+              onItemsSelect={handleSelectProductsClusters}
+              onItemsSelectAll={handleSelectProductsClustersAll}
+              onItemClick={handleSelectCluster}
             />
           ))}
-          <CheckboxDropdown label="Empty" onCheck={() => handleSelectProducts('Empty')} />
         </div>
       );
     }

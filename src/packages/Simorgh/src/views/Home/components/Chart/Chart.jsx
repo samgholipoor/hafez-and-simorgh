@@ -4,7 +4,7 @@ import { useEffect, useLayoutEffect, useRef } from 'react';
 import * as am5 from '@amcharts/amcharts5';
 import * as am5hierarchy from '@amcharts/amcharts5/hierarchy';
 import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
-import { useProductSelection } from '@/services/productSelectionProvider.jsx';
+import { useProductClustersSelection } from '@/services/productClustersSelectionProvider.jsx';
 import { makeAssetsUrl } from '@/utils/assetsUrl.js';
 import {
   CLUSTER_LEVEL_RADIUS,
@@ -12,15 +12,17 @@ import {
   CLUSTER_LEVEL_LABEL_DISTANCE,
   CLUSTER_LEVEL_ICON_SIZE,
   CLUSTER_LEVEL_FONT_SIZE,
+  CLUSTER_LEVEL_NAME,
 } from '../../constant/index.js';
 import useChangeToggleState from './useChangeToggleState.js';
 
 const BG_COLOR = '#fff';
-const STROKE_COLOR = '#6b7280';
+const BLUE_COLOR = '#007FFF';
+const BLACK_COLOR = '#6b7280';
 const LIGHT_GRAY = '#d1d5db';
 
 function Chart({ data, handleSelectHost, handleSelectDevice }) {
-  const { selectedProducts } = useProductSelection();
+  const { selectedProductsClusters } = useProductClustersSelection();
 
   const currentRoot = useRef(null);
   const currentSeries = useRef(null);
@@ -35,76 +37,93 @@ function Chart({ data, handleSelectHost, handleSelectDevice }) {
   };
 
   const changeStroke = (circle) => {
-    let products = circle?._dataItem?.dataContext?.products || [];
+    const clustersId = circle?._dataItem?.dataContext?.clustersId || [];
 
-    if (products.length === 0) {
-      products = ['empty'];
-    }
-
-    if (selectedProducts.length === 0) {
-      circle.set('stroke', STROKE_COLOR);
+    if (clustersId.length === 0) {
+      circle.set('stroke', LIGHT_GRAY);
+      circle.set('strokeWidth', 1);
       return;
     }
 
-    const isSelectedProduct = selectedProducts.some((sp) => products.includes(sp));
-    circle.set('stroke', isSelectedProduct ? STROKE_COLOR : LIGHT_GRAY);
+    if (selectedProductsClusters.length === 0) {
+      circle.set('stroke', BLACK_COLOR);
+      circle.set('strokeWidth', 1);
+      return;
+    }
+
+    const isSelectedProduct = selectedProductsClusters.some((sp) =>
+      clustersId.includes(sp),
+    );
+    circle.set('stroke', isSelectedProduct ? BLUE_COLOR : BLACK_COLOR);
+    circle.set('strokeWidth', isSelectedProduct ? 1.5 : 1);
   };
 
   const changeIconOpacity = (circle) => {
-    let products = circle?._dataItem?.dataContext?.products || [];
+    const clustersId = circle?._dataItem?.dataContext?.clustersId || [];
 
-    if (products.length === 0) {
-      products = ['empty'];
+    if (clustersId.length === 0) {
+      circle.children.each((child) => {
+        if (child.isType('Picture')) {
+          child.set('opacity', 0.2);
+          child.states.create('hover', {
+            opacity: 0.2,
+          });
+        }
+      });
     }
-
-    circle.children.each((child) => {
-      if (child.isType('Picture')) {
-        const isSelectedProduct =
-          selectedProducts.length === 0
-            ? true
-            : selectedProducts.some((sp) => products.includes(sp));
-
-        child.set('opacity', isSelectedProduct ? 1 : 0.2);
-
-        child.states.create('hover', {
-          opacity: isSelectedProduct ? 1 : 0.2,
-        });
-      }
-    });
   };
 
   const changeLinkColor = (link) => {
-    let products = link?._dataItem?.dataContext?.products || [];
-    if (products.length === 0) {
-      products = ['empty'];
-    }
+    const clustersId = link?._dataItem?.dataContext?.clustersId || [];
 
-    if (selectedProducts.length === 0) {
-      link.set('opacity', 1);
+    if (clustersId.length === 0) {
+      link.set('strokeWidth', 1);
+      link.set('stroke', am5.color(LIGHT_GRAY));
       return;
     }
 
-    const isSelectedProduct = selectedProducts.some((sp) => products.includes(sp));
-    link.set('opacity', isSelectedProduct ? 1 : 0.2);
+    if (selectedProductsClusters.length === 0) {
+      link.set('strokeWidth', 1);
+      link.set('stroke', am5.color(BLACK_COLOR));
+      return;
+    }
+
+    const isSelectedProduct = selectedProductsClusters.some((sp) =>
+      clustersId.includes(sp),
+    );
+
+    link.set(
+      'stroke',
+      isSelectedProduct ? am5.color(BLUE_COLOR) : am5.color(BLACK_COLOR),
+    );
+    link.set('strokeWidth', isSelectedProduct ? 1.5 : 1);
   };
 
   const changeLabelColor = (label) => {
     if (!label) return;
 
-    let products = label?._dataItem?.dataContext?.products || [];
-    if (products.length === 0) {
-      products = ['empty'];
+    const clustersId = label?._dataItem?.dataContext?.clustersId || [];
+
+    if (clustersId.length === 0) {
+      label.children.each((child) => {
+        if (child.isType('Label')) {
+          child.set('fill', LIGHT_GRAY);
+        }
+      });
+      return;
     }
 
     label.children.each((child) => {
       if (child.isType('Label')) {
-        if (selectedProducts.length === 0) {
-          child.set('fill', STROKE_COLOR);
+        if (selectedProductsClusters.length === 0) {
+          child.set('fill', BLACK_COLOR);
           return;
         }
 
-        const isSelectedProduct = selectedProducts.some((sp) => products.includes(sp));
-        child.set('fill', isSelectedProduct ? STROKE_COLOR : LIGHT_GRAY);
+        const isSelectedProduct = selectedProductsClusters.some((sp) =>
+          clustersId.includes(sp),
+        );
+        child.set('fill', isSelectedProduct ? BLUE_COLOR : BLACK_COLOR);
       }
     });
   };
@@ -114,10 +133,10 @@ function Chart({ data, handleSelectHost, handleSelectDevice }) {
       currentSeries.current.nodes.each(changeIconOpacity);
       currentSeries.current.circles.each(changeStroke);
       currentSeries.current.outerCircles.each(changeStroke);
-      currentSeries.current.links.each(changeLinkColor);
       currentSeries.current.labels.each(changeLabelColor);
+      currentSeries.current.links.each(changeLinkColor);
     }
-  }, [selectedProducts]);
+  }, [selectedProductsClusters]);
 
   useLayoutEffect(() => {
     const root = am5.Root.new('chartdiv');
@@ -161,14 +180,13 @@ function Chart({ data, handleSelectHost, handleSelectDevice }) {
         tooltipText: '',
         toggleKey: 'none',
       });
-
       series.circles.template.setAll({
         templateField: 'nodeSettings',
         fillOpacity: 1,
         strokeWidth: 1,
         strokeOpacity: 1,
         fill: BG_COLOR,
-        stroke: STROKE_COLOR,
+        stroke: BLACK_COLOR,
         radius: 10,
       });
       series.outerCircles.template.setAll({
@@ -176,19 +194,19 @@ function Chart({ data, handleSelectHost, handleSelectDevice }) {
         strokeWidth: 1,
         strokeOpacity: 1,
         fill: BG_COLOR,
-        stroke: STROKE_COLOR,
+        stroke: BLACK_COLOR,
       });
       series.links.template.setAll({
         strength: 1,
         strokeWidth: 1,
         strokeOpacity: 1,
+        stroke: am5.color('#000000'),
       });
 
       series.circles.template.adapters.add('radius', (_, target) => {
         const level = target._dataItem?.dataContext?.level;
         return CLUSTER_LEVEL_RADIUS[level] || 30;
       });
-      series.links.template.adapters.add('stroke', () => am5.color(STROKE_COLOR));
       series.links.template.adapters.add('distance', (_, target) => {
         const level = target._dataItem?.dataContext?.level;
         return CLUSTER_LEVEL_DISTANCE[level];
@@ -204,7 +222,15 @@ function Chart({ data, handleSelectHost, handleSelectDevice }) {
 
       series.nodes.template.setup = (target) => {
         target.events.on('dataitemchanged', () => {
-          const { level } = target._dataItem.dataContext;
+          const { level, clustersName } = target._dataItem.dataContext;
+
+          if (level === CLUSTER_LEVEL_NAME.host) {
+            const items = clustersName
+              .map((clusterName) => `<li> • ${clusterName}</li>`)
+              .join('');
+            target.set('tooltipHTML', `<ul>${items || '<li>No Cluster</li>'}</ul>`);
+          }
+
           target.children.push(
             am5.Picture.new(root, {
               width: CLUSTER_LEVEL_ICON_SIZE[level],
@@ -227,7 +253,7 @@ function Chart({ data, handleSelectHost, handleSelectDevice }) {
           target.children.push(
             am5.Label.new(root, {
               fontSize: CLUSTER_LEVEL_FONT_SIZE[level],
-              fill: STROKE_COLOR,
+              fill: BLACK_COLOR,
               text: '{category}',
               centerY: CLUSTER_LEVEL_LABEL_DISTANCE[level],
             }),

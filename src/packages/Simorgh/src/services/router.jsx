@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ToastContainer } from 'react-toastify';
 import Views from '@/views';
-import { ProductSelectionProvider } from './productSelectionProvider.jsx';
+import { ProductClustersSelectionProvider } from './productClustersSelectionProvider.jsx';
 import { ClusterSelectionProvider } from './clusterSelectionProvider.jsx';
 import { AppProvider } from './appProvider.jsx';
 
@@ -20,7 +20,7 @@ function RouterView() {
   return (
     <QueryClientProvider client={queryClient}>
       <AppProvider>
-        <ProductSelectionProvider>
+        <ProductClustersSelectionProvider>
           <ClusterSelectionProvider>
             <Views />
             <ToastContainer
@@ -35,7 +35,7 @@ function RouterView() {
               theme="light"
             />
           </ClusterSelectionProvider>
-        </ProductSelectionProvider>
+        </ProductClustersSelectionProvider>
       </AppProvider>
     </QueryClientProvider>
   );

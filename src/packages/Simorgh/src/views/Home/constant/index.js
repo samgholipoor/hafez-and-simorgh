@@ -1,12 +1,12 @@
 export const REGION = 'region';
 export const ZONE = 'zone';
-export const IP = 'ip';
+export const HOST = 'host';
 export const NAME = 'name';
 
 export const CLUSTER_LEVEL_NAME = {
   region: 'region',
   zone: 'zone',
-  ip: 'server',
+  host: 'server',
   name: 'device',
 };
 

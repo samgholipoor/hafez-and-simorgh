@@ -1,4 +1,4 @@
-import { REGION, ZONE, NAME, IP, CLUSTER_LEVEL_NAME } from '../constant';
+import { REGION, ZONE, NAME, HOST, CLUSTER_LEVEL_NAME } from '../constant';
 
 const generateLabel = (level, device) => {
   switch (level) {
@@ -6,8 +6,8 @@ const generateLabel = (level, device) => {
       return `Region ${device.region}`;
     case 'zone':
       return `Zone ${device.zone}`;
-    case 'ip':
-      return device.ip;
+    case 'host':
+      return device.host;
     case 'name':
       return device.name;
     default:
@@ -23,7 +23,7 @@ function nestDevices(devices) {
 
   devices.forEach((device) => {
     let currentLevel = nestedData.children;
-    const levels = [REGION, ZONE, IP, NAME];
+    const levels = [REGION, ZONE, HOST, NAME];
 
     levels.forEach((level) => {
       const key = device[level];
@@ -36,6 +36,7 @@ function nestDevices(devices) {
           level: CLUSTER_LEVEL_NAME[level],
           products: device.association?.map((a) => a.product?.toLowerCase()),
           clustersId: device.association?.map((a) => a.cluster_id),
+          clustersName: device.association?.map((a) => a.cluster),
           host: device.host,
           ip: device.ip,
           children: [],
@@ -46,6 +47,18 @@ function nestDevices(devices) {
           ...new Set([
             ...child.products,
             ...device.association?.map((a) => a.product?.toLowerCase()),
+          ]),
+        ];
+        child.clustersId = [
+          ...new Set([
+            ...child.clustersId,
+            ...device.association?.map((a) => a.cluster_id),
+          ]),
+        ];
+        child.clustersName = [
+          ...new Set([
+            ...child.clustersName,
+            ...device.association?.map((a) => a.cluster),
           ]),
         ];
       }

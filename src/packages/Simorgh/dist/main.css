@@ -2300,9 +2300,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 #simorgh-root .contents{
   display: contents;
 }
-#simorgh-root .hidden{
-  display: none;
-}
 #simorgh-root .h-0{
   height: 0px;
 }
@@ -2318,6 +2315,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 #simorgh-root .h-2{
   height: 0.5rem;
 }
+#simorgh-root .h-3\/4{
+  height: 75%;
+}
 #simorgh-root .h-4{
   height: 1rem;
 }
@@ -2330,9 +2330,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 #simorgh-root .h-8{
   height: 2rem;
 }
-#simorgh-root .h-96{
-  height: 24rem;
-}
 #simorgh-root .h-auto{
   height: auto;
 }
@@ -2344,6 +2341,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 }
 #simorgh-root .w-10{
   width: 2.5rem;
+}
+#simorgh-root .w-10\/12{
+  width: 83.333333%;
 }
 #simorgh-root .w-14{
   width: 3.5rem;
@@ -2359,6 +2359,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 }
 #simorgh-root .w-4{
   width: 1rem;
+}
+#simorgh-root .w-40{
+  width: 10rem;
 }
 #simorgh-root .w-44{
   width: 11rem;
@@ -2387,9 +2390,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 }
 .w-screen{
   width: 100vw;
-}
-#simorgh-root .max-w-4xl{
-  max-width: 56rem;
 }
 #simorgh-root .max-w-6xl{
   max-width: 72rem;
@@ -2612,16 +2612,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   --tw-bg-opacity: 1;
   background-color: hsl(var(--b1) / 1);
   background-color: hsl(var(--b1) / var(--tw-bg-opacity, 1));
-}
-.bg-base-200{
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--b2, var(--b1)) / 1);
-  background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity, 1));
-}
-#simorgh-root .bg-base-300{
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--b3, var(--b2)) / 1);
-  background-color: hsl(var(--b3, var(--b2)) / var(--tw-bg-opacity, 1));
 }
 #simorgh-root .bg-black{
   --tw-bg-opacity: 1;
@@ -2966,12 +2956,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   width: 400px !important;
 }
 
-#simorgh-root .hover\:bg-base-200:hover{
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--b2, var(--b1)) / 1);
-  background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity, 1));
-}
-
 #simorgh-root .hover\:bg-transparent:hover{
   background-color: transparent;
 }
@@ -2986,10 +2970,6 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 
 #simorgh-root .active\:bg-opacity-30:active{
   --tw-bg-opacity: 0.3;
-}
-
-#simorgh-root .group:hover .group-hover\:block{
-  display: block;
 }
 
 @media (min-width: 768px){
