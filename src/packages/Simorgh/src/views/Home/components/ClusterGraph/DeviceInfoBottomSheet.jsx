@@ -31,28 +31,33 @@ function DeviceInfoBottomSheet({ device, onClose }) {
     isLoading,
     mutate: fetchRingsInfo,
   } = useMutation({
-    mutationFn: (d) => {
-      const { clusterId, name, ip } = d;
+    mutationFn: ({ selectedDevice, hardRefresh }) => {
+      const { clusterId, name, ip } = selectedDevice;
       const data = queryClient.getQueryData([
         'rings-info-of-device',
         clusterId,
         name,
         ip,
       ]);
-      if (data) {
+
+      if (data && !hardRefresh) {
         return data;
       }
-      return getDeviceInfo(d);
+      return getDeviceInfo(selectedDevice);
     },
-    onSuccess: (data, d) => {
-      const { clusterId, name, ip } = d;
+    onSuccess: (data, { selectedDevice }) => {
+      const { clusterId, name, ip } = selectedDevice;
       queryClient.setQueryData(['rings-info-of-device', clusterId, name, ip], data);
     },
   });
 
+  const refetchRingsInfo = (hardRefresh = false) => {
+    fetchRingsInfo({ selectedDevice: device, hardRefresh });
+  };
+
   useEffect(() => {
     if (device) {
-      fetchRingsInfo(device);
+      refetchRingsInfo();
     }
   }, [device]);
 
@@ -117,8 +122,15 @@ function DeviceInfoBottomSheet({ device, onClose }) {
 
         {render()}
 
-        <div className="w-full flex justify-end">
-          <button className="btn btn-sm btn-primary mt-2 self-end" onClick={onClose}>
+        <div className="w-full flex justify-between gap-2 mt-4">
+          <button
+            className="btn btn-sm btn-outline flex-1"
+            onClick={() => refetchRingsInfo(true)}
+          >
+            Refetch
+          </button>
+
+          <button className="btn btn-sm btn-primary flex-1" onClick={onClose}>
             Ok
           </button>
         </div>

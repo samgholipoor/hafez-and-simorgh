@@ -30,21 +30,25 @@ function ServerInfoBottomSheet({ host, onClose }) {
     isLoading,
     mutate: fetchServer,
   } = useMutation({
-    mutationFn: (sID) => {
-      const data = queryClient.getQueryData(['server', sID]);
-      if (data) {
+    mutationFn: ({ selectedHost, hardRefresh }) => {
+      const data = queryClient.getQueryData(['server', selectedHost]);
+      if (data && !hardRefresh) {
         return data;
       }
-      return getServer(sID);
+      return getServer(selectedHost);
     },
-    onSuccess: (data, sID) => {
-      queryClient.setQueryData(['server', sID], data);
+    onSuccess: (data, { selectedHost }) => {
+      queryClient.setQueryData(['server', selectedHost], data);
     },
   });
 
+  const refetchServer = (hardRefresh = false) => {
+    fetchServer({ selectedHost: host, hardRefresh });
+  };
+
   useEffect(() => {
     if (host) {
-      fetchServer(host);
+      refetchServer();
     }
   }, [host]);
 
@@ -78,8 +82,15 @@ function ServerInfoBottomSheet({ host, onClose }) {
               <strong>Network: </strong> {server?.network}
             </p>
           </div>
-          <div className="w-full flex justify-end">
-            <button className="btn btn-sm btn-primary mt-2" onClick={onClose}>
+          <div className="w-full flex justify-end gap-2 mt-4">
+            <button
+              className="btn btn-sm btn-outline flex-1"
+              onClick={() => refetchServer(true)}
+            >
+              Refetch
+            </button>
+
+            <button className="btn btn-sm btn-primary flex-1" onClick={onClose}>
               Ok
             </button>
           </div>

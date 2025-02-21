@@ -3,9 +3,11 @@ import { useQuery } from 'react-query';
 import StdoutResult from '@/components/StdoutResult.jsx';
 import ResultStatus from '@/components/ResultStatus.jsx';
 import { getJob } from '@/services/api/index.js';
+import { useClusterSelection } from '@/services/clusterSelectionProvider.jsx';
 import { useJobID } from '../../../services/jobIDProvider.jsx';
 
 function RebalanceJobResult() {
+  const { onForceReload } = useClusterSelection();
   const { rebalanceJobId, closeRebalanceJobModal } = useJobID();
 
   const [resultStatus, setResultStatus] = useState('');
@@ -17,6 +19,10 @@ function RebalanceJobResult() {
     queryFn: (body) => getJob(body),
     onSuccess: (data) => {
       if (data?.finished !== true) return;
+
+      if (data?.failed === false) {
+        onForceReload();
+      }
       setResultStatus(data?.failed === true ? 'error' : 'success');
       setResultDescription(data?.description);
       setResultModalOpen(true);

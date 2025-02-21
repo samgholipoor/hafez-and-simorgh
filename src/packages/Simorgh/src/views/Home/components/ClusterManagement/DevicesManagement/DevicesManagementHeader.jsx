@@ -1,11 +1,17 @@
+import { capitalizeFirst } from '@/utils/capitalize.js';
+import { useServiceSelection } from '@/views/Home/services/serviceSelectionProvider.jsx';
 import { Icon } from '@burna/monster-design-system';
 
 function DevicesManagementHeader({ onClose }) {
+  const { selectedService } = useServiceSelection();
+
   return (
     <div className="flex items-center justify-between gap-2 bg-indigo-100 h-16 rounded-t-lg p-4">
       <div className="flex items-center gap-2">
-        <Icon type="credit-card" className="block w-6 h-6 bg-gray-600" />
-        <span>Management Devices</span>
+        <div className="px-2">
+          <p className="font-bold"> {capitalizeFirst(selectedService.name)}</p>
+          <p className="text-xs opacity-50">Device Management </p>
+        </div>
       </div>
 
       <div className="cursor-pointer flex gap-4">
