@@ -43,7 +43,7 @@ function DeviceInfoBottomSheet({ device, onClose }) {
       if (data && !hardRefresh) {
         return data;
       }
-      return getDeviceInfo(selectedDevice);
+      return getDeviceInfo(selectedDevice, hardRefresh);
     },
     onSuccess: (data, { selectedDevice }) => {
       const { clusterId, name, ip } = selectedDevice;

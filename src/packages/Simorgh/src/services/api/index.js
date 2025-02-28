@@ -1,16 +1,10 @@
 import transformDataToHierarchyModel from '@/views/Home/utils/transformDataToHierarchyModel.js';
 import axiosInstance from './service.js';
 
-export const getProducts = async ({ queryKey }) => {
-  const [_, params] = queryKey;
-  const response = await axiosInstance.get('/products', { params });
-  return response.data;
-};
-
-export const getDevices = async ({ queryKey }) => {
-  const [_, params] = queryKey;
-  const response = await axiosInstance.get('/devices', { params });
-  const readyData = response.data?.devices?.map((device) => {
+export const getGlobal = async ({ queryKey }) => {
+  const params = queryKey?.[1];
+  const response = await axiosInstance.get('/global', { params });
+  const devices = response.data?.devices?.map((device) => {
     if (!device.ip) {
       return {
         ...device,
@@ -23,17 +17,19 @@ export const getDevices = async ({ queryKey }) => {
     return device;
   });
 
-  return [transformDataToHierarchyModel(readyData)];
+  return { ...response.data, devices: [transformDataToHierarchyModel(devices)] };
 };
 
 export const getCluster = async ({ queryKey }) => {
-  const [_, id, { refresh }] = queryKey;
+  const id = queryKey?.[1];
+  const { refresh } = queryKey?.[2] || {};
+
   const response = await axiosInstance.get(`/cluster/${id}/services/?refresh=${refresh}`);
   return response.data;
 };
 
-export const getServer = async (id) => {
-  const response = await axiosInstance.get(`/server/${id}/`);
+export const getServer = async (id, hardRefresh) => {
+  const response = await axiosInstance.get(`/server/${id}/?refresh=${hardRefresh}`);
   return response.data;
 };
 
@@ -52,7 +48,8 @@ export const submitCommands = async ({ id, data }) => {
 };
 
 export const getJob = async ({ queryKey }) => {
-  const [_, id, line] = queryKey;
+  const id = queryKey?.[1];
+  const line = queryKey?.[2];
   const response = await axiosInstance.get(`/job/${id}/`, { params: { line } });
   return response.data;
 };
@@ -62,9 +59,13 @@ export const updateCluster = async ({ id, body }) => {
   return response;
 };
 
-export const getDeviceInfo = async ({ clusterId, ip, name }) => {
+export const getDeviceInfo = async ({ clusterId, ip, name }, refresh) => {
   const response = await axiosInstance.get(`/cluster/${clusterId}/device/rings/`, {
-    params: { name, ip },
+    params: {
+      name,
+      ip,
+      refresh,
+    },
   });
   return response.data;
 };

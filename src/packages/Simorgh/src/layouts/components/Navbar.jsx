@@ -14,25 +14,18 @@ import DropDown from '@/components/DropDown.jsx';
 import { makeAssetsUrl } from '@/utils/assetsUrl.js';
 
 export default function Navbar() {
-  const {
-    products,
-    isLoadingProducts,
-    isLoadingDevices,
-    handleHardRefreshDevices,
-    handleHardRefreshProducts,
-  } = useApp();
+  const { products, isLoading, handleHardRefresh } = useApp();
 
   const { handleSelectProductsClusters, handleSelectProductsClustersAll } =
     useProductClustersSelection();
   const { handleSelectCluster } = useClusterSelection();
 
   const invalidateDevicesAndProducts = () => {
-    handleHardRefreshDevices();
-    handleHardRefreshProducts();
+    handleHardRefresh();
   };
 
   const render = useCallback(() => {
-    if (isLoadingProducts) {
+    if (isLoading) {
       return (
         <div className="h-full flex items-center justify-center">
           <SuspenseFallback />
@@ -61,7 +54,7 @@ export default function Navbar() {
     }
 
     return <EmptyFallback />;
-  }, [products, isLoadingProducts]);
+  }, [products, isLoading]);
 
   return (
     <Box>
@@ -95,14 +88,14 @@ export default function Navbar() {
             <button
               className="w-10 h-10 bg-primary p-2 rounded cursor-pointer flex items-center justify-center"
               onClick={invalidateDevicesAndProducts}
-              disabled={isLoadingProducts || isLoadingDevices}
+              disabled={isLoading}
             >
               <Icon
                 type="refresh-cw"
                 className={mergeClassNames(
                   'block w-5 h-5 bg-white transition-all duration-300',
                   {
-                    'animate-spin': isLoadingProducts || isLoadingDevices,
+                    'animate-spin': isLoading,
                   },
                 )}
               />

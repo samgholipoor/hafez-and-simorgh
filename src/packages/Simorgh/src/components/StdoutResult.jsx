@@ -1,4 +1,5 @@
 import { mergeClassNames } from '@/utils/classname.js';
+import fallbackCopyToClipboard from '@/utils/fallbackCopyToClipboard.js';
 import { Icon } from '@burna/monster-design-system';
 import { useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
@@ -18,12 +19,21 @@ function StdoutResult({ content, onClose, finished = false }) {
     setIsMinimize((prev) => !prev);
   };
 
-  const copyToClipboard = async () => {
+  const fallbackCopy = (text) => {
     try {
-      await navigator.clipboard.writeText(content);
+      fallbackCopyToClipboard(text);
+      toast('Content is copied', { type: 'success' });
+    } catch (error) {
+      toast('Something went wrong', { type: 'error' });
+    }
+  };
+
+  const copyToClipboard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
       toast('Content is copied', { type: 'success' });
     } catch (err) {
-      toast('Something went wrong', { type: 'error' });
+      fallbackCopy(text);
     }
   };
 
@@ -45,7 +55,7 @@ function StdoutResult({ content, onClose, finished = false }) {
           </div>
           <div className="flex gap-4">
             <div className="tooltip tooltip-bottom" data-tip="Copy">
-              <button onClick={copyToClipboard}>
+              <button onClick={() => copyToClipboard(content)}>
                 <Icon
                   type="copy"
                   className="block w-5 h-5 bg-gray-600 transition-all duration-300"
@@ -76,7 +86,7 @@ function StdoutResult({ content, onClose, finished = false }) {
           </div>
         </div>
         <div ref={consoleRef} className="w-full h-full bg-gray-800 overflow-auto">
-          <div className="text-white px-6 py-4">
+          <div className="text-white px-6 py-4 select-text">
             {content ? <pre className="whitespace-break-spaces">{content}</pre> : null}
             {finished ? (
               <>

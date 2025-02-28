@@ -8,13 +8,13 @@ import Spinner from '@/components/Spinner.jsx';
 import { useApp } from '@/services/appProvider.jsx';
 
 function ClusterNameEdit({ isEdit, onFinish }) {
-  const { handleHardRefreshProducts } = useApp();
+  const { handleHardRefresh } = useApp();
 
   const { selectedCluster, handleSelectCluster } = useClusterSelection();
 
   const { mutateAsync, isLoading } = useMutation(updateCluster, {
     onSuccess() {
-      handleHardRefreshProducts();
+      handleHardRefresh();
       toast('Cluster name is changed', { type: 'success' });
       onFinish();
     },

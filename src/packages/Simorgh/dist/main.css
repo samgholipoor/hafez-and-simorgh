@@ -1009,6 +1009,26 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 #simorgh-root .select[multiple]{
   height: auto;
 }
+#simorgh-root .textarea{
+  flex-shrink: 1;
+  min-height: 3rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  line-height: 2;
+  border-width: 1px;
+  border-color: hsl(var(--bc) / 0);
+  border-color: hsl(var(--bc) / var(--tw-border-opacity));
+  --tw-border-opacity: 0;
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b1) / 1);
+  background-color: hsl(var(--b1) / var(--tw-bg-opacity));
+  border-radius: 0.5rem;
+  border-radius: var(--rounded-btn, 0.5rem);
+}
 #simorgh-root .toast{
   position: fixed;
   display: flex;
@@ -2087,6 +2107,32 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   background-color: hsl(var(--b3, var(--b2)) / 1);
   background-color: hsl(var(--b3, var(--b2)) / var(--tw-bg-opacity));
 }
+#simorgh-root .textarea:focus{
+  outline: 2px solid hsla(var(--bc) / 0.2);
+  outline-offset: 2px;
+}
+#simorgh-root .textarea-disabled,
+  #simorgh-root .textarea[disabled]{
+  cursor: not-allowed;
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--b2, var(--b1)) / 1);
+  border-color: hsl(var(--b2, var(--b1)) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b2, var(--b1)) / 1);
+  background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity));
+  --tw-text-opacity: 0.2;
+}
+#simorgh-root .textarea-disabled::-moz-placeholder, #simorgh-root .textarea[disabled]::-moz-placeholder{
+  color: hsl(var(--bc) / 0.2);
+  color: hsl(var(--bc) / var(--tw-placeholder-opacity));
+  --tw-placeholder-opacity: 0.2;
+}
+#simorgh-root .textarea-disabled::placeholder,
+  #simorgh-root .textarea[disabled]::placeholder{
+  color: hsl(var(--bc) / 0.2);
+  color: hsl(var(--bc) / var(--tw-placeholder-opacity));
+  --tw-placeholder-opacity: 0.2;
+}
 #simorgh-root .toast>*{
   animation: toast-pop 0.25s ease-out;
 }
@@ -2337,6 +2383,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 #simorgh-root .left-1\/2{
   left: 50%;
 }
+#simorgh-root .left-full{
+  left: 100%;
+}
 #simorgh-root .right-1\/2{
   right: 50%;
 }
@@ -2370,6 +2419,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 }
 #simorgh-root .ml-10{
   margin-left: 2.5rem;
+}
+#simorgh-root .mt-1{
+  margin-top: 0.25rem;
 }
 #simorgh-root .mt-2{
   margin-top: 0.5rem;
@@ -2532,6 +2584,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+}
+#simorgh-root .select-text{
+  -webkit-user-select: text;
+     -moz-user-select: text;
+          user-select: text;
 }
 #simorgh-root .grid-cols-2{
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2735,6 +2792,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   background-color: rgba(75, 85, 99, 1);
   background-color: rgba(75, 85, 99, var(--tw-bg-opacity, 1));
 }
+#simorgh-root .bg-gray-700{
+  --tw-bg-opacity: 1;
+  background-color: rgba(55, 65, 81, 1);
+  background-color: rgba(55, 65, 81, var(--tw-bg-opacity, 1));
+}
 #simorgh-root .bg-gray-800{
   --tw-bg-opacity: 1;
   background-color: rgba(31, 41, 55, 1);
@@ -2826,6 +2888,10 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 #simorgh-root .px-2{
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+#simorgh-root .px-3{
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 #simorgh-root .px-4{
   padding-left: 1rem;
@@ -3046,6 +3112,12 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 #simorgh-root .Toastify__toast-container,
 #simorgh-root .Toastify__toast-container .Toastify__toast {
   width: 400px !important;
+}
+
+#simorgh-root .hover\:bg-gray-200:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgba(229, 231, 235, 1);
+  background-color: rgba(229, 231, 235, var(--tw-bg-opacity, 1));
 }
 
 #simorgh-root .hover\:bg-transparent:hover{

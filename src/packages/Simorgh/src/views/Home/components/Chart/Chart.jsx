@@ -21,7 +21,7 @@ const BLUE_COLOR = '#007FFF';
 const BLACK_COLOR = '#6b7280';
 const LIGHT_GRAY = '#d1d5db';
 
-function Chart({ data, handleSelectHost, handleSelectDevice }) {
+function Chart({ data, handleSelectHost, handleRightClick, handleSelectDevice }) {
   const { selectedProductsClusters } = useProductClustersSelection();
 
   const currentRoot = useRef(null);
@@ -74,9 +74,10 @@ function Chart({ data, handleSelectHost, handleSelectDevice }) {
   };
 
   const changeLinkColor = (link) => {
-    const clustersId = link?._dataItem?.dataContext?.clustersId || [];
+    const parentClustersId = link?._dataItem?.dataContext?.clustersId || [];
+    const childClusterId = link?._settings?.target?.dataContext?.clustersId || [];
 
-    if (clustersId.length === 0) {
+    if (parentClustersId.length === 0) {
       link.set('strokeWidth', 1);
       link.set('stroke', am5.color(LIGHT_GRAY));
       return;
@@ -88,8 +89,8 @@ function Chart({ data, handleSelectHost, handleSelectDevice }) {
       return;
     }
 
-    const isSelectedProduct = selectedProductsClusters.some((sp) =>
-      clustersId.includes(sp),
+    const isSelectedProduct = selectedProductsClusters.some(
+      (sp) => parentClustersId.includes(sp) && childClusterId.includes(sp),
     );
 
     link.set(
@@ -213,7 +214,7 @@ function Chart({ data, handleSelectHost, handleSelectDevice }) {
       });
 
       series.nodes.template.adapters.add('cursorOverStyle', (_, target) => {
-        const { level } = target?._dataItem?.dataContext;
+        const { level } = target?._dataItem?.dataContext || {};
         if (['server', 'device'].includes(level)) {
           return 'pointer';
         }
@@ -262,7 +263,8 @@ function Chart({ data, handleSelectHost, handleSelectDevice }) {
       };
 
       series.nodes.template.events.on('click', (e) => {
-        const { level, host, name, ip, clustersId } = e.target?._dataItem?.dataContext;
+        const { level, host, name, ip, clustersId } =
+          e.target?._dataItem?.dataContext || {};
 
         const toggleKeyState = e.target.get('toggleKey');
         if (level === 'server' && toggleKeyState === 'none') {
@@ -274,6 +276,16 @@ function Chart({ data, handleSelectHost, handleSelectDevice }) {
             name,
             ip,
           });
+        }
+      });
+
+      series.nodes.template.events.on('pointerdown', (e) => {
+        e.originalEvent.preventDefault();
+        const context = e.target?._dataItem?.dataContext;
+        const event = e.originalEvent;
+        if (e.originalEvent.button === 2 && context.level === CLUSTER_LEVEL_NAME.host) {
+          e.originalEvent.preventDefault();
+          handleRightClick(event, context);
         }
       });
 

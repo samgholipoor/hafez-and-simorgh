@@ -1,3 +1,4 @@
+import { getUniqueObjectsByValue } from '@/utils/object.js';
 import { REGION, ZONE, NAME, HOST, CLUSTER_LEVEL_NAME } from '../constant';
 
 const generateLabel = (level, device) => {
@@ -37,6 +38,10 @@ function nestDevices(devices) {
           products: device.association?.map((a) => a.product?.toLowerCase()),
           clustersId: device.association?.map((a) => a.cluster_id),
           clustersName: device.association?.map((a) => a.cluster),
+          clusters: device.association?.map((a) => ({
+            cluster: a.cluster,
+            cluster_id: a.cluster_id,
+          })),
           host: device.host,
           ip: device.ip,
           children: [],
@@ -61,6 +66,14 @@ function nestDevices(devices) {
             ...device.association?.map((a) => a.cluster),
           ]),
         ];
+        child.clusters = [
+          ...child.clusters,
+          ...device?.association?.map((a) => ({
+            cluster: a?.cluster,
+            cluster_id: a?.cluster_id,
+          })),
+        ];
+        child.clusters = getUniqueObjectsByValue(child.clusters);
       }
 
       currentLevel = child.children;

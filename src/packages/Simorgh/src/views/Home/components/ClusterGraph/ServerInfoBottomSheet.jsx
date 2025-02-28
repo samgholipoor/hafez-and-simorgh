@@ -35,7 +35,7 @@ function ServerInfoBottomSheet({ host, onClose }) {
       if (data && !hardRefresh) {
         return data;
       }
-      return getServer(selectedHost);
+      return getServer(selectedHost, hardRefresh);
     },
     onSuccess: (data, { selectedHost }) => {
       queryClient.setQueryData(['server', selectedHost], data);
@@ -64,10 +64,6 @@ function ServerInfoBottomSheet({ host, onClose }) {
     if (server) {
       return (
         <div className="flex flex-col items-start">
-          <div className="flex items-center gap-2 mb-1">
-            <Icon />
-            <span className="text-info text-lg">Server Information - {host} </span>
-          </div>
           <div className="flex flex-col gap-2 items-start text-gray-500 text-sm">
             <p>
               <strong>CPU: </strong> {server?.cpu}
@@ -81,18 +77,6 @@ function ServerInfoBottomSheet({ host, onClose }) {
             <p>
               <strong>Network: </strong> {server?.network}
             </p>
-          </div>
-          <div className="w-full flex justify-end gap-2 mt-4">
-            <button
-              className="btn btn-sm btn-outline flex-1"
-              onClick={() => refetchServer(true)}
-            >
-              Refetch
-            </button>
-
-            <button className="btn btn-sm btn-primary flex-1" onClick={onClose}>
-              Ok
-            </button>
           </div>
         </div>
       );
@@ -113,7 +97,27 @@ function ServerInfoBottomSheet({ host, onClose }) {
       role="alert"
       className="alert bg-white shadow-md w-96 fixed bottom-10 left-1/2 transform -translate-x-1/2"
     >
-      {render()}
+      <div className="w-full flex flex-col items-start">
+        <div className="flex items-center gap-2 mb-1">
+          <Icon />
+          <span className="text-info text-lg">Server Information - {host} </span>
+        </div>
+
+        {render()}
+
+        <div className="w-full flex justify-end gap-2 mt-4">
+          <button
+            className="btn btn-sm btn-outline flex-1"
+            onClick={() => refetchServer(true)}
+          >
+            Refetch
+          </button>
+
+          <button className="btn btn-sm btn-primary flex-1" onClick={onClose}>
+            Ok
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

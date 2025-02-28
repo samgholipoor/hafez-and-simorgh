@@ -1,62 +1,42 @@
 import { createContext, useCallback, useContext, useMemo, useState } from 'react';
 import { useIsFetching, useQuery, useQueryClient } from 'react-query';
-import { getDevices, getProducts } from './api/index.js';
+import { getGlobal } from './api/index.js';
 
 export const appContext = createContext({
   devices: [],
   products: [],
-  isLoadingDevices: false,
-  isLoadingProducts: false,
-  handleHardRefreshDevices: () => {},
-  handleHardRefreshProducts: () => {},
+  isLoading: false,
+  handleHardRefresh: () => {},
 });
 
 export function AppProvider({ children }) {
   const queryClient = useQueryClient();
 
-  const isLoadingDevices = useIsFetching(['devices']);
-  const isLoadingProducts = useIsFetching(['products']);
+  const isLoading = useIsFetching(['global']);
 
-  const [devicesParams, setDevicesParams] = useState({ refresh: false });
-  const [productsParams, setProductsParams] = useState({ refresh: false });
+  const [globalParams, setGlobalParams] = useState({ refresh: false });
 
-  const { data: devices } = useQuery(['devices', devicesParams], getDevices, {
+  const { data: global } = useQuery(['global', globalParams], getGlobal, {
     cacheTime: Infinity,
     staleTime: Infinity,
   });
 
-  const { data: products } = useQuery(['products', productsParams], getProducts, {
-    cacheTime: Infinity,
-    staleTime: Infinity,
-  });
+  const devices = useMemo(() => global?.devices || [], [global]);
+  const products = useMemo(() => global?.products || [], [global]);
 
-  const handleHardRefreshDevices = useCallback(() => {
-    setDevicesParams({ refresh: true });
-    queryClient.invalidateQueries(['devices']);
-  }, []);
-
-  const handleHardRefreshProducts = useCallback(() => {
-    setProductsParams({ refresh: true });
-    queryClient.invalidateQueries(['products']);
+  const handleHardRefresh = useCallback(() => {
+    setGlobalParams({ refresh: true });
+    queryClient.invalidateQueries(['global']);
   }, []);
 
   const contextProviderValue = useMemo(
     () => ({
       devices,
       products,
-      isLoadingDevices,
-      isLoadingProducts,
-      handleHardRefreshDevices,
-      handleHardRefreshProducts,
+      isLoading,
+      handleHardRefresh,
     }),
-    [
-      devices,
-      products,
-      isLoadingDevices,
-      isLoadingProducts,
-      handleHardRefreshDevices,
-      handleHardRefreshProducts,
-    ],
+    [devices, products, isLoading, handleHardRefresh],
   );
 
   return (
