@@ -1,15 +1,19 @@
-import {useCallback, useMemo, useState} from 'react';
-import {useApp} from '@/services/appProvider.jsx';
+import { useCallback, useMemo, useState } from 'react';
+import { useApp } from '@/services/appProvider.jsx';
 import EmptyFallback from '@/components/EmptyFallback';
-import {IS_PROD} from '@/constants/index.js';
+import { IS_PROD } from '@/constants/index.js';
 import ContextMenu from '@/components/ContextMenu.jsx';
 import SuspenseFallback from '@/components/SuspenseFallback';
 import ServerInfoBottomSheet from './ServerInfoBottomSheet.jsx';
-import Chart from '../Chart/Chart.jsx';
 import DeviceInfoBottomSheet from './DeviceInfoBottomSheet.jsx';
+import { useClusterSelectionOnGraphSettings } from '../../services/ClusterSelectionOnGraphSettingsProvider.jsx';
+import Settings from '../Settings/Index.jsx';
+import Chart from '../Chart/Chart.jsx';
 
 export default function ClusterGraph() {
-  const {devices, isLoading} = useApp();
+  const { devices, isLoading } = useApp();
+  const { selectedClusterOnGraphSettings, handleSelectClusterOnGraphSettings } =
+    useClusterSelectionOnGraphSettings();
 
   const [selectedHost, setSelectedHost] = useState();
   const [selectedDevice, setSelectedDevice] = useState();
@@ -32,8 +36,11 @@ export default function ClusterGraph() {
   }, []);
 
   const [selectedClusters, setSelectedClusters] = useState([]);
-  const [clientCoordination, setClientCoordination] = useState({x: 0, y: 0});
+  const [clientCoordination, setClientCoordination] = useState({ x: 0, y: 0 });
+  const [selectedHostInRightClick, setSelectedHostInRightClick] = useState({});
+
   const handleRightClick = useCallback((event, context) => {
+    setSelectedHostInRightClick(context);
     setIsContextMenuOpen(true);
     setClientCoordination({
       x: event.clientX + 2,
@@ -47,8 +54,13 @@ export default function ClusterGraph() {
     );
   }, []);
 
-  const handleContextMenuItemClick = (item) => {
-    console.log(item);
+  const handleContextMenuItemClick = (type, item) => {
+    if (type === 'settings') {
+      handleSelectClusterOnGraphSettings({
+        cluster: item,
+        metadata: selectedHostInRightClick,
+      });
+    }
   };
 
   const menuItems = useMemo(() => {
@@ -83,16 +95,10 @@ export default function ClusterGraph() {
     }
 
     return <EmptyFallback />;
-  }, [
-    devices,
-    isLoading,
-    handleSelectHost,
-    handleSelectDevice,
-    handleRightClick,
-  ]);
+  }, [devices, isLoading, handleSelectHost, handleSelectDevice, handleRightClick]);
 
   return (
-    <div style={{height: 'calc(100vh - 133px)'}}>
+    <div style={{ height: 'calc(100vh - 133px)' }}>
       {render()}
 
       {isServerInfoBottomSheetOpen ? (
@@ -113,10 +119,16 @@ export default function ClusterGraph() {
         <ContextMenu
           items={menuItems}
           className="fixed"
-          style={{left: clientCoordination.x, top: clientCoordination.y}}
+          style={{ left: clientCoordination.x, top: clientCoordination.y }}
           handleClick={handleContextMenuItemClick}
           onClose={() => setIsContextMenuOpen(false)}
         />
+      ) : null}
+
+      {selectedClusterOnGraphSettings ? (
+        <div className="fixed right-6" style={{ top: '110px' }}>
+          <Settings />
+        </div>
       ) : null}
     </div>
   );

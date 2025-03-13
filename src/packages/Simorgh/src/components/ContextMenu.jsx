@@ -49,8 +49,8 @@ function ContextMenu({ items, className, onClose, handleClick, ...props }) {
     setOpenSubMenu(null);
   };
 
-  const handleClickItem = (item) => {
-    handleClick(item);
+  const handleClickItem = (e, item) => {
+    handleClick(e, item);
     onClose();
   };
 
@@ -80,7 +80,10 @@ function ContextMenu({ items, className, onClose, handleClick, ...props }) {
                   onMouseLeave={handleMouseLeave}
                 >
                   {openSubMenu === item.value && (
-                    <SubMenu items={item.children} handleClick={handleClickItem} />
+                    <SubMenu
+                      items={item.children}
+                      handleClick={(e) => handleClickItem(item.value, e)}
+                    />
                   )}
                 </div>
               ) : null}
