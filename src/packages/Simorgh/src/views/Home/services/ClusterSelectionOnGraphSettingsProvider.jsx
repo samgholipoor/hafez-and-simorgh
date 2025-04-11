@@ -2,19 +2,29 @@ import { createContext, useContext, useMemo, useState } from 'react';
 
 export const clusterSelectionOnGraphSettingsContext = createContext({
   selectedClusterOnGraphSettings: null,
+  selectedConfiguration: null,
   handleSelectClusterOnGraphSettings: () => {},
+  handleSelectedConfiguration: () => {},
 });
 
 export function ClusterSelectionOnGraphSettingsProvider({ children }) {
   const [selectedClusterOnGraphSettings, setSelectedClusterOnGraphSettings] =
     useState(null);
+  const [selectedConfiguration, setSelectedConfiguration] = useState(null);
 
   const contextProviderValue = useMemo(
     () => ({
       selectedClusterOnGraphSettings,
       handleSelectClusterOnGraphSettings: setSelectedClusterOnGraphSettings,
+      selectedConfiguration,
+      handleSelectedConfiguration: setSelectedConfiguration,
     }),
-    [selectedClusterOnGraphSettings, setSelectedClusterOnGraphSettings],
+    [
+      selectedClusterOnGraphSettings,
+      selectedConfiguration,
+      setSelectedClusterOnGraphSettings,
+      setSelectedConfiguration,
+    ],
   );
 
   return (

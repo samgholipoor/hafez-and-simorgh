@@ -1,6 +1,9 @@
+import { useClusterSelectionOnGraphSettings } from '../../services/ClusterSelectionOnGraphSettingsProvider.jsx';
 import Accordion from './Accordion.jsx';
 
 function SettingsConfiguration() {
+  const { handleSelectedConfiguration } = useClusterSelectionOnGraphSettings();
+
   const configurations = [
     {
       title: 'Proxy Server Configurations',
@@ -25,7 +28,7 @@ function SettingsConfiguration() {
         <Accordion
           title={conf.title}
           onClick={() => {
-            console.log(conf);
+            handleSelectedConfiguration(conf);
           }}
         />
       ))}

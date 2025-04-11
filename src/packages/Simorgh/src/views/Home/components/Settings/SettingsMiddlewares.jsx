@@ -2,8 +2,11 @@ import { useState } from 'react';
 import { Icon, Checkbox } from '@burna/monster-design-system';
 import { ReactSortable } from 'react-sortablejs';
 import Accordion from './Accordion.jsx';
+import { useClusterSelectionOnGraphSettings } from '../../services/ClusterSelectionOnGraphSettingsProvider.jsx';
 
 function SettingsMiddlewares() {
+  const { handleSelectedConfiguration } = useClusterSelectionOnGraphSettings();
+
   const configurations = [
     {
       title: 'Middlewares of Proxy Server',
@@ -46,7 +49,7 @@ function SettingsMiddlewares() {
                     <Checkbox checked={checked} onChange={setChecked} />
                     <button
                       onClick={() => {
-                        console.log('clicked');
+                        handleSelectedConfiguration(word);
                       }}
                     >
                       <Icon

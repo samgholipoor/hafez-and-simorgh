@@ -2798,6 +2798,15 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   border-left-width: calc(2px * calc(1 - 0));
   border-left-width: calc(2px * calc(1 - var(--tw-divide-x-reverse)));
 }
+#simorgh-root .divide-y > :not([hidden]) ~ :not([hidden]){
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(1px * (1 - 0));
+  border-top-width: calc(1px * (1 - var(--tw-divide-y-reverse)));
+  border-top-width: calc(1px * calc(1 - 0));
+  border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(1px * 0);
+  border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+}
 #simorgh-root .self-end{
   align-self: flex-end;
 }
@@ -2848,11 +2857,19 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 #simorgh-root .border-b-2{
   border-bottom-width: 2px;
 }
+#simorgh-root .border-l{
+  border-left-width: 1px;
+}
 #simorgh-root .border-r{
   border-right-width: 1px;
 }
 #simorgh-root .border-t{
   border-top-width: 1px;
+}
+#simorgh-root .border-base-300{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--b3, var(--b2)) / 1);
+  border-color: hsl(var(--b3, var(--b2)) / var(--tw-border-opacity, 1));
 }
 #simorgh-root .border-gray-300{
   --tw-border-opacity: 1;
@@ -2903,6 +2920,21 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   --tw-border-opacity: 1;
   border-top-color: hsl(var(--p) / 1);
   border-top-color: hsl(var(--p) / var(--tw-border-opacity, 1));
+}
+#simorgh-root .bg-\[\#253364\]{
+  --tw-bg-opacity: 1;
+  background-color: rgba(37, 51, 100, 1);
+  background-color: rgba(37, 51, 100, var(--tw-bg-opacity, 1));
+}
+#simorgh-root .bg-\[\#E0F2FE\]{
+  --tw-bg-opacity: 1;
+  background-color: rgba(224, 242, 254, 1);
+  background-color: rgba(224, 242, 254, var(--tw-bg-opacity, 1));
+}
+#simorgh-root .bg-\[\#E4E5E8\]{
+  --tw-bg-opacity: 1;
+  background-color: rgba(228, 229, 232, 1);
+  background-color: rgba(228, 229, 232, var(--tw-bg-opacity, 1));
 }
 #simorgh-root .bg-\[\#F1F2F5\]{
   --tw-bg-opacity: 1;
@@ -3131,6 +3163,11 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 #simorgh-root .font-semibold{
   font-weight: 600;
 }
+#simorgh-root .text-\[\#0086C9\]{
+  --tw-text-opacity: 1;
+  color: rgba(0, 134, 201, 1);
+  color: rgba(0, 134, 201, var(--tw-text-opacity, 1));
+}
 .text-base-content{
   --tw-text-opacity: 1;
   color: hsl(var(--bc) / 1);
@@ -3268,6 +3305,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 #simorgh-root .duration-300{
   transition-duration: 300ms;
 }
+#simorgh-root .\[filter\:kolon\]{
+  filter: kolon;
+}
 
 #simorgh-root,
 #simorgh-root * {
@@ -3293,12 +3333,20 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   --tw-bg-opacity: 0;
 }
 
+#simorgh-root .hover\:bg-opacity-60:hover{
+  --tw-bg-opacity: 0.6;
+}
+
 #simorgh-root .active\:bg-opacity-0:active{
   --tw-bg-opacity: 0;
 }
 
 #simorgh-root .active\:bg-opacity-30:active{
   --tw-bg-opacity: 0.3;
+}
+
+#simorgh-root .active\:bg-opacity-90:active{
+  --tw-bg-opacity: 0.9;
 }
 
 @media (min-width: 768px){
