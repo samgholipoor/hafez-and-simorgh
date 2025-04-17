@@ -28,7 +28,7 @@ export const CLUSTER_LEVEL_ICON_SIZE = {
   region: 32,
   zone: 28,
   server: 20,
-  device: 20,
+  device: 13,
 };
 
 export const CLUSTER_LEVEL_FONT_SIZE = {

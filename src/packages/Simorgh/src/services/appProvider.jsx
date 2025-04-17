@@ -5,6 +5,7 @@ import { getGlobal } from './api/index.js';
 export const appContext = createContext({
   devices: [],
   products: [],
+  deviceErrorsText: [],
   isLoading: false,
   handleHardRefresh: () => {},
 });
@@ -29,14 +30,43 @@ export function AppProvider({ children }) {
     queryClient.invalidateQueries(['global']);
   }, []);
 
+  const productsClustersErrors = useMemo(() => {
+    return products.map((product) => {
+      return product.clusters.map((cluster) => {
+        return {
+          clusterId: cluster.id,
+          errors: cluster.errors,
+        };
+      });
+    });
+  }, [products]);
+
+  const devicesErrors = useMemo(() => {
+    return productsClustersErrors
+      .map((productsClustersError) =>
+        productsClustersError.map((clusterError) => clusterError.errors).flat(),
+      )
+      .flat();
+  }, [productsClustersErrors]);
+
+  const deviceErrorsText = useMemo(() => {
+    return devicesErrors.map((deviceError) => {
+      return {
+        host: deviceError.host,
+        text: deviceError.lines.join(', '),
+      };
+    });
+  }, [devicesErrors]);
+
   const contextProviderValue = useMemo(
     () => ({
       devices,
       products,
+      deviceErrorsText,
       isLoading,
       handleHardRefresh,
     }),
-    [devices, products, isLoading, handleHardRefresh],
+    [devices, products, deviceErrorsText, isLoading, handleHardRefresh],
   );
 
   return (

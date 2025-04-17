@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useMutation } from 'react-query';
 import { toast } from 'react-toastify';
 import { Icon } from '@burna/monster-design-system';
@@ -6,7 +7,22 @@ import { submitCommands } from '@/services/api/index.js';
 import Spinner from '@/components/Spinner.jsx';
 import { useJobID } from '../../services/jobIDProvider.jsx';
 
-function RebalanceNotification({ commands }) {
+function RebalanceNotification({ commands, services }) {
+  const rebalanceAfter = useMemo(() => {
+    const maxObj = services.reduce(
+      (max, obj) =>
+        obj.next_rebalance_remaining_seconds > max.next_rebalance_remaining_seconds
+          ? obj
+          : max,
+      {
+        next_rebalance_remaining_seconds: 0,
+        next_rebalance_remaining_time: '0h:0m:0sec',
+      },
+    );
+
+    return maxObj.next_rebalance_remaining_time;
+  }, [services]);
+
   const { selectedCluster } = useClusterSelection();
   const { openRebalanceJobModal, handleSetRebalanceJobId } = useJobID();
 
@@ -39,7 +55,9 @@ function RebalanceNotification({ commands }) {
         Ring imbalance detected! A rebalance is required to maintain data distribution and
         system reliability.
       </p>
-      <p className="text-sm font-bold text-gray-600">Please Rebalance</p>
+      <p className="text-sm font-bold text-gray-600">
+        Please rebalance after {rebalanceAfter}
+      </p>
       <div className="flex justify-between gap-2 mt-2">
         <button className="w-full btn btn-sm h-10" onClick={handleSubmit}>
           {isLoading ? <Spinner className="w-6 h-6" /> : 'Rebalance'}

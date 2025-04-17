@@ -36,6 +36,12 @@ function Chart({ data, handleSelectHost, handleRightClick, handleSelectDevice })
     device: '',
   };
 
+  const ringIcons = {
+    account: makeAssetsUrl('/assets/icons/ring-account.png'),
+    container: makeAssetsUrl('/assets/icons/ring-container.png'),
+    object: makeAssetsUrl('/assets/icons/ring-object.png'),
+  };
+
   const changeStroke = (circle) => {
     const clustersId = circle?._dataItem?.dataContext?.clustersId || [];
 
@@ -223,7 +229,7 @@ function Chart({ data, handleSelectHost, handleRightClick, handleSelectDevice })
 
       series.nodes.template.setup = (target) => {
         target.events.on('dataitemchanged', () => {
-          const { level, clustersName } = target._dataItem.dataContext;
+          const { level, clustersName, rings } = target._dataItem.dataContext;
 
           if (level === CLUSTER_LEVEL_NAME.host) {
             const items = clustersName
@@ -232,15 +238,51 @@ function Chart({ data, handleSelectHost, handleRightClick, handleSelectDevice })
             target.set('tooltipHTML', `<ul>${items || '<li>No Cluster</li>'}</ul>`);
           }
 
-          target.children.push(
-            am5.Picture.new(root, {
-              width: CLUSTER_LEVEL_ICON_SIZE[level],
-              height: CLUSTER_LEVEL_ICON_SIZE[level],
-              centerX: am5.percent(50),
-              centerY: am5.percent(50),
-              src: icons[level],
-            }),
-          );
+          if (level === CLUSTER_LEVEL_NAME.name) {
+            if (rings.includes('container')) {
+              target.children.push(
+                am5.Picture.new(root, {
+                  width: CLUSTER_LEVEL_ICON_SIZE[level],
+                  height: CLUSTER_LEVEL_ICON_SIZE[level],
+                  centerX: am5.percent(100),
+                  centerY: am5.percent(0),
+                  src: ringIcons.container,
+                }),
+              );
+            }
+            if (rings.includes('account')) {
+              target.children.push(
+                am5.Picture.new(root, {
+                  width: CLUSTER_LEVEL_ICON_SIZE[level],
+                  height: CLUSTER_LEVEL_ICON_SIZE[level],
+                  centerX: am5.percent(50),
+                  centerY: am5.percent(110),
+                  src: ringIcons.account,
+                }),
+              );
+            }
+            if (rings.includes('object')) {
+              target.children.push(
+                am5.Picture.new(root, {
+                  width: CLUSTER_LEVEL_ICON_SIZE[level],
+                  height: CLUSTER_LEVEL_ICON_SIZE[level],
+                  centerX: am5.percent(0),
+                  centerY: am5.percent(0),
+                  src: ringIcons.object,
+                }),
+              );
+            }
+          } else {
+            target.children.push(
+              am5.Picture.new(root, {
+                width: CLUSTER_LEVEL_ICON_SIZE[level],
+                height: CLUSTER_LEVEL_ICON_SIZE[level],
+                centerX: am5.percent(50),
+                centerY: am5.percent(50),
+                src: icons[level],
+              }),
+            );
+          }
         });
       };
 

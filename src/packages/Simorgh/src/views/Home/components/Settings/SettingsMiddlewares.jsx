@@ -24,8 +24,6 @@ function SettingsMiddlewares() {
 
   const [words, setWords] = useState(['Hello', 'Hi', 'How are you', 'Cool']);
 
-  const [checked, setChecked] = useState(false);
-
   return (
     <div className="flex flex-col gap-2">
       {configurations.map((conf) => (
@@ -39,6 +37,8 @@ function SettingsMiddlewares() {
             handle=".handle"
           >
             {words.map((word) => {
+              const [checked, setChecked] = useState(false);
+
               return (
                 <div
                   key={word}

@@ -104,7 +104,10 @@ export function DeviceManagementProvider({ children }) {
 
       storedDevices['add-device'] = newAddedDevices;
       if (restRemovedDevice?.length > 0) {
-        storedDevices['remove-device'] = restRemovedDevice;
+        storedDevices['remove-device'] = [
+          ...(storedDevices?.['remove-device'] || []),
+          ...restRemovedDevice,
+        ];
       }
 
       storedDevices['set-weight'] = weightedDevices.filter((device) => {

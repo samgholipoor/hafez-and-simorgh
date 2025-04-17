@@ -44,6 +44,7 @@ function nestDevices(devices) {
           })),
           host: device.host,
           ip: device.ip,
+          rings: device.rings,
           children: [],
         };
         currentLevel.push(child);

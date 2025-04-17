@@ -2,6 +2,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { Icon } from '@burna/monster-design-system';
 import { mergeClassNames } from '@/utils/classname';
 import ClusterNameEdit from './ClusterNameEdit.jsx';
+import { useTotalCountChanges } from '../../hooks/useTotalCountChanges.js';
 
 function ClusterManagementHeader({
   onClose,
@@ -11,6 +12,7 @@ function ClusterManagementHeader({
   onForceReload,
 }) {
   const [isEdit, setIsEdit] = useState(false);
+  const totalCountChanges = useTotalCountChanges();
 
   const refetchCluster = useCallback(() => {
     onForceReload();
@@ -60,7 +62,12 @@ function ClusterManagementHeader({
           )}
         />
 
-        <ClusterNameEdit isEdit={isEdit} onFinish={() => setIsEdit(false)} />
+        <div className="flex items-center gap-2">
+          <ClusterNameEdit isEdit={isEdit} onFinish={() => setIsEdit(false)} />
+          {totalCountChanges > 0 ? (
+            <Icon type="alert-triangle" className="block w-6 h-6 bg-yellow-500" />
+          ) : null}
+        </div>
       </div>
 
       {!isEdit ? (

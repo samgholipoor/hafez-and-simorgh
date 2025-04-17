@@ -116,7 +116,7 @@ function ClusterManagementBody({ cluster, isLoading }) {
       {render()}
 
       {!isLoading && rebalanceCautions.length > 0 ? (
-        <RebalanceNotification commands={rebalanceCautions} />
+        <RebalanceNotification commands={rebalanceCautions} services={services} />
       ) : null}
 
       {!isLoading && totalCountChanges > 0 ? (
